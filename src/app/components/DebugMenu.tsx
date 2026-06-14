@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Settings2, X, Heart, Shield, Zap, Award, LayoutDashboard, Check } from 'lucide-react';
+import { GearSix as Settings2, X, Heart, Shield, Lightning as Zap, Medal as Award, SquaresFour as LayoutDashboard, Check } from "@phosphor-icons/react";
 import { useFramework, FrameworkMode } from '../context/FrameworkContext';
 
 export function DebugMenu() {

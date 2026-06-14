@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { communityPosts, type CommunityPost, type PostStatus } from '../data/mockData';
-import { Plus, Video, FileText, Music, Calendar, Filter, Eye, Edit2, Grid3x3, List, ExternalLink } from 'lucide-react';
+import { Plus, VideoCamera as Video, FileText, MusicNotes as Music, CalendarBlank as Calendar, Funnel as Filter, Eye, PencilSimple as Edit2, GridNine as Grid3x3, List, ArrowSquareOut as ExternalLink } from "@phosphor-icons/react";
 import { CreateContentModal } from '../components/CreateContentModal';
 import { useFramework } from '../context/FrameworkContext';
 

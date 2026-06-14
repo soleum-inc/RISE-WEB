@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Plus, Search, Filter, Video, FileText, Link as LinkIcon, Sparkles, ChevronRight, ChevronDown, Edit2, Save, Send, ArrowUp, ArrowDown, MoreVertical, Eye, X, Trash2, Calendar, CheckSquare, Type, HelpCircle, Grid, LayoutList, Upload, Globe, FileUp, Tag, Wand2, BookOpen, Layers, ImageIcon } from 'lucide-react';
+import { Plus, MagnifyingGlass as Search, Funnel as Filter, VideoCamera as Video, FileText, Link as LinkIcon, Sparkle as Sparkles, CaretRight as ChevronRight, CaretDown as ChevronDown, PencilSimple as Edit2, FloppyDisk as Save, PaperPlaneTilt as Send, ArrowUp, ArrowDown, DotsThreeVertical as MoreVertical, Eye, X, Trash as Trash2, CalendarBlank as Calendar, CheckSquare, TextT as Type, Question as HelpCircle, GridFour as Grid, ListBullets as LayoutList, UploadSimple as Upload, Globe, FileArrowUp as FileUp, Tag, MagicWand as Wand2, BookOpen, Stack as Layers, Image as ImageIcon } from "@phosphor-icons/react";
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 import { resources, type Resource } from '../data/mockData';
 import { toast } from 'sonner';

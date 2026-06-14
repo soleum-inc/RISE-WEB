@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router';
 import { members, StatusColor, weeklyASSAData, monthlyASSAData } from '../data/mockData';
-import { Heart, Shield, Zap, Award, Circle, TrendingUp, Upload, Lightbulb, Users, UserCheck, AlertCircle, Activity } from 'lucide-react';
+import { Heart, Shield, Lightning as Zap, Medal as Award, Circle, TrendUp as TrendingUp, UploadSimple as Upload, Lightbulb, Users, UserCheck, WarningCircle as AlertCircle, Pulse as Activity } from "@phosphor-icons/react";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { useFramework } from '../context/FrameworkContext';
 

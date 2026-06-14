@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { X, Upload, Plus, Trash2, Image as ImageIcon, Video, Music, FileText, Calendar, Lightbulb } from 'lucide-react';
+import { X, UploadSimple as Upload, Plus, Trash as Trash2, Image as ImageIcon, VideoCamera as Video, MusicNotes as Music, FileText, CalendarBlank as Calendar, Lightbulb } from "@phosphor-icons/react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from './ui/dialog';
 import { projects } from '../data/mockData';
 import { useFramework } from '../context/FrameworkContext';

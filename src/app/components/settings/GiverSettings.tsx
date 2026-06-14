@@ -1,10 +1,4 @@
-import {
-  Building2, BadgeCheck, MapPin, Tags,
-  Heart, RefreshCw, Globe, CreditCard, TrendingUp,
-  BarChart3, FileSpreadsheet, Clock,
-  Bell, AlertTriangle, Flag,
-  Users, Lock, ClipboardList, Eye
-} from 'lucide-react';
+import { Buildings as Building2, SealCheck as BadgeCheck, MapPin, Tag as Tags, Heart, ArrowsClockwise as RefreshCw, Globe, CreditCard, TrendUp as TrendingUp, ChartBar as BarChart3, FileXls as FileSpreadsheet, Clock, Bell, Warning as AlertTriangle, Flag, Users, Lock, ClipboardText as ClipboardList, Eye } from "@phosphor-icons/react";
 import { SettingsToggle, SettingsSelect, SettingsInput, SettingsSection, SettingsCheckboxGroup } from './SettingsToggle';
 
 export function GiverProfileOrganization() {

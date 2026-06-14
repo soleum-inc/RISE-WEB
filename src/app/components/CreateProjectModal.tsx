@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { X, MapPin, Upload, Info, Calendar, Clock, DollarSign, BookOpen, Repeat, Zap } from 'lucide-react';
+import { X, MapPin, UploadSimple as Upload, Info, CalendarBlank as Calendar, Clock, CurrencyDollar as DollarSign, BookOpen, Repeat, Lightning as Zap } from "@phosphor-icons/react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from './ui/dialog';
 import { type Project, type EventType, type MemberStage, type EventCategory, type ScheduleType } from '../data/mockData';
 

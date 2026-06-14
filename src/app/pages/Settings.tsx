@@ -1,10 +1,5 @@
 import { useState } from 'react';
-import {
-  User, Radar, EyeOff, Bell, FileText, Accessibility,
-  Building2, Heart, BarChart3, Users,
-  Shield, UserCog, HelpCircle, BadgeCheck,
-  ChevronRight, ChevronDown
-} from 'lucide-react';
+import { User, Crosshair as Radar, EyeSlash as EyeOff, Bell, FileText, Wheelchair as Accessibility, Buildings as Building2, Heart, ChartBar as BarChart3, Users, Shield, UserGear as UserCog, Question as HelpCircle, SealCheck as BadgeCheck, CaretRight as ChevronRight, CaretDown as ChevronDown } from "@phosphor-icons/react";
 
 import {
   BeneficiaryProfileIdentity,

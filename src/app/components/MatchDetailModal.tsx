@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { moderationQueue, members } from '../data/mockData';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from './ui/dialog';
-import { CheckCircle2, Search, Star } from 'lucide-react';
+import { CheckCircle as CheckCircle2, MagnifyingGlass as Search, Star } from "@phosphor-icons/react";
 
 interface MatchDetailModalProps {
   isOpen: boolean;

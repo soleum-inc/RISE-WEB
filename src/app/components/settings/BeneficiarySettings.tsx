@@ -1,10 +1,4 @@
-import {
-  User, Globe, MapPin, Home, Accessibility, MessageSquare,
-  Radar, Brain, EyeOff, Shield, FileText, Clock,
-  Bell, Calendar, Briefcase, MessageCircle,
-  Upload, Share2, AlarmClock,
-  Type, Contrast, Monitor, Smartphone, WifiOff
-} from 'lucide-react';
+import { User, Globe, MapPin, House as Home, Wheelchair as Accessibility, Chat as MessageSquare, Crosshair as Radar, Brain, EyeSlash as EyeOff, Shield, FileText, Clock, Bell, CalendarBlank as Calendar, Briefcase, ChatCircle as MessageCircle, UploadSimple as Upload, ShareNetwork as Share2, Alarm as AlarmClock, TextT as Type, CircleHalf as Contrast, Monitor, DeviceMobile as Smartphone, WifiSlash as WifiOff } from "@phosphor-icons/react";
 import { SettingsToggle, SettingsSelect, SettingsInput, SettingsSection, SettingsCheckboxGroup } from './SettingsToggle';
 
 export function BeneficiaryProfileIdentity() {

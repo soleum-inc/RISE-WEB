@@ -1,4 +1,4 @@
-import { Heart, Shield, Zap, Award, TrendingUp, TrendingDown, Minus } from 'lucide-react';
+import { Heart, Shield, Lightning as Zap, Medal as Award, TrendUp as TrendingUp, TrendDown as TrendingDown, Minus } from "@phosphor-icons/react";
 
 interface ASSAMetrics {
   acceptance: number; // Percentage

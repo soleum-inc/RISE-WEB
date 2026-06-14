@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { moderationQueue, inactiveMatches, members } from '../data/mockData';
-import { AlertCircle, Clock, CheckCircle2, X, Search, User } from 'lucide-react';
+import { WarningCircle as AlertCircle, Clock, CheckCircle as CheckCircle2, X, MagnifyingGlass as Search, User } from "@phosphor-icons/react";
 import { MatchDetailModal } from '../components/MatchDetailModal';
 
 export default function CaseManagement() {

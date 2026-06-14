@@ -1,10 +1,6 @@
 import { useState } from 'react';
 import { projects as initialProjects, type Project, type EventCategory } from '../data/mockData';
-import {
-  Plus, Calendar, MapPin, Users, Circle, LayoutGrid, List, User, Edit,
-  Repeat, Clock, DollarSign, ShieldCheck, Award, ChevronDown, ChevronUp,
-  BookOpen, Target, Zap
-} from 'lucide-react';
+import { Plus, CalendarBlank as Calendar, MapPin, Users, Circle, GridNine as LayoutGrid, List, User, PencilSimple as Edit, Repeat, Clock, CurrencyDollar as DollarSign, ShieldCheck, Medal as Award, CaretDown as ChevronDown, CaretUp as ChevronUp, BookOpen, Target, Lightning as Zap } from "@phosphor-icons/react";
 import { CreateProjectModal } from '../components/CreateProjectModal';
 import { toast } from 'sonner';
 

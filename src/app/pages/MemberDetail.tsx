@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useParams, Link } from 'react-router';
 import { members, StatusColor, memberHistoricalData } from '../data/mockData';
-import { Heart, Shield, Zap, Award, Circle, ArrowLeft, CheckCircle2, TrendingUp, Lightbulb, Users, CalendarCheck, BookOpen, Clock, Star } from 'lucide-react';
+import { Heart, Shield, Lightning as Zap, Medal as Award, Circle, ArrowLeft, CheckCircle as CheckCircle2, TrendUp as TrendingUp, Lightbulb, Users, CalendarCheck, BookOpen, Clock, Star } from "@phosphor-icons/react";
 import { Progress } from '../components/ui/progress';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { useFramework } from '../context/FrameworkContext';

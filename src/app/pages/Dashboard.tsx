@@ -1,4 +1,4 @@
-import { AlertCircle, Users, FolderOpen, TrendingUp, Plus, MessageSquare, Heart, Shield, Zap, Award, Calendar, BookOpen, UserCheck, Activity, ArrowRight } from 'lucide-react';
+import { WarningCircle as AlertCircle, Users, FolderOpen, TrendUp as TrendingUp, Plus, Chat as MessageSquare, Heart, Shield, Lightning as Zap, Medal as Award, CalendarBlank as Calendar, BookOpen, UserCheck, Pulse as Activity, ArrowRight } from "@phosphor-icons/react";
 import { Link } from 'react-router';
 import { members, moderationQueue, inactiveMatches, projects } from '../data/mockData';
 import { useFramework } from '../context/FrameworkContext';

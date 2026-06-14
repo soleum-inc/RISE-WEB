@@ -1,9 +1,4 @@
-import {
-  Shield, Fingerprint, KeyRound, Smartphone, Monitor, RotateCcw,
-  UserCog, Link2, Download, Trash2,
-  HelpCircle, MessageCircle, AlertOctagon, Phone,
-  BadgeCheck, Award, IdCard
-} from 'lucide-react';
+import { Shield, Fingerprint, Key as KeyRound, DeviceMobile as Smartphone, Monitor, ArrowCounterClockwise as RotateCcw, UserGear as UserCog, Link as Link2, DownloadSimple as Download, Trash as Trash2, Question as HelpCircle, ChatCircle as MessageCircle, WarningOctagon as AlertOctagon, Phone, SealCheck as BadgeCheck, Medal as Award, IdentificationCard as IdCard } from "@phosphor-icons/react";
 import { SettingsToggle, SettingsSelect, SettingsInput, SettingsSection, SettingsCheckboxGroup } from './SettingsToggle';
 
 export function SharedSecurity() {

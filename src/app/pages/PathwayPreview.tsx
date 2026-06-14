@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ChevronRight, Circle, CheckCircle2, Calendar } from 'lucide-react';
+import { CaretRight as ChevronRight, Circle, CheckCircle as CheckCircle2, CalendarBlank as Calendar } from "@phosphor-icons/react";
 import { loadModulesFromStorage, STORAGE_KEY, type Module } from './ModuleBuilderNew';
 
 type GraduationStage = 'crisis' | 'stabilization' | 'growth';

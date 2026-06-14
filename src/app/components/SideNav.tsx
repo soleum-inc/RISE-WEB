@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router';
-import { Home, Users, Calendar, Radio, BookOpen, Settings, ChevronDown, ChevronRight } from 'lucide-react';
+import { House as Home, Users, CalendarBlank as Calendar, Broadcast as Radio, BookOpen, Gear as Settings, CaretDown as ChevronDown, CaretRight as ChevronRight } from "@phosphor-icons/react";
 import { useState } from 'react';
 
 export function SideNav() {
