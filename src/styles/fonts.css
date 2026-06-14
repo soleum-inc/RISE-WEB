@@ -1,0 +1,12 @@
+/**
+ * Typography — Barlow (Google Fonts).
+ *
+ * Font files load via <link> in index.html. The font-family stacks live in
+ * theme.css (:root --font-sans / --font-display) so they are defined AFTER the
+ * Tailwind import and win over Tailwind's default sans stack. All base elements
+ * and `font-sans` utilities therefore render in Barlow.
+ *
+ *   Headings → Barlow Bold (700 / 800 display)   Body/UI → Regular 400, Medium 500, Semibold 600
+ *
+ * This file is intentionally a no-op placeholder kept in the import chain.
+ */
