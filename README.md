@@ -7,6 +7,20 @@ content. Built as a single-page React app.
 > **Status:** internal product. The code is public for reference/collaboration,
 > but it is proprietary — see [License](#license).
 
+## Screenshots
+
+**Dashboard**
+
+![Dashboard](docs/dashboard.png)
+
+**Members**
+
+![Members](docs/members.png)
+
+**Events**
+
+![Events](docs/events.png)
+
 ## Tech stack
 
 - **React 18** + **TypeScript**
