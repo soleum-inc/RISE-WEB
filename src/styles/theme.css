@@ -217,16 +217,10 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
-/* Gradient helper utilities (kept minimal; use sparingly). */
+/* Soft brand wash — the one place blue is used decoratively (header hero). */
 @layer utilities {
   .bg-hero {
     background-image: var(--gradient-hero);
-  }
-  .bg-brand-gradient {
-    background-image: var(--gradient-brand);
-  }
-  .bg-surface-sheen {
-    background-image: var(--gradient-surface);
   }
 }
 

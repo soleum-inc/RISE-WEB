@@ -35,6 +35,19 @@ export default defineConfig({
     },
   },
 
+  build: {
+    chunkSizeWarningLimit: 900,
+    rollupOptions: {
+      output: {
+        // Keep the stable React core in its own long-cached chunk so app-code
+        // updates don't invalidate it. (recharts stays auto-split per route.)
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom', 'react-router'],
+        },
+      },
+    },
+  },
+
   // File types to support raw imports. Never add .css, .tsx, or .ts files to this.
   assetsInclude: ['**/*.svg', '**/*.csv'],
 })
