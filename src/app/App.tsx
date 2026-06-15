@@ -70,7 +70,9 @@ function RoutedPages() {
 export default function App() {
   return (
     <FrameworkProvider>
-      <BrowserRouter>
+      {/* basename = Vite's BASE_URL: "/" in dev, "/RISE-WEB/" in the GitHub Pages
+          production build, so routes resolve correctly under the subpath. */}
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
         <div className="flex h-screen bg-background text-foreground">
           <SideNav />
           <div className="relative flex flex-1 flex-col overflow-hidden">
