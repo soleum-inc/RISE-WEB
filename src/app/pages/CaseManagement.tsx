@@ -2,16 +2,17 @@ import { useState } from 'react';
 import { moderationQueue, inactiveMatches, members } from '../data/mockData';
 import { WarningCircle as AlertCircle, Clock, CheckCircle as CheckCircle2, X, MagnifyingGlass as Search, User } from "@phosphor-icons/react";
 import { MatchDetailModal } from '../components/MatchDetailModal';
+import { StatusBadge } from '../components/ui/status-badge';
 
 export default function CaseManagement() {
   const [activeTab, setActiveTab] = useState<'requests' | 'stalled'>('requests');
   const [selectedMatch, setSelectedMatch] = useState<string | null>(null);
 
-  const getUrgencyColor = (urgency: string) => {
+  const getUrgencyTone = (urgency: string): 'neutral' | 'danger' => {
     switch (urgency) {
-      case 'acute': return 'bg-red-100 text-red-800 border-red-200';
-      case 'chronic': return 'bg-secondary text-foreground border-border';
-      default: return 'bg-gray-100 text-gray-800 border-gray-200';
+      case 'acute': return 'danger';
+      case 'chronic': return 'neutral';
+      default: return 'neutral';
     }
   };
 
@@ -23,12 +24,12 @@ export default function CaseManagement() {
     }
   };
 
-  const getStatusColor = (status: string) => {
+  const getStatusTone = (status: string): 'neutral' | 'success' | 'warning' | 'danger' => {
     switch (status) {
-      case 'pending': return 'bg-yellow-100 text-yellow-800';
-      case 'approved': return 'bg-green-100 text-green-800';
-      case 'flagged': return 'bg-red-100 text-red-800';
-      default: return 'bg-gray-100 text-gray-800';
+      case 'pending': return 'warning';
+      case 'approved': return 'success';
+      case 'flagged': return 'danger';
+      default: return 'neutral';
     }
   };
 
@@ -53,13 +54,9 @@ export default function CaseManagement() {
             <div className="flex items-center justify-center gap-2">
               <AlertCircle className="w-4 h-4" />
               <span>Incoming Requests</span>
-              <span className={`px-2 py-0.5 rounded-full text-xs ${
-                moderationQueue.filter(q => q.status === 'pending').length > 0
-                  ? 'bg-red-100 text-red-800'
-                  : 'bg-gray-100 text-gray-600'
-              }`}>
+              <StatusBadge tone={moderationQueue.filter(q => q.status === 'pending').length > 0 ? 'danger' : 'neutral'}>
                 {moderationQueue.filter(q => q.status === 'pending').length}
-              </span>
+              </StatusBadge>
             </div>
           </button>
           <button
@@ -73,13 +70,9 @@ export default function CaseManagement() {
             <div className="flex items-center justify-center gap-2">
               <Clock className="w-4 h-4" />
               <span>Stalled Cases</span>
-              <span className={`px-2 py-0.5 rounded-full text-xs ${
-                inactiveMatches.length > 0
-                  ? 'bg-yellow-100 text-yellow-800'
-                  : 'bg-gray-100 text-gray-600'
-              }`}>
+              <StatusBadge tone={inactiveMatches.length > 0 ? 'warning' : 'neutral'}>
                 {inactiveMatches.length}
-              </span>
+              </StatusBadge>
             </div>
           </button>
         </div>
@@ -99,19 +92,17 @@ export default function CaseManagement() {
                       <div className="flex-1">
                         <div className="flex items-center gap-2 mb-1">
                           <h3 className="font-semibold text-gray-900">{request.submittedBy}</h3>
-                          <span className={`px-2 py-0.5 rounded-full text-xs font-medium border ${
-                            getUrgencyColor(request.urgency || 'chronic')
-                          }`}>
+                          <StatusBadge tone={getUrgencyTone(request.urgency || 'chronic')}>
                             {request.urgency === 'acute' ? 'Acute Crisis' : 'Chronic Need'}
-                          </span>
+                          </StatusBadge>
                         </div>
                         <p className="text-sm text-gray-600">{request.type}</p>
                         <p className="text-sm text-gray-700 mt-2">{request.content}</p>
                       </div>
                     </div>
-                    <span className={`px-3 py-1 rounded-full text-xs font-medium ${getStatusColor(request.status)}`}>
+                    <StatusBadge tone={getStatusTone(request.status)}>
                       {request.status.charAt(0).toUpperCase() + request.status.slice(1)}
-                    </span>
+                    </StatusBadge>
                   </div>
 
                   <div className="flex items-center justify-between pt-3 border-t border-gray-200">
@@ -176,9 +167,9 @@ export default function CaseManagement() {
                         </span>
                       </div>
                     </div>
-                    <span className="px-3 py-1 bg-yellow-600 text-white rounded-full text-xs font-medium">
+                    <StatusBadge tone="warning">
                       {match.inactiveDays} days
-                    </span>
+                    </StatusBadge>
                   </div>
 
                   <div className="flex items-center gap-3 pt-3 border-t border-yellow-200">

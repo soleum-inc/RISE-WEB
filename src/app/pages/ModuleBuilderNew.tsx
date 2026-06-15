@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Plus, MagnifyingGlass as Search, Funnel as Filter, VideoCamera as Video, FileText, Link as LinkIcon, Sparkle as Sparkles, CaretRight as ChevronRight, CaretDown as ChevronDown, PencilSimple as Edit2, FloppyDisk as Save, PaperPlaneTilt as Send, ArrowUp, ArrowDown, DotsThreeVertical as MoreVertical, Eye, X, Trash as Trash2, CalendarBlank as Calendar, CheckSquare, TextT as Type, Question as HelpCircle, GridFour as Grid, ListBullets as LayoutList, UploadSimple as Upload, Globe, FileArrowUp as FileUp, Tag, MagicWand as Wand2, BookOpen, Stack as Layers, Image as ImageIcon } from "@phosphor-icons/react";
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
+import { StatusBadge } from '../components/ui/status-badge';
 import { resources, type Resource } from '../data/mockData';
 import { toast } from 'sonner';
 import { useFramework } from '../context/FrameworkContext';
@@ -406,6 +407,15 @@ export default function ModuleBuilder() {
       case 'stabilization': return 'bg-yellow-100 text-yellow-700';
       case 'growth': return 'bg-green-100 text-green-700';
       default: return 'bg-gray-100 text-gray-500';
+    }
+  };
+
+  const getStageTone = (stage: string): 'neutral' | 'success' | 'warning' | 'danger' => {
+    switch (stage.toLowerCase()) {
+      case 'crisis': return 'danger';
+      case 'stabilization': return 'warning';
+      case 'growth': return 'success';
+      default: return 'neutral';
     }
   };
 
@@ -1063,9 +1073,9 @@ export default function ModuleBuilder() {
                             </td>
                             <td className="px-5 py-3 text-sm text-gray-600 capitalize">{resource.pillar}</td>
                             <td className="px-5 py-3">
-                              <span className={`px-2 py-1 rounded text-xs font-medium ${getStageBadgeColor(resource.stage)}`}>
+                              <StatusBadge tone={getStageTone(resource.stage)}>
                                 {resource.stage}
-                              </span>
+                              </StatusBadge>
                             </td>
                             <td className="px-5 py-3 text-sm text-gray-600">{resource.seedsValue}</td>
                             <td className="px-5 py-3 text-right">
@@ -1085,7 +1095,7 @@ export default function ModuleBuilder() {
                       <div key={resource.id} className="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
                         <div className="flex items-start justify-between mb-2">
                           <span className="px-2 py-1 bg-secondary text-foreground rounded text-xs font-medium capitalize">{resource.type}</span>
-                          <span className={`px-2 py-1 rounded text-xs font-medium ${getStageBadgeColor(resource.stage)}`}>{resource.stage}</span>
+                          <StatusBadge tone={getStageTone(resource.stage)}>{resource.stage}</StatusBadge>
                         </div>
                         <h4 className="font-medium text-gray-900 text-sm mb-1">{resource.title}</h4>
                         <p className="text-xs text-gray-500 line-clamp-2 mb-3">{resource.description}</p>
@@ -1210,15 +1220,13 @@ export default function ModuleBuilder() {
                               <div className="text-xs text-gray-500 mt-0.5 max-w-sm truncate">{module.description || 'No description'}</div>
                             </td>
                             <td className="px-5 py-3">
-                              <span className={`px-2 py-1 rounded text-xs font-medium ${getStageBadgeColor(module.stage || 'untagged')}`}>
+                              <StatusBadge tone={getStageTone(module.stage || 'untagged')}>
                                 {getStageLabel(module.stage)}
-                              </span>
+                              </StatusBadge>
                             </td>
                             <td className="px-5 py-3 text-sm text-gray-600">{module.moduleItems.length}</td>
                             <td className="px-5 py-3">
-                              <span className={`px-2 py-1 rounded text-xs font-medium ${
-                                module.status === 'published' ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-600'
-                              }`}>{module.status}</span>
+                              <StatusBadge tone={module.status === 'published' ? 'success' : 'neutral'}>{module.status}</StatusBadge>
                             </td>
                             <td className="px-5 py-3 text-sm text-gray-500">{new Date(module.createdAt).toLocaleDateString()}</td>
                             <td className="px-5 py-3 text-right" onClick={e => e.stopPropagation()}>
@@ -1245,12 +1253,10 @@ export default function ModuleBuilder() {
                         )}
                         <div className="p-5">
                         <div className="flex items-start justify-between mb-3">
-                          <span className={`px-2 py-1 rounded text-xs font-medium ${getStageBadgeColor(module.stage || 'untagged')}`}>
+                          <StatusBadge tone={getStageTone(module.stage || 'untagged')}>
                             {getStageLabel(module.stage)}
-                          </span>
-                          <span className={`px-2 py-1 rounded text-xs font-medium ${
-                            module.status === 'published' ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-600'
-                          }`}>{module.status}</span>
+                          </StatusBadge>
+                          <StatusBadge tone={module.status === 'published' ? 'success' : 'neutral'}>{module.status}</StatusBadge>
                         </div>
                         <h3 className="font-semibold text-gray-900 mb-1">{module.title || 'Untitled Module'}</h3>
                         <p className="text-sm text-gray-500 line-clamp-2 mb-3">{module.description || 'No description'}</p>
@@ -1290,9 +1296,9 @@ export default function ModuleBuilder() {
                             <button key={i} onClick={() => handleCreateNewModule(template)}
                               className="text-left p-5 border-2 border-gray-200 rounded-lg hover:border-border hover:bg-accent/30 transition-all group">
                               <div className="flex items-center gap-2 mb-2">
-                                <span className={`px-2 py-0.5 rounded text-xs font-medium ${getStageBadgeColor(template.stage)}`}>
+                                <StatusBadge tone={getStageTone(template.stage)}>
                                   {template.stage}
-                                </span>
+                                </StatusBadge>
                                 <span className="px-2 py-0.5 bg-gray-100 text-gray-600 rounded text-xs capitalize">{template.pillar}</span>
                               </div>
                               <h4 className="font-semibold text-gray-900 mb-1 group-hover:text-foreground transition-colors">{template.title}</h4>
@@ -1392,6 +1398,15 @@ function ModuleDetail({
   const { showASSA } = useFramework();
   const [showSmartSuggest, setShowSmartSuggest] = useState(false);
 
+  const getStageTone = (stage: string): 'neutral' | 'success' | 'warning' | 'danger' => {
+    switch ((stage || '').toLowerCase()) {
+      case 'crisis': return 'danger';
+      case 'stabilization': return 'warning';
+      case 'growth': return 'success';
+      default: return 'neutral';
+    }
+  };
+
   const stageASSAInfo: Record<string, { primary: string; tips: string[] }> = {
     crisis: {
       primary: 'Security & Belonging',
@@ -1437,9 +1452,9 @@ function ModuleDetail({
           ← Back to Modules
         </button>
         <div className="flex items-center gap-3">
-          <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-            selectedModule.status === 'published' ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-700'
-          }`}>{selectedModule.status === 'published' ? 'Published' : 'Draft'}</span>
+          <StatusBadge tone={selectedModule.status === 'published' ? 'success' : 'neutral'} className="text-sm px-3 py-1">
+            {selectedModule.status === 'published' ? 'Published' : 'Draft'}
+          </StatusBadge>
           <button onClick={handleSaveModule}
             className="flex items-center gap-2 px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors text-sm">
             <Save className="w-4 h-4" /> Save
@@ -1861,7 +1876,7 @@ function ModuleDetail({
               {Object.entries(moduleLibrary).map(([stage, stageModules]: [string, any]) => (
                 <div key={stage}>
                   <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
-                    <span className={`px-2 py-0.5 rounded text-xs font-medium ${getStageBadgeColor(stage)}`}>{getStageLabel(stage)}</span>
+                    <StatusBadge tone={getStageTone(stage)}>{getStageLabel(stage)}</StatusBadge>
                   </h4>
                   <div className="space-y-3">
                     {stageModules.map((libModule: any, libIndex: number) => (

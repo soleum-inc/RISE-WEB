@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { projects as initialProjects, type Project, type EventCategory } from '../data/mockData';
 import { Plus, CalendarBlank as Calendar, MapPin, Users, Circle, GridNine as LayoutGrid, List, User, PencilSimple as Edit, Repeat, Clock, CurrencyDollar as DollarSign, ShieldCheck, Medal as Award, CaretDown as ChevronDown, CaretUp as ChevronUp, BookOpen, Target, Lightning as Zap } from "@phosphor-icons/react";
 import { CreateProjectModal } from '../components/CreateProjectModal';
+import { StatCard } from '../components/ui/stat-card';
+import { StatusBadge } from '../components/ui/status-badge';
 import { toast } from 'sonner';
 
 type EngagementColor = 'red' | 'yellow' | 'green' | 'All';
@@ -80,19 +82,10 @@ export default function Events() {
     }
   };
 
-  const getColorBg = (color: string) => {
-    switch (color) {
-      case 'red': return 'bg-red-100 text-red-800 border-red-200';
-      case 'yellow': return 'bg-yellow-100 text-yellow-800 border-yellow-200';
-      case 'green': return 'bg-green-100 text-green-800 border-green-200';
-      default: return 'bg-gray-100 text-gray-800 border-gray-200';
-    }
-  };
-
   const getScheduleBadge = (p: Project) => {
-    if (p.scheduleType === 'repeating') return { label: 'Repeating', icon: Repeat, cls: 'bg-secondary text-foreground border-border' };
-    if (p.scheduleType === 'one-off') return { label: 'One-Off', icon: Clock, cls: 'bg-secondary text-foreground border-border' };
-    return { label: 'Ongoing', icon: Zap, cls: 'bg-secondary text-foreground border-border' };
+    if (p.scheduleType === 'repeating') return { label: 'Repeating', icon: Repeat };
+    if (p.scheduleType === 'one-off') return { label: 'One-Off', icon: Clock };
+    return { label: 'Ongoing', icon: Zap };
   };
 
   const getCategoryLabel = (cat: EventCategory) => {
@@ -138,20 +131,12 @@ export default function Events() {
       {/* Summary Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
         {[
-          { label: 'Total Active', value: allProjects.length, color: 'bg-gray-50 border-gray-200', icon: LayoutGrid },
-          { label: 'Events', value: getCounts('event'), color: 'bg-secondary border-border', icon: Calendar },
-          { label: 'Programs', value: getCounts('program'), color: 'bg-amber-50 border-amber-200', icon: BookOpen },
-          { label: 'Micro-Loans', value: getCounts('micro-loan'), color: 'bg-green-50 border-green-200', icon: DollarSign },
+          { label: 'Total Active', value: allProjects.length, icon: <LayoutGrid /> },
+          { label: 'Events', value: getCounts('event'), icon: <Calendar /> },
+          { label: 'Programs', value: getCounts('program'), icon: <BookOpen /> },
+          { label: 'Micro-Loans', value: getCounts('micro-loan'), icon: <DollarSign /> },
         ].map(card => (
-          <div key={card.label} className={`rounded-lg border p-4 ${card.color}`}>
-            <div className="flex items-center gap-3">
-              <card.icon className="w-5 h-5 text-gray-600" />
-              <div>
-                <p className="text-2xl font-bold text-gray-900">{card.value}</p>
-                <p className="text-sm text-gray-600">{card.label}</p>
-              </div>
-            </div>
-          </div>
+          <StatCard key={card.label} icon={card.icon} label={card.label} value={card.value} />
         ))}
       </div>
 
@@ -268,17 +253,17 @@ export default function Events() {
                 <div className="p-5 flex-1 flex flex-col">
                   {/* Top badges */}
                   <div className="flex items-center gap-2 mb-3 flex-wrap">
-                    <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium border ${sched.cls}`}>
+                    <StatusBadge tone="neutral">
                       <ScheduleIcon className="w-3 h-3" />
                       {sched.label}
-                    </span>
-                    <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-700 border border-gray-200">
+                    </StatusBadge>
+                    <StatusBadge tone="neutral">
                       <CatIcon className="w-3 h-3" />
                       {getCategoryLabel(project.category)}
-                    </span>
-                    <span className={`px-2 py-0.5 rounded text-xs font-medium border ${getColorBg(project.color)}`}>
+                    </StatusBadge>
+                    <StatusBadge tone={project.color === 'red' ? 'danger' : project.color === 'yellow' ? 'warning' : 'success'}>
                       {getColorLabel(project.color)}
-                    </span>
+                    </StatusBadge>
                   </div>
 
                   {/* Title & description */}
@@ -472,18 +457,18 @@ export default function Events() {
                         </span>
                       </td>
                       <td className="px-5 py-4 whitespace-nowrap">
-                        <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium border ${sched.cls}`}>
+                        <StatusBadge tone="neutral">
                           <ScheduleIcon className="w-3 h-3" />
                           {sched.label}
-                        </span>
+                        </StatusBadge>
                         {project.recurrence && (
                           <div className="text-xs text-gray-500 mt-0.5">{project.recurrence}</div>
                         )}
                       </td>
                       <td className="px-5 py-4 whitespace-nowrap">
-                        <span className={`px-2 py-0.5 rounded text-xs font-medium border ${getColorBg(project.color)}`}>
+                        <StatusBadge tone={project.color === 'red' ? 'danger' : project.color === 'yellow' ? 'warning' : 'success'}>
                           {getColorLabel(project.color)}
-                        </span>
+                        </StatusBadge>
                       </td>
                       <td className="px-5 py-4 whitespace-nowrap">
                         <div className="flex items-center gap-2">
@@ -507,13 +492,9 @@ export default function Events() {
                         )}
                       </td>
                       <td className="px-5 py-4 whitespace-nowrap">
-                        <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                          pCount >= pTotal
-                            ? 'bg-green-100 text-green-800 border border-green-200'
-                            : 'bg-yellow-100 text-yellow-800 border border-yellow-200'
-                        }`}>
+                        <StatusBadge tone={pCount >= pTotal ? 'success' : 'warning'}>
                           {pCount >= pTotal ? 'Full' : 'Open'}
-                        </span>
+                        </StatusBadge>
                         {project.eligibility && (
                           <div className="flex items-center gap-1 mt-1 text-xs text-amber-700">
                             <ShieldCheck className="w-3 h-3" />

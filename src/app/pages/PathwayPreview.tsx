@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { CaretRight as ChevronRight, Circle, CheckCircle as CheckCircle2, CalendarBlank as Calendar } from "@phosphor-icons/react";
 import { loadModulesFromStorage, STORAGE_KEY, type Module } from './ModuleBuilderNew';
+import { StatCard } from '../components/ui/stat-card';
+import { StatusBadge } from '../components/ui/status-badge';
 
 type GraduationStage = 'crisis' | 'stabilization' | 'growth';
 type ModuleStatus = 'draft' | 'published';
@@ -340,13 +342,9 @@ export default function PathwayPreview() {
                       <div className="flex-1">
                         <div className="flex items-center gap-2 mb-1">
                           <h3 className="text-lg font-semibold text-gray-900">{module.title}</h3>
-                          <span className={`px-2 py-0.5 rounded text-xs font-medium ${
-                            module.status === 'published'
-                              ? 'bg-green-100 text-green-700'
-                              : 'bg-gray-100 text-gray-600'
-                          }`}>
+                          <StatusBadge tone={module.status === 'published' ? 'success' : 'neutral'}>
                             {module.status}
-                          </span>
+                          </StatusBadge>
                         </div>
                         <p className="text-sm text-gray-600 mb-3">{module.description}</p>
                         <div className="flex flex-wrap gap-2">
@@ -383,13 +381,9 @@ export default function PathwayPreview() {
           <div className="mb-6">
             <div className="flex items-center gap-2 mb-2">
               <h2 className="text-2xl font-bold text-gray-900">{selectedModule.title}</h2>
-              <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-                selectedModule.status === 'published'
-                  ? 'bg-green-100 text-green-700'
-                  : 'bg-gray-100 text-gray-600'
-              }`}>
+              <StatusBadge tone={selectedModule.status === 'published' ? 'success' : 'neutral'} className="px-3 py-1 text-sm">
                 {selectedModule.status}
-              </span>
+              </StatusBadge>
             </div>
             <p className="text-gray-600 mb-4">{selectedModule.description}</p>
             <div className="flex flex-wrap gap-2">

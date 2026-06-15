@@ -3,6 +3,8 @@ import { useParams, Link } from 'react-router';
 import { members, StatusColor, memberHistoricalData } from '../data/mockData';
 import { Heart, Shield, Lightning as Zap, Medal as Award, Circle, ArrowLeft, CheckCircle as CheckCircle2, TrendUp as TrendingUp, Lightbulb, Users, CalendarCheck, BookOpen, Clock, Star } from "@phosphor-icons/react";
 import { Progress } from '../components/ui/progress';
+import { StatCard } from '../components/ui/stat-card';
+import { StatusBadge } from '../components/ui/status-badge';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { useFramework } from '../context/FrameworkContext';
 
@@ -74,20 +76,12 @@ export default function MemberDetail() {
               <h1 className="text-2xl font-bold text-gray-900">{member.name}</h1>
               <div className="flex items-center gap-4 mt-2">
                 <span className="text-sm text-gray-600">Role: <span className="font-medium">{member.role}</span></span>
-                <span className={`inline-flex px-2 py-1 text-xs font-medium rounded-full ${
-                  member.status === 'Verified'
-                    ? 'bg-green-100 text-green-800'
-                    : 'bg-yellow-100 text-yellow-800'
-                }`}>
+                <StatusBadge tone={member.status === 'Verified' ? 'success' : 'warning'}>
                   {member.status}
-                </span>
-                <span className={`inline-flex px-2 py-1 text-xs font-medium rounded-full ${
-                  member.stage === 'Growth' ? 'bg-green-100 text-green-800' :
-                  member.stage === 'Stability' ? 'bg-yellow-100 text-yellow-800' :
-                  'bg-red-100 text-red-800'
-                }`}>
+                </StatusBadge>
+                <StatusBadge tone={member.stage === 'Growth' ? 'success' : member.stage === 'Stability' ? 'warning' : 'danger'}>
                   {member.stage}
-                </span>
+                </StatusBadge>
               </div>
             </div>
           </div>
@@ -245,24 +239,18 @@ export default function MemberDetail() {
             <h2 className="text-lg font-semibold text-gray-900">Service & Impact</h2>
           </div>
           <div className="grid grid-cols-2 gap-4 mb-4">
-            <div className="bg-secondary rounded p-3 text-center border border-border">
-              <div className="text-2xl font-bold text-foreground">{member.significance.hoursGiven}</div>
-              <div className="text-xs text-gray-600 mt-1">Hours Given</div>
-            </div>
-            <div className="bg-secondary rounded p-3 text-center border border-border">
-              <div className="text-2xl font-bold text-foreground">{member.significance.livesImpacted}</div>
-              <div className="text-xs text-gray-600 mt-1">Lives Impacted</div>
-            </div>
+            <StatCard icon={<Clock />} label="Hours Given" value={member.significance.hoursGiven} />
+            <StatCard icon={<Users />} label="Lives Impacted" value={member.significance.livesImpacted} />
           </div>
           {member.significance.badges.length > 0 && (
             <div>
               <p className="text-xs font-medium text-gray-700 mb-2">Badges Earned</p>
               <div className="flex flex-wrap gap-1">
                 {member.significance.badges.map((badge, index) => (
-                  <span key={index} className="inline-flex items-center gap-1 px-2 py-0.5 bg-amber-100 text-amber-800 rounded-full text-xs font-medium">
+                  <StatusBadge key={index} tone="warning">
                     <Award className="w-2.5 h-2.5" />
                     {badge}
-                  </span>
+                  </StatusBadge>
                 ))}
               </div>
             </div>
@@ -309,10 +297,10 @@ export default function MemberDetail() {
                       <p className="text-sm text-gray-900 mb-2">Vouched for by:</p>
                       <div className="flex flex-wrap gap-2">
                         {member.acceptance.vouchers.map((voucher, index) => (
-                          <span key={index} className="inline-flex items-center gap-1 px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium">
+                          <StatusBadge key={index} tone="success">
                             <CheckCircle2 className="w-3 h-3" />
                             {voucher}
-                          </span>
+                          </StatusBadge>
                         ))}
                       </div>
                       <p className="text-xs text-gray-500 mt-2">
@@ -487,14 +475,8 @@ export default function MemberDetail() {
 
             <div className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
-                <div className="bg-white rounded p-4 border border-gray-200 text-center">
-                  <div className="text-2xl font-bold text-gray-900">{member.significance.hoursGiven}</div>
-                  <div className="text-xs text-gray-600 mt-1">Hours Given</div>
-                </div>
-                <div className="bg-white rounded p-4 border border-gray-200 text-center">
-                  <div className="text-2xl font-bold text-gray-900">{member.significance.livesImpacted}</div>
-                  <div className="text-xs text-gray-600 mt-1">Lives Impacted</div>
-                </div>
+                <StatCard icon={<Clock />} label="Hours Given" value={member.significance.hoursGiven} />
+                <StatCard icon={<Users />} label="Lives Impacted" value={member.significance.livesImpacted} />
               </div>
 
               <div>
@@ -503,10 +485,10 @@ export default function MemberDetail() {
                   {member.significance.badges.length > 0 ? (
                     <div className="flex flex-wrap gap-2">
                       {member.significance.badges.map((badge, index) => (
-                        <span key={index} className="inline-flex items-center gap-1 px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-xs font-medium">
+                        <StatusBadge key={index} tone="warning">
                           <Award className="w-3 h-3" />
                           {badge}
-                        </span>
+                        </StatusBadge>
                       ))}
                     </div>
                   ) : (
@@ -612,15 +594,9 @@ export default function MemberDetail() {
           <div className="space-y-4">
             <div>
               <p className="text-sm font-medium text-gray-700 mb-1">Primary Motivator</p>
-              <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${
-                member.motivationalProfile.primaryMotivator === 'acceptance' ? 'bg-secondary text-foreground' :
-                member.motivationalProfile.primaryMotivator === 'security' ? 'bg-secondary text-foreground' :
-                member.motivationalProfile.primaryMotivator === 'agency' ? 'bg-secondary text-foreground' :
-                member.motivationalProfile.primaryMotivator === 'significance' ? 'bg-amber-100 text-amber-800' :
-                'bg-gray-100 text-gray-800'
-              }`}>
+              <StatusBadge tone={member.motivationalProfile.primaryMotivator === 'significance' ? 'warning' : 'neutral'}>
                 {member.motivationalProfile.primaryMotivator.charAt(0).toUpperCase() + member.motivationalProfile.primaryMotivator.slice(1)}
-              </span>
+              </StatusBadge>
             </div>
 
             <div>

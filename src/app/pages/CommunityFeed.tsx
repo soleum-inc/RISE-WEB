@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { communityPosts, type CommunityPost, type PostStatus } from '../data/mockData';
 import { Plus, VideoCamera as Video, FileText, MusicNotes as Music, CalendarBlank as Calendar, Funnel as Filter, Eye, PencilSimple as Edit2, GridNine as Grid3x3, List, ArrowSquareOut as ExternalLink } from "@phosphor-icons/react";
 import { CreateContentModal } from '../components/CreateContentModal';
+import { StatusBadge } from '../components/ui/status-badge';
 import { useFramework } from '../context/FrameworkContext';
 
 type ViewLayout = 'table' | 'grid';
@@ -42,11 +43,11 @@ export default function CommunityFeed() {
   const getStatusBadge = (status: PostStatus) => {
     switch (status) {
       case 'published':
-        return <span className="px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">Published</span>;
+        return <StatusBadge tone="success">Published</StatusBadge>;
       case 'scheduled':
-        return <span className="px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">Scheduled</span>;
+        return <StatusBadge tone="warning">Scheduled</StatusBadge>;
       case 'draft':
-        return <span className="px-2 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800">Draft</span>;
+        return <StatusBadge tone="neutral">Draft</StatusBadge>;
     }
   };
 
