@@ -4,10 +4,12 @@ import { members, StatusColor, weeklyASSAData, monthlyASSAData } from '../data/m
 import { Heart, Shield, Lightning as Zap, Medal as Award, Circle, TrendUp as TrendingUp, UploadSimple as Upload, Lightbulb, Users, UserCheck, WarningCircle as AlertCircle, Pulse as Activity } from "@phosphor-icons/react";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { useFramework } from '../context/FrameworkContext';
+import { useVertical } from '../context/VerticalContext';
 import { StatusBadge } from '../components/ui/status-badge';
 
 export default function MembersList() {
   const { showASSA } = useFramework();
+  const { theme } = useVertical();
   const [filter, setFilter] = useState<'All' | 'Crisis' | 'Stability' | 'Growth'>('All');
   const [timeframe, setTimeframe] = useState<'weekly' | 'monthly'>('weekly');
   const [selectedMetric, setSelectedMetric] = useState<'all' | 'acceptance' | 'security' | 'agency' | 'significance'>('all');
@@ -71,7 +73,7 @@ export default function MembersList() {
     <div className="p-8">
       <div className="mb-8 flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Members</h1>
+          <h1 className="text-3xl font-bold text-gray-900">{theme.personLabel}</h1>
           <p className="text-gray-500 mt-1">People & Verification</p>
         </div>
         <button className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-lg font-medium hover:bg-primary/90 transition-colors">
@@ -81,13 +83,13 @@ export default function MembersList() {
       </div>
 
       {/* ─── Practical KPI Cards (both modes) ─── */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         <div className="bg-white rounded-lg border-2 border-gray-200 p-6">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
               <Users className="w-5 h-5 text-foreground" />
             </div>
-            <h3 className="font-semibold text-gray-900">Total Members</h3>
+            <h3 className="font-semibold text-gray-900">Total {theme.personLabel}</h3>
           </div>
           <div className="text-3xl font-bold text-gray-900">{totalMembers}</div>
           <p className="text-sm text-gray-600 mt-1">{verifiedMembers} verified · {pendingMembers} pending</p>
@@ -110,28 +112,11 @@ export default function MembersList() {
             <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
               <Activity className="w-5 h-5 text-foreground" />
             </div>
-            <h3 className="font-semibold text-gray-900">Service Hours</h3>
+            <h3 className="font-semibold text-gray-900">{theme.contributionLabel}</h3>
           </div>
           <div className="text-3xl font-bold text-gray-900">{totalServiceHours.toLocaleString()}</div>
           <p className="text-sm text-gray-600 mt-1">Total contributed</p>
           <StatusBadge tone="neutral" dot className="mt-2">Active</StatusBadge>
-        </div>
-
-        <div className={`bg-white rounded-lg border-2 p-6 ${membersInCrisis > 3 ? 'border-red-300' : 'border-gray-200'}`}>
-          <div className="flex items-center gap-3 mb-4">
-            <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${membersInCrisis > 3 ? 'bg-red-100' : 'bg-gray-100'}`}>
-              <AlertCircle className={`w-5 h-5 ${membersInCrisis > 3 ? 'text-red-600' : 'text-gray-500'}`} />
-            </div>
-            <h3 className="font-semibold text-gray-900">In Crisis</h3>
-          </div>
-          <div className="text-3xl font-bold text-gray-900">{membersInCrisis}</div>
-          <p className="text-sm text-gray-600 mt-1">Need immediate support</p>
-          <div className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium mt-2 ${
-            membersInCrisis > 3 ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700'
-          }`}>
-            <Circle className="w-2 h-2 fill-current" />
-            {membersInCrisis > 3 ? 'Needs Attention' : 'Manageable'}
-          </div>
         </div>
       </div>
 
@@ -283,17 +268,17 @@ export default function MembersList() {
           <div className="h-80">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={chartData} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                <CartesianGrid strokeDasharray="3 3" stroke="#ebdfd3" />
                 <XAxis
                   dataKey={timeframe === 'weekly' ? 'week' : 'month'}
-                  stroke="#6b7280"
+                  stroke="#a89b91"
                   style={{ fontSize: '12px' }}
                 />
-                <YAxis stroke="#6b7280" style={{ fontSize: '12px' }} />
+                <YAxis stroke="#a89b91" style={{ fontSize: '12px' }} />
                 <Tooltip
                   contentStyle={{
-                    backgroundColor: '#fff',
-                    border: '1px solid #e5e7eb',
+                    backgroundColor: '#fbf6ef',
+                    border: '1px solid #ebdfd3',
                     borderRadius: '8px',
                     padding: '12px'
                   }}
@@ -301,16 +286,16 @@ export default function MembersList() {
                 <Legend wrapperStyle={{ paddingTop: '20px' }} iconType="line" />
 
                 {(selectedMetric === 'all' || selectedMetric === 'acceptance') && (
-                  <Line type="monotone" dataKey="acceptance" stroke="#ec4899" strokeWidth={2} name="Acceptance (%)" dot={{ fill: '#ec4899', r: 4 }} activeDot={{ r: 6 }} />
+                  <Line type="monotone" dataKey="acceptance" stroke="#e8533f" strokeWidth={2} name="Acceptance (%)" dot={{ fill: '#e8533f', r: 4 }} activeDot={{ r: 6 }} />
                 )}
                 {(selectedMetric === 'all' || selectedMetric === 'security') && (
-                  <Line type="monotone" dataKey="security" stroke="#3b82f6" strokeWidth={2} name="Security (%)" dot={{ fill: '#3b82f6', r: 4 }} activeDot={{ r: 6 }} />
+                  <Line type="monotone" dataKey="security" stroke="#2b2d42" strokeWidth={2} name="Security (%)" dot={{ fill: '#2b2d42', r: 4 }} activeDot={{ r: 6 }} />
                 )}
                 {(selectedMetric === 'all' || selectedMetric === 'agency') && (
-                  <Line type="monotone" dataKey="agency" stroke="#a855f7" strokeWidth={2} name="Agency (PAS)" dot={{ fill: '#a855f7', r: 4 }} activeDot={{ r: 6 }} />
+                  <Line type="monotone" dataKey="agency" stroke="#7b6ca8" strokeWidth={2} name="Agency (PAS)" dot={{ fill: '#7b6ca8', r: 4 }} activeDot={{ r: 6 }} />
                 )}
                 {(selectedMetric === 'all' || selectedMetric === 'significance') && (
-                  <Line type="monotone" dataKey="significance" stroke="#f59e0b" strokeWidth={2} name="Significance (Hours)" dot={{ fill: '#f59e0b', r: 4 }} activeDot={{ r: 6 }} />
+                  <Line type="monotone" dataKey="significance" stroke="#d98e4a" strokeWidth={2} name="Significance (Hours)" dot={{ fill: '#d98e4a', r: 4 }} activeDot={{ r: 6 }} />
                 )}
               </LineChart>
             </ResponsiveContainer>
@@ -440,7 +425,9 @@ export default function MembersList() {
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
               >
-                {stage}
+                {stage === 'All'
+                  ? 'All'
+                  : theme.stageNames[stage.toLowerCase() as 'crisis' | 'stability' | 'growth']}
               </button>
             ))}
           </div>

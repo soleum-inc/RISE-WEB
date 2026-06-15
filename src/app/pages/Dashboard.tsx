@@ -1,13 +1,25 @@
-import { WarningCircle as AlertCircle, Users, FolderOpen, TrendUp as TrendingUp, Plus, Chat as MessageSquare, Heart, Shield, Lightning as Zap, Medal as Award, CalendarBlank as Calendar, BookOpen, UserCheck, Pulse as Activity, ArrowRight } from "@phosphor-icons/react";
+import { WarningCircle as AlertCircle, Users, FolderOpen, TrendUp as TrendingUp, Plus, Chat as MessageSquare, Heart, Shield, Lightning as Zap, Medal as Award, CalendarBlank as Calendar, BookOpen, UserCheck, Pulse as Activity, ArrowRight, SealCheck, Clock } from "@phosphor-icons/react";
 import { Link } from 'react-router';
 import { members, moderationQueue, inactiveMatches, projects } from '../data/mockData';
+import { cases } from '../data/cases';
+import { NeedsAttentionQueue } from '../components/NeedsAttentionQueue';
 import { useFramework } from '../context/FrameworkContext';
+import { useVertical } from '../context/VerticalContext';
 import GroupAdd from '../../imports/GroupAdd';
 import { StatCard } from '../components/ui/stat-card';
 import { StatusBadge } from '../components/ui/status-badge';
 
 export default function Dashboard() {
   const { showASSA } = useFramework();
+  const { theme } = useVertical();
+
+  // Outcome rollup (cases closed with a measured result)
+  const closedCases = cases.filter(c => c.status === 'Outcome Recorded');
+  const achievedCount = closedCases.filter(c => c.outcome?.result === 'Achieved').length;
+  const partialCount = closedCases.filter(c => c.outcome?.result === 'Partially Achieved').length;
+  const notAchievedCount = closedCases.filter(c => c.outcome?.result === 'Not Achieved').length;
+  const awaitingOutcome = cases.filter(c => c.status === 'Delivered').length;
+  const closureRate = cases.length ? Math.round((closedCases.length / cases.length) * 100) : 0;
 
   // Calculate stats
   const pendingVerification = members.filter(m => m.status === 'Pending').length;
@@ -99,6 +111,30 @@ export default function Dashboard() {
         </Link>
       </div>
 
+      {/* ─── Needs Immediate Attention (acute escalation queue) ─── */}
+      <NeedsAttentionQueue className="mb-8" />
+
+      {/* ─── Outcomes (measured results, above activity) ─── */}
+      <div className="mb-8">
+        <div className="mb-3 flex items-center justify-between">
+          <div>
+            <h2 className="text-lg font-semibold text-gray-900">Outcomes</h2>
+            <p className="text-sm text-gray-500">Measured results, not just activity · {closureRate}% of {theme.caseLabel.toLowerCase()} closed</p>
+          </div>
+          <Link to="/impact" className="text-sm font-medium text-brand-700 hover:underline">
+            View Impact →
+          </Link>
+        </div>
+        <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+          <StatCard icon={<SealCheck />} tone="success" label="Achieved" value={achievedCount} sublabel={`${closedCases.length} closed`} />
+          <StatCard icon={<SealCheck />} tone="warning" label="Partially Achieved" value={partialCount} sublabel="partial result" />
+          <StatCard icon={<SealCheck />} tone="danger" label="Not Achieved" value={notAchievedCount} sublabel="result not met" />
+          <StatCard icon={<Clock />} label="Awaiting Outcome" value={awaitingOutcome} sublabel="delivered, to record" />
+        </div>
+      </div>
+
+      {/* ─── Activity ─── */}
+      <h2 className="mb-3 text-lg font-semibold text-gray-900">Activity</h2>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
         {/* Needs Attention Alert Box */}
         <div className="lg:col-span-2 bg-white rounded-lg border border-gray-200 p-6">
@@ -141,18 +177,6 @@ export default function Dashboard() {
               <span className="text-yellow-600 font-medium group-hover:translate-x-1 transition-transform">→</span>
             </Link>
 
-            {membersInCrisis > 0 && (
-              <Link
-                to="/members"
-                className="flex items-center justify-between p-4 bg-red-50 rounded-lg border border-red-200 hover:bg-red-100 transition-colors group"
-              >
-                <div>
-                  <p className="font-medium text-gray-900">{membersInCrisis} Members in Crisis Stage</p>
-                  <p className="text-sm text-gray-600 mt-1">Require immediate support and resources</p>
-                </div>
-                <span className="text-red-600 font-medium group-hover:translate-x-1 transition-transform">→</span>
-              </Link>
-            )}
           </div>
         </div>
 
@@ -160,7 +184,7 @@ export default function Dashboard() {
         <div className="space-y-4">
           <StatCard
             icon={<Users />}
-            label="Total Members"
+            label={`Total ${theme.personLabel}`}
             value={totalMembers}
             sublabel={`${verifiedMembers} verified`}
           />
@@ -191,7 +215,7 @@ export default function Dashboard() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
           <StatCard
             icon={<UserCheck />}
             label="In Growth Stage"
@@ -209,13 +233,6 @@ export default function Dashboard() {
             label="Service Hours"
             value={totalServiceHours.toLocaleString()}
             sublabel="Total contributed"
-          />
-          <StatCard
-            icon={<AlertCircle />}
-            label="In Crisis"
-            value={membersInCrisis}
-            sublabel="Need support now"
-            tone={membersInCrisis > 3 ? 'danger' : 'neutral'}
           />
         </div>
 

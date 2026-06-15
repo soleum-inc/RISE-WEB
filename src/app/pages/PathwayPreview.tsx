@@ -3,6 +3,7 @@ import { CaretRight as ChevronRight, Circle, CheckCircle as CheckCircle2, Calend
 import { loadModulesFromStorage, STORAGE_KEY, type Module } from './ModuleBuilderNew';
 import { StatCard } from '../components/ui/stat-card';
 import { StatusBadge } from '../components/ui/status-badge';
+import { useVertical } from '../context/VerticalContext';
 
 type GraduationStage = 'crisis' | 'stabilization' | 'growth';
 type ModuleStatus = 'draft' | 'published';
@@ -36,6 +37,7 @@ interface ModuleItem {
 type ViewMode = 'stage-select' | 'module-list' | 'module-detail' | 'submodule-detail';
 
 export default function PathwayPreview() {
+  const { theme } = useVertical();
   const [viewMode, setViewMode] = useState<ViewMode>('stage-select');
   const [selectedStage, setSelectedStage] = useState<GraduationStage | null>(null);
   const [selectedModule, setSelectedModule] = useState<Module | null>(null);
@@ -69,7 +71,7 @@ export default function PathwayPreview() {
   const stages = [
     {
       id: 'crisis' as GraduationStage,
-      title: 'Stage 1: Crisis Entry',
+      title: `Stage 1: ${theme.stageNames.crisis}`,
       subtitle: 'Survival & Immediate Needs',
       icon: '🔴',
       bgColor: 'bg-red-50',
@@ -78,7 +80,7 @@ export default function PathwayPreview() {
     },
     {
       id: 'stabilization' as GraduationStage,
-      title: 'Stage 2: Stabilization',
+      title: `Stage 2: ${theme.stageNames.stability}`,
       subtitle: 'Building Foundation & Safety',
       icon: '🟡',
       bgColor: 'bg-yellow-50',
@@ -87,7 +89,7 @@ export default function PathwayPreview() {
     },
     {
       id: 'growth' as GraduationStage,
-      title: 'Stage 3: Growth/Skill Building',
+      title: `Stage 3: ${theme.stageNames.growth}`,
       subtitle: 'Independence & Mastery',
       icon: '🟢',
       bgColor: 'bg-green-50',

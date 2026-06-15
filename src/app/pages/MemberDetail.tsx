@@ -7,10 +7,12 @@ import { StatCard } from '../components/ui/stat-card';
 import { StatusBadge } from '../components/ui/status-badge';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { useFramework } from '../context/FrameworkContext';
+import { useVertical } from '../context/VerticalContext';
 
 export default function MemberDetail() {
   const { id } = useParams();
   const { showASSA } = useFramework();
+  const { theme } = useVertical();
   const member = members.find(m => m.id === id);
   const [selectedMetric, setSelectedMetric] = useState<'all' | 'acceptance' | 'security' | 'agency' | 'significance'>('all');
 
@@ -18,9 +20,9 @@ export default function MemberDetail() {
     return (
       <div className="p-8">
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-gray-900">Member not found</h2>
+          <h2 className="text-2xl font-bold text-gray-900">{theme.personSingular} not found</h2>
           <Link to="/members" className="text-foreground hover:text-foreground mt-4 inline-block">
-            Back to Members
+            Back to {theme.personLabel}
           </Link>
         </div>
       </div>
@@ -62,7 +64,7 @@ export default function MemberDetail() {
       {/* Back Button */}
       <Link to="/members" className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-6">
         <ArrowLeft className="w-4 h-4" />
-        <span>Back to Members</span>
+        <span>Back to {theme.personLabel}</span>
       </Link>
 
       {/* Profile Header */}
@@ -119,23 +121,23 @@ export default function MemberDetail() {
           <div className="h-80">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={historicalData} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-                <XAxis dataKey="week" stroke="#6b7280" style={{ fontSize: '12px' }} />
-                <YAxis stroke="#6b7280" style={{ fontSize: '12px' }} />
-                <Tooltip contentStyle={{ backgroundColor: '#fff', border: '1px solid #e5e7eb', borderRadius: '8px', padding: '12px' }} />
+                <CartesianGrid strokeDasharray="3 3" stroke="#ebdfd3" />
+                <XAxis dataKey="week" stroke="#a89b91" style={{ fontSize: '12px' }} />
+                <YAxis stroke="#a89b91" style={{ fontSize: '12px' }} />
+                <Tooltip contentStyle={{ backgroundColor: '#fbf6ef', border: '1px solid #ebdfd3', borderRadius: '8px', padding: '12px' }} />
                 <Legend wrapperStyle={{ paddingTop: '20px' }} iconType="line" />
 
                 {(selectedMetric === 'all' || selectedMetric === 'acceptance') && (
-                  <Line type="monotone" dataKey="acceptance" stroke="#ec4899" strokeWidth={2} name="Belonging (Vouches)" dot={{ fill: '#ec4899', r: 4 }} activeDot={{ r: 6 }} />
+                  <Line type="monotone" dataKey="acceptance" stroke="#e8533f" strokeWidth={2} name="Belonging (Vouches)" dot={{ fill: '#e8533f', r: 4 }} activeDot={{ r: 6 }} />
                 )}
                 {(selectedMetric === 'all' || selectedMetric === 'security') && (
-                  <Line type="monotone" dataKey="security" stroke="#3b82f6" strokeWidth={2} name="Security Score" dot={{ fill: '#3b82f6', r: 4 }} activeDot={{ r: 6 }} />
+                  <Line type="monotone" dataKey="security" stroke="#2b2d42" strokeWidth={2} name="Security Score" dot={{ fill: '#2b2d42', r: 4 }} activeDot={{ r: 6 }} />
                 )}
                 {(selectedMetric === 'all' || selectedMetric === 'agency') && (
-                  <Line type="monotone" dataKey="agency" stroke="#a855f7" strokeWidth={2} name="Agency (PAS)" dot={{ fill: '#a855f7', r: 4 }} activeDot={{ r: 6 }} />
+                  <Line type="monotone" dataKey="agency" stroke="#7b6ca8" strokeWidth={2} name="Agency (PAS)" dot={{ fill: '#7b6ca8', r: 4 }} activeDot={{ r: 6 }} />
                 )}
                 {(selectedMetric === 'all' || selectedMetric === 'significance') && (
-                  <Line type="monotone" dataKey="significance" stroke="#f59e0b" strokeWidth={2} name="Importance (Hours)" dot={{ fill: '#f59e0b', r: 4 }} activeDot={{ r: 6 }} />
+                  <Line type="monotone" dataKey="significance" stroke="#d98e4a" strokeWidth={2} name="Importance (Hours)" dot={{ fill: '#d98e4a', r: 4 }} activeDot={{ r: 6 }} />
                 )}
               </LineChart>
             </ResponsiveContainer>

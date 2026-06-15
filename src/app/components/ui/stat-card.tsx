@@ -23,7 +23,7 @@ const valueColor: Record<StatTone, string> = {
 };
 
 const card: Record<StatTone, string> = {
-  neutral: "border-border bg-card",
+  neutral: "border-white/40 bg-card",
   success: "border-green-200 bg-green-50/60",
   warning: "border-amber-200 bg-amber-50/60",
   danger: "border-red-200 bg-red-50/60",
@@ -47,7 +47,7 @@ export function StatCard({
   ...props
 }: StatCardProps) {
   return (
-    <div className={cn("rounded-lg border p-5", card[tone], className)} {...props}>
+    <div className={cn("rounded-lg border p-5 shadow-sm backdrop-blur-xl", card[tone], className)} {...props}>
       <div className="mb-2 flex items-center gap-2.5">
         {icon != null && (
           <span

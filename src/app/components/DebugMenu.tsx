@@ -22,7 +22,7 @@ export function DebugMenu() {
 
       {/* Debug Panel */}
       {isOpen && (
-        <div className="fixed bottom-20 right-6 z-50 w-80 bg-white rounded-xl shadow-2xl border border-gray-200 overflow-hidden">
+        <div className="fixed bottom-20 right-6 z-50 w-80 bg-white rounded-xl shadow-xl border border-gray-200 overflow-hidden">
           {/* Header */}
           <div className="flex items-center justify-between px-4 py-3 bg-gray-900 text-white">
             <div className="flex items-center gap-2">

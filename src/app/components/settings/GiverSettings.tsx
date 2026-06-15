@@ -1,7 +1,11 @@
 import { Buildings as Building2, SealCheck as BadgeCheck, MapPin, Tag as Tags, Heart, ArrowsClockwise as RefreshCw, Globe, CreditCard, TrendUp as TrendingUp, ChartBar as BarChart3, FileXls as FileSpreadsheet, Clock, Bell, Warning as AlertTriangle, Flag, Users, Lock, ClipboardText as ClipboardList, Eye } from "@phosphor-icons/react";
 import { SettingsToggle, SettingsSelect, SettingsInput, SettingsSection, SettingsCheckboxGroup } from './SettingsToggle';
+import { useVertical } from '../../context/VerticalContext';
+import { useState } from 'react';
+import { toast } from 'sonner';
 
 export function GiverProfileOrganization() {
+  const { theme } = useVertical();
   return (
     <div>
       <div className="flex items-center gap-3 mb-6">
@@ -56,7 +60,7 @@ export function GiverProfileOrganization() {
         <div className="py-2">
           <p className="text-sm text-gray-900 mb-2">Categories of Aid Offered</p>
           <div className="flex flex-wrap gap-2">
-            {['Food Assistance', 'Housing', 'Job Training', 'Mental Health', 'Youth Programs', 'Emergency Aid'].map(cat => (
+            {theme.aidCategories.map(cat => (
               <span key={cat} className="px-3 py-1 bg-secondary text-foreground text-xs rounded-full border border-border">
                 {cat} &times;
               </span>
@@ -210,7 +214,62 @@ export function GiverNotifications() {
   );
 }
 
+const TEAM_ROLES = ['Admin', 'Case Manager', 'Volunteer / Viewer'] as const;
+type TeamRole = (typeof TEAM_ROLES)[number];
+
+interface TeamMember {
+  id: string;
+  initials: string;
+  name: string;
+  email: string;
+  role: TeamRole;
+  pending?: boolean;
+}
+
+const teamInitials = (name: string) =>
+  name.split(' ').map((w) => w[0]).slice(0, 2).join('').toUpperCase();
+
 export function GiverTeamAccess() {
+  const { theme } = useVertical();
+  const domain = theme.org.domain;
+
+  const seed: TeamMember[] = [
+    { id: 't1', initials: theme.user.initials, name: theme.user.name, email: `admin@${domain}`, role: 'Admin' },
+    { id: 't2', initials: 'SJ', name: 'Sarah Jenkins', email: `sarah@${domain}`, role: 'Case Manager' },
+    { id: 't3', initials: 'MR', name: 'Marcus Rivera', email: `marcus@${domain}`, role: 'Case Manager' },
+    { id: 't4', initials: 'DA', name: 'Diana Akoto', email: `diana@${domain}`, role: 'Volunteer / Viewer' },
+  ];
+
+  const [members, setMembers] = useState<TeamMember[]>(seed);
+  const [invite, setInvite] = useState('');
+
+  function sendInvite() {
+    const email = invite.trim().toLowerCase();
+    if (!email.includes('@')) {
+      toast.error('Enter a valid email address');
+      return;
+    }
+    const name = email
+      .split('@')[0]
+      .replace(/[._]/g, ' ')
+      .replace(/\b\w/g, (c) => c.toUpperCase());
+    const onDomain = email.endsWith(`@${domain}`);
+    setMembers((prev) => [
+      ...prev,
+      { id: `t${prev.length + 1}`, initials: teamInitials(name), name, email, role: 'Volunteer / Viewer', pending: true },
+    ]);
+    setInvite('');
+    toast.success('Invite sent', {
+      description: onDomain
+        ? `${email} invited under your verified domain — no extra cost.`
+        : `${email} invited (outside @${domain}).`,
+    });
+  }
+
+  function setRole(id: string, role: TeamRole) {
+    setMembers((prev) => prev.map((m) => (m.id === id ? { ...m, role } : m)));
+  }
+
   return (
     <div>
       <div className="flex items-center gap-3 mb-6">
@@ -219,41 +278,82 @@ export function GiverTeamAccess() {
         </div>
         <div>
           <h2 className="text-lg text-gray-900">Team & Access</h2>
-          <p className="text-xs text-gray-500">Manage team members, roles, and permissions</p>
+          <p className="text-xs text-gray-500">Add your whole team under one verified domain.</p>
         </div>
       </div>
 
-      <SettingsSection title="Team Members">
+      {/* Verified domain + flat-rate pricing */}
+      <div className="mb-6 rounded-xl border border-border bg-secondary/50 p-4">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div className="flex items-center gap-3">
+            <div className="grid size-10 place-items-center rounded-lg bg-brand-50 text-brand-700">
+              <Globe className="w-5 h-5" />
+            </div>
+            <div>
+              <p className="text-sm font-medium text-foreground">@{domain}</p>
+              <p className="text-xs text-muted-foreground">Verified organization domain</p>
+            </div>
+          </div>
+          <span className="inline-flex items-center gap-1 rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-700">
+            <BadgeCheck className="w-3.5 h-3.5" weight="fill" /> Verified
+          </span>
+        </div>
+        <p className="mt-3 text-sm text-foreground">
+          <strong>Unlimited staff under one verified domain — one flat rate.</strong> Anyone with an{' '}
+          <span className="font-medium">@{domain}</span> email joins your team at no extra cost.
+        </p>
+      </div>
+
+      {/* Invite by email */}
+      <SettingsSection title="Invite by email">
+        <div className="flex flex-col gap-2 sm:flex-row">
+          <input
+            type="email"
+            value={invite}
+            onChange={(e) => setInvite(e.target.value)}
+            onKeyDown={(e) => e.key === 'Enter' && sendInvite()}
+            placeholder={`name@${domain}`}
+            className="flex-1 rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-transparent focus:ring-2 focus:ring-brand-500"
+          />
+          <button
+            onClick={sendInvite}
+            className="rounded-lg bg-primary px-5 py-2 text-sm font-medium text-white hover:bg-primary/90"
+          >
+            Send invite
+          </button>
+        </div>
+      </SettingsSection>
+
+      {/* Members + roles */}
+      <SettingsSection title={`Team members (${members.length})`}>
         <div className="space-y-3">
-          {[
-            { initials: 'TH', name: 'Pastor Tim Henderson', email: 'admin@hopecommunity.org', role: 'Admin' },
-            { initials: 'SJ', name: 'Sarah Jenkins', email: 'sarah@hopecommunity.org', role: 'Case Manager' },
-            { initials: 'MR', name: 'Marcus Rivera', email: 'marcus@hopecommunity.org', role: 'Volunteer Coordinator' },
-            { initials: 'DA', name: 'Diana Akoto', email: 'diana@hopecommunity.org', role: 'Finance' },
-          ].map(member => (
-            <div key={member.email} className="p-3 bg-gray-50 rounded-lg flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white text-xs">
-                  {member.initials}
+          {members.map((m) => (
+            <div key={m.id} className="flex items-center justify-between gap-3 rounded-lg bg-gray-50 p-3">
+              <div className="flex min-w-0 items-center gap-3">
+                <div className="flex size-8 shrink-0 items-center justify-center rounded-full bg-primary text-xs text-white">
+                  {m.initials}
                 </div>
-                <div>
-                  <p className="text-sm text-gray-900">{member.name}</p>
-                  <p className="text-xs text-gray-500">{member.email}</p>
+                <div className="min-w-0">
+                  <p className="flex items-center gap-2 text-sm text-gray-900">
+                    <span className="truncate">{m.name}</span>
+                    {m.pending && (
+                      <span className="rounded-full bg-amber-100 px-2 py-0.5 text-[11px] font-medium text-amber-700">Pending</span>
+                    )}
+                  </p>
+                  <p className="truncate text-xs text-gray-500">{m.email}</p>
                 </div>
               </div>
-              <span className={`px-2 py-1 text-xs rounded ${
-                member.role === 'Admin' ? 'bg-secondary text-foreground' :
-                member.role === 'Case Manager' ? 'bg-secondary text-foreground' :
-                member.role === 'Finance' ? 'bg-amber-100 text-amber-700' :
-                'bg-secondary text-foreground'
-              }`}>
-                {member.role}
-              </span>
+              <select
+                value={m.role}
+                onChange={(e) => setRole(m.id, e.target.value as TeamRole)}
+                className="shrink-0 rounded-lg border border-gray-300 bg-white px-2 py-1.5 text-xs focus:border-transparent focus:ring-2 focus:ring-brand-500"
+              >
+                {TEAM_ROLES.map((r) => (
+                  <option key={r} value={r}>{r}</option>
+                ))}
+              </select>
             </div>
           ))}
-          <button className="w-full px-4 py-2 border-2 border-dashed border-gray-300 text-gray-600 rounded-lg text-sm hover:border-border hover:text-foreground">
-            + Invite Team Member
-          </button>
         </div>
       </SettingsSection>
 

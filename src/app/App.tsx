@@ -10,6 +10,7 @@ import { SideNav } from './components/SideNav';
 import { TopBar } from './components/TopBar';
 import { Toaster } from './components/ui/sonner';
 import { FrameworkProvider } from './context/FrameworkContext';
+import { VerticalProvider } from './context/VerticalContext';
 import { DebugMenu } from './components/DebugMenu';
 
 // Route-level code splitting: each page (and heavy deps like recharts) ships in
@@ -18,6 +19,10 @@ const Dashboard = lazy(() => import('./pages/Dashboard'));
 const MembersList = lazy(() => import('./pages/MembersList'));
 const MemberDetail = lazy(() => import('./pages/MemberDetail'));
 const CaseManagement = lazy(() => import('./pages/CaseManagement'));
+const CaseDetail = lazy(() => import('./pages/CaseDetail'));
+const Impact = lazy(() => import('./pages/Impact'));
+const FunderReport = lazy(() => import('./pages/FunderReport'));
+const TrustAudit = lazy(() => import('./pages/TrustAudit'));
 const Events = lazy(() => import('./pages/Events'));
 const CommunityFeed = lazy(() => import('./pages/CommunityFeed'));
 const ModuleBuilder = lazy(() => import('./pages/ModuleBuilderNew'));
@@ -54,12 +59,16 @@ function RoutedPages() {
           <Route path="/members" element={<MembersList />} />
           <Route path="/members/:id" element={<MemberDetail />} />
           <Route path="/members/case-management" element={<CaseManagement />} />
+          <Route path="/cases/:id" element={<CaseDetail />} />
           <Route path="/events" element={<Events />} />
           <Route path="/marketplace" element={<Navigate to="/events" replace />} />
           <Route path="/community-feed" element={<CommunityFeed />} />
           <Route path="/resources" element={<Navigate to="/resources/modules" replace />} />
           <Route path="/resources/modules" element={<ModuleBuilder />} />
           <Route path="/resources/pathway" element={<PathwayPreview />} />
+          <Route path="/impact" element={<Impact />} />
+          <Route path="/impact/report" element={<FunderReport />} />
+          <Route path="/trust-audit" element={<TrustAudit />} />
           <Route path="/settings" element={<Settings />} />
         </Routes>
       </div>
@@ -69,17 +78,19 @@ function RoutedPages() {
 
 export default function App() {
   return (
+    <VerticalProvider>
     <FrameworkProvider>
       {/* basename = Vite's BASE_URL: "/" in dev, "/RISE-WEB/" in the GitHub Pages
           production build, so routes resolve correctly under the subpath. */}
       <BrowserRouter basename={import.meta.env.BASE_URL}>
-        <div className="flex h-screen bg-background text-foreground">
+        {/* Transparent shell so the body's warm mesh canvas shows through. */}
+        <div className="flex h-screen text-foreground">
           <SideNav />
           <div className="relative flex flex-1 flex-col overflow-hidden">
             {/* Soft brand wash behind the top of the content (used sparingly). */}
             <div className="bg-hero pointer-events-none absolute inset-x-0 top-0 h-56" />
             <TopBar />
-            <main className="relative flex-1 overflow-auto">
+            <main className="scroll-fade relative flex-1 overflow-auto">
               <RoutedPages />
             </main>
           </div>
@@ -88,5 +99,6 @@ export default function App() {
         <DebugMenu />
       </BrowserRouter>
     </FrameworkProvider>
+    </VerticalProvider>
   );
 }
