@@ -87,7 +87,7 @@ export default function CommunityFeed() {
             setEditingPost(null);
             setIsCreateModalOpen(true);
           }}
-          className="inline-flex items-center gap-2 px-6 py-3 bg-teal-600 text-white rounded-lg font-medium hover:bg-teal-700 transition-colors"
+          className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-lg font-medium hover:bg-primary/90 transition-colors"
         >
           <Plus className="w-5 h-5" />
           Create Post
@@ -109,7 +109,7 @@ export default function CommunityFeed() {
                   onClick={() => setFilterStatus(status)}
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                     filterStatus === status
-                      ? 'bg-teal-600 text-white'
+                      ? 'bg-primary text-white'
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                   }`}
                 >
@@ -125,7 +125,7 @@ export default function CommunityFeed() {
               onClick={() => setViewLayout('table')}
               className={`p-2 rounded transition-colors ${
                 viewLayout === 'table'
-                  ? 'bg-teal-600 text-white'
+                  ? 'bg-primary text-white'
                   : 'text-gray-600 hover:bg-gray-100'
               }`}
               title="Table View"
@@ -136,7 +136,7 @@ export default function CommunityFeed() {
               onClick={() => setViewLayout('grid')}
               className={`p-2 rounded transition-colors ${
                 viewLayout === 'grid'
-                  ? 'bg-teal-600 text-white'
+                  ? 'bg-primary text-white'
                   : 'text-gray-600 hover:bg-gray-100'
               }`}
               title="Grid View"
@@ -233,7 +233,7 @@ export default function CommunityFeed() {
                       <div className="flex items-center gap-2">
                         <button
                           onClick={() => handleEdit(post)}
-                          className="text-teal-600 hover:text-teal-800"
+                          className="text-brand-600 hover:text-brand-800"
                           title="Edit"
                         >
                           <Edit2 className="w-4 h-4" />
@@ -266,7 +266,7 @@ export default function CommunityFeed() {
             return (
               <div key={post.id} className="bg-white rounded-lg border border-gray-200 hover:shadow-lg transition-shadow overflow-hidden">
                 {/* Thumbnail */}
-                <div className="h-40 bg-gradient-to-br from-teal-400 to-teal-600 flex items-center justify-center relative">
+                <div className="h-40 bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center relative">
                   {post.thumbnailUrl ? (
                     <img src={post.thumbnailUrl} alt={post.title} className="w-full h-full object-cover" />
                   ) : (
@@ -290,7 +290,7 @@ export default function CommunityFeed() {
                   <div className="flex flex-wrap gap-2 mb-3">
                     {showASSA && getASSABadge(post.primaryASSA)}
                     {post.seedsReward > 0 && (
-                      <span className="px-2 py-1 bg-teal-100 text-teal-700 rounded text-xs font-medium">
+                      <span className="px-2 py-1 bg-brand-100 text-brand-700 rounded text-xs font-medium">
                         {post.seedsReward} Seeds
                       </span>
                     )}
@@ -311,7 +311,7 @@ export default function CommunityFeed() {
                     <div className="flex items-center gap-2">
                       <button
                         onClick={() => handleEdit(post)}
-                        className="text-teal-600 hover:text-teal-800"
+                        className="text-brand-600 hover:text-brand-800"
                         title="Edit"
                       >
                         <Edit2 className="w-4 h-4" />

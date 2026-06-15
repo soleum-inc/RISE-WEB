@@ -46,7 +46,7 @@ export default function CaseManagement() {
             onClick={() => setActiveTab('requests')}
             className={`flex-1 px-6 py-4 text-sm font-medium transition-colors ${
               activeTab === 'requests'
-                ? 'text-teal-700 border-b-2 border-teal-600'
+                ? 'text-brand-700 border-b-2 border-brand-600'
                 : 'text-gray-600 hover:text-gray-900'
             }`}
           >
@@ -66,7 +66,7 @@ export default function CaseManagement() {
             onClick={() => setActiveTab('stalled')}
             className={`flex-1 px-6 py-4 text-sm font-medium transition-colors ${
               activeTab === 'stalled'
-                ? 'text-teal-700 border-b-2 border-teal-600'
+                ? 'text-brand-700 border-b-2 border-brand-600'
                 : 'text-gray-600 hover:text-gray-900'
             }`}
           >
@@ -121,7 +121,7 @@ export default function CaseManagement() {
                         <>
                           <button
                             onClick={() => setSelectedMatch(request.id)}
-                            className="px-4 py-2 bg-teal-600 text-white rounded-lg text-sm font-medium hover:bg-teal-700 transition-colors"
+                            className="px-4 py-2 bg-primary text-white rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors"
                           >
                             <Search className="w-4 h-4 inline mr-1" />
                             Find Match
@@ -182,7 +182,7 @@ export default function CaseManagement() {
                   </div>
 
                   <div className="flex items-center gap-3 pt-3 border-t border-yellow-200">
-                    <button className="px-4 py-2 bg-teal-600 text-white rounded-lg text-sm font-medium hover:bg-teal-700">
+                    <button className="px-4 py-2 bg-primary text-white rounded-lg text-sm font-medium hover:bg-primary/90">
                       Send Reminder
                     </button>
                     <button className="px-4 py-2 bg-white border border-gray-300 text-gray-700 rounded-lg text-sm font-medium hover:bg-gray-50">

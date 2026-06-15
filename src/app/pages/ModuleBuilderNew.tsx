@@ -717,7 +717,7 @@ export default function ModuleBuilder() {
           <button
             onClick={() => setActiveTab('builder')}
             className={`py-4 px-2 border-b-2 font-medium text-sm transition-colors ${
-              activeTab === 'builder' ? 'border-teal-600 text-teal-600' : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+              activeTab === 'builder' ? 'border-brand-600 text-brand-600' : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
             }`}
           >
             Module Builder
@@ -725,7 +725,7 @@ export default function ModuleBuilder() {
           <button
             onClick={() => setActiveTab('library')}
             className={`py-4 px-2 border-b-2 font-medium text-sm transition-colors ${
-              activeTab === 'library' ? 'border-teal-600 text-teal-600' : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+              activeTab === 'library' ? 'border-brand-600 text-brand-600' : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
             }`}
           >
             Content Library
@@ -749,7 +749,7 @@ export default function ModuleBuilder() {
               <button
                 onClick={() => setShowImportPanel(!showImportPanel)}
                 className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-colors font-medium text-sm ${
-                  showImportPanel ? 'bg-gray-200 text-gray-700' : 'bg-teal-600 text-white hover:bg-teal-700'
+                  showImportPanel ? 'bg-gray-200 text-gray-700' : 'bg-primary text-white hover:bg-primary/90'
                 }`}
               >
                 <Upload className="w-4 h-4" />
@@ -773,7 +773,7 @@ export default function ModuleBuilder() {
                       key={mode.key}
                       onClick={() => setImportMode(mode.key)}
                       className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                        importMode === mode.key ? 'bg-teal-100 text-teal-700 border border-teal-200' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                        importMode === mode.key ? 'bg-brand-100 text-brand-700 border border-brand-200' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                       }`}
                     >
                       <mode.icon className="w-4 h-4" />
@@ -791,7 +791,7 @@ export default function ModuleBuilder() {
                         type="url"
                         value={importUrl}
                         onChange={e => setImportUrl(e.target.value)}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent text-sm"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent text-sm"
                         placeholder="https://courses.example.org/financial-literacy"
                       />
                     </div>
@@ -799,13 +799,13 @@ export default function ModuleBuilder() {
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1">Title (optional, auto-detected)</label>
                         <input type="text" value={importTitle} onChange={e => setImportTitle(e.target.value)}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent text-sm"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent text-sm"
                           placeholder="Will auto-detect from page" />
                       </div>
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1">Content Type</label>
                         <select value={importContentType} onChange={e => setImportContentType(e.target.value as any)}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent text-sm">
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent text-sm">
                           <option value="course">Course</option>
                           <option value="video">Video</option>
                           <option value="document">Document</option>
@@ -817,11 +817,11 @@ export default function ModuleBuilder() {
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-1">Description (optional)</label>
                       <textarea value={importDesc} onChange={e => setImportDesc(e.target.value)} rows={2}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent text-sm"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent text-sm"
                         placeholder="Brief description of the content" />
                     </div>
                     <button onClick={handleImportFromUrl} disabled={isImporting}
-                      className="flex items-center gap-2 px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 disabled:opacity-50 transition-colors text-sm font-medium">
+                      className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 disabled:opacity-50 transition-colors text-sm font-medium">
                       {isImporting ? (
                         <><div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" /> Scraping...</>
                       ) : (
@@ -834,7 +834,7 @@ export default function ModuleBuilder() {
                 {/* File Upload */}
                 {importMode === 'file' && (
                   <div className="space-y-3">
-                    <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-teal-400 transition-colors cursor-pointer"
+                    <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-brand-400 transition-colors cursor-pointer"
                       onClick={() => fileInputRef.current?.click()}>
                       <FileUp className="w-8 h-8 text-gray-400 mx-auto mb-3" />
                       <p className="text-sm font-medium text-gray-700">Click to upload or drag and drop</p>
@@ -845,13 +845,13 @@ export default function ModuleBuilder() {
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1">Title (optional)</label>
                         <input type="text" value={importTitle} onChange={e => setImportTitle(e.target.value)}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent text-sm"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent text-sm"
                           placeholder="Will use filename if blank" />
                       </div>
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1">Content Type</label>
                         <select value={importContentType} onChange={e => setImportContentType(e.target.value as any)}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent text-sm">
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent text-sm">
                           <option value="course">Course</option>
                           <option value="video">Video</option>
                           <option value="document">Document</option>
@@ -870,13 +870,13 @@ export default function ModuleBuilder() {
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1">Title *</label>
                         <input type="text" value={importTitle} onChange={e => setImportTitle(e.target.value)}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent text-sm"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent text-sm"
                           placeholder="Content title" />
                       </div>
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1">Content Type</label>
                         <select value={importContentType} onChange={e => setImportContentType(e.target.value as any)}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent text-sm">
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent text-sm">
                           <option value="course">Course</option>
                           <option value="video">Video</option>
                           <option value="document">Document</option>
@@ -888,11 +888,11 @@ export default function ModuleBuilder() {
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-1">Description</label>
                       <textarea value={importDesc} onChange={e => setImportDesc(e.target.value)} rows={2}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent text-sm"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent text-sm"
                         placeholder="Describe this content" />
                     </div>
                     <button onClick={handleManualAdd}
-                      className="flex items-center gap-2 px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors text-sm font-medium">
+                      className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors text-sm font-medium">
                       <Plus className="w-4 h-4" /> Add to Library
                     </button>
                   </div>
@@ -907,7 +907,7 @@ export default function ModuleBuilder() {
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                   <input type="text" value={librarySearch} onChange={e => setLibrarySearch(e.target.value)}
                     placeholder="Search library..."
-                    className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent text-sm" />
+                    className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent text-sm" />
                 </div>
                 <div className="flex items-center gap-2">
                   <Tag className="w-4 h-4 text-gray-500" />
@@ -916,7 +916,7 @@ export default function ModuleBuilder() {
                     {(['all', 'crisis', 'stabilization', 'growth', 'untagged'] as FilterType[]).map(stage => (
                       <button key={stage} onClick={() => setStageFilter(stage)}
                         className={`px-3 py-1 rounded-lg text-sm font-medium transition-colors ${
-                          stageFilter === stage ? 'bg-teal-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                          stageFilter === stage ? 'bg-primary text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                         }`}>
                         {stage === 'all' ? 'All' : getStageShortLabel(stage)}
                       </button>
@@ -924,11 +924,11 @@ export default function ModuleBuilder() {
                   </div>
                   <div className="ml-3 flex items-center bg-gray-100 rounded-lg p-1">
                     <button onClick={() => setLibraryView('table')}
-                      className={`p-1.5 rounded transition-colors ${libraryView === 'table' ? 'bg-white text-teal-600 shadow-sm' : 'text-gray-600 hover:text-gray-900'}`}>
+                      className={`p-1.5 rounded transition-colors ${libraryView === 'table' ? 'bg-white text-brand-600 shadow-sm' : 'text-gray-600 hover:text-gray-900'}`}>
                       <LayoutList className="w-4 h-4" />
                     </button>
                     <button onClick={() => setLibraryView('grid')}
-                      className={`p-1.5 rounded transition-colors ${libraryView === 'grid' ? 'bg-white text-teal-600 shadow-sm' : 'text-gray-600 hover:text-gray-900'}`}>
+                      className={`p-1.5 rounded transition-colors ${libraryView === 'grid' ? 'bg-white text-brand-600 shadow-sm' : 'text-gray-600 hover:text-gray-900'}`}>
                       <Grid className="w-4 h-4" />
                     </button>
                   </div>
@@ -1070,7 +1070,7 @@ export default function ModuleBuilder() {
                             <td className="px-5 py-3 text-sm text-gray-600">{resource.seedsValue}</td>
                             <td className="px-5 py-3 text-right">
                               <button onClick={() => addResourceToModule(resource)}
-                                className="text-teal-600 hover:text-teal-800 text-xs font-medium">
+                                className="text-brand-600 hover:text-brand-800 text-xs font-medium">
                                 + Add to Module
                               </button>
                             </td>
@@ -1092,7 +1092,7 @@ export default function ModuleBuilder() {
                         <div className="flex items-center justify-between pt-2 border-t border-gray-100">
                           <span className="text-xs text-gray-400">{resource.seedsValue} Seeds</span>
                           <button onClick={() => addResourceToModule(resource)}
-                            className="text-teal-600 hover:text-teal-800 text-xs font-medium">+ Add to Module</button>
+                            className="text-brand-600 hover:text-brand-800 text-xs font-medium">+ Add to Module</button>
                         </div>
                       </div>
                     ))}
@@ -1124,7 +1124,7 @@ export default function ModuleBuilder() {
                       <Wand2 className="w-4 h-4" /> Module Wizard
                     </button>
                     <button onClick={() => handleCreateNewModule()}
-                      className="flex items-center gap-2 px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors text-sm font-medium">
+                      className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors text-sm font-medium">
                       <Plus className="w-4 h-4" /> New Module
                     </button>
                   </div>
@@ -1137,7 +1137,7 @@ export default function ModuleBuilder() {
                       <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                       <input type="text" value={builderSearch} onChange={e => setBuilderSearch(e.target.value)}
                         placeholder="Search modules..."
-                        className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent text-sm" />
+                        className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent text-sm" />
                     </div>
                     <div className="flex items-center gap-2">
                       <Filter className="w-4 h-4 text-gray-500" />
@@ -1146,7 +1146,7 @@ export default function ModuleBuilder() {
                         {(['all', 'crisis', 'stabilization', 'growth', 'untagged'] as FilterType[]).map(stage => (
                           <button key={stage} onClick={() => setBuilderStageFilter(stage)}
                             className={`px-3 py-1 rounded-lg text-sm font-medium transition-colors ${
-                              builderStageFilter === stage ? 'bg-teal-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                              builderStageFilter === stage ? 'bg-primary text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                             }`}>
                             {stage === 'all' ? 'All' : getStageShortLabel(stage)}
                           </button>
@@ -1154,11 +1154,11 @@ export default function ModuleBuilder() {
                       </div>
                       <div className="ml-3 flex items-center bg-gray-100 rounded-lg p-1">
                         <button onClick={() => setModuleListView('table')}
-                          className={`p-1.5 rounded transition-colors ${moduleListView === 'table' ? 'bg-white text-teal-600 shadow-sm' : 'text-gray-600 hover:text-gray-900'}`}>
+                          className={`p-1.5 rounded transition-colors ${moduleListView === 'table' ? 'bg-white text-brand-600 shadow-sm' : 'text-gray-600 hover:text-gray-900'}`}>
                           <LayoutList className="w-4 h-4" />
                         </button>
                         <button onClick={() => setModuleListView('grid')}
-                          className={`p-1.5 rounded transition-colors ${moduleListView === 'grid' ? 'bg-white text-teal-600 shadow-sm' : 'text-gray-600 hover:text-gray-900'}`}>
+                          className={`p-1.5 rounded transition-colors ${moduleListView === 'grid' ? 'bg-white text-brand-600 shadow-sm' : 'text-gray-600 hover:text-gray-900'}`}>
                           <Grid className="w-4 h-4" />
                         </button>
                       </div>
@@ -1181,7 +1181,7 @@ export default function ModuleBuilder() {
                           <Wand2 className="w-4 h-4" /> Use Wizard
                         </button>
                         <button onClick={() => handleCreateNewModule()}
-                          className="text-teal-600 hover:text-teal-800 font-medium text-sm">
+                          className="text-brand-600 hover:text-brand-800 font-medium text-sm">
                           Create blank module
                         </button>
                       </div>
@@ -1306,7 +1306,7 @@ export default function ModuleBuilder() {
                         <div className="mt-6 p-4 bg-gray-50 rounded-lg border border-gray-200 text-center">
                           <p className="text-sm text-gray-600 mb-2">Want to start from scratch?</p>
                           <button onClick={() => { handleCreateNewModule(); setShowWizard(false); }}
-                            className="text-teal-600 hover:text-teal-800 font-medium text-sm">
+                            className="text-brand-600 hover:text-brand-800 font-medium text-sm">
                             Create blank module
                           </button>
                         </div>
@@ -1446,7 +1446,7 @@ function ModuleDetail({
           </button>
           {selectedModule.status !== 'published' && (
             <button onClick={handlePublishModule}
-              className="flex items-center gap-2 px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors text-sm">
+              className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors text-sm">
               <Send className="w-4 h-4" /> Publish
             </button>
           )}
@@ -1552,7 +1552,7 @@ function ModuleDetail({
             <input type="text" value={selectedModule.title}
               onChange={e => setSelectedModule({ ...selectedModule, title: e.target.value })}
               onBlur={handleTitleBlur}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent"
               placeholder="e.g., Financial Literacy Fundamentals" />
           </div>
 
@@ -1561,13 +1561,13 @@ function ModuleDetail({
             <div className="flex items-center justify-between mb-1">
               <label className="block text-sm font-medium text-gray-700">Description</label>
               {selectedModule.title && !selectedModule.description && (
-                <span className="text-xs text-teal-600 italic">Auto-fills when you enter a title</span>
+                <span className="text-xs text-brand-600 italic">Auto-fills when you enter a title</span>
               )}
             </div>
             <textarea value={selectedModule.description}
               onChange={e => setSelectedModule({ ...selectedModule, description: e.target.value })}
               rows={3}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent"
               placeholder="What will members learn?" />
           </div>
 
@@ -1577,7 +1577,7 @@ function ModuleDetail({
               <label className="block text-sm font-medium text-gray-700 mb-1">Graduation Stage</label>
               <select value={selectedModule.stage}
                 onChange={e => setSelectedModule({ ...selectedModule, stage: e.target.value })}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent">
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent">
                 <option value="">Untagged</option>
                 <option value="crisis">Stage 1: Crisis Entry</option>
                 <option value="stabilization">Stage 2: Stabilization</option>
@@ -1588,7 +1588,7 @@ function ModuleDetail({
               <label className="block text-sm font-medium text-gray-700 mb-1">Pillar</label>
               <select value={selectedModule.pillar}
                 onChange={e => setSelectedModule({ ...selectedModule, pillar: e.target.value })}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent">
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent">
                 <option value="">None</option>
                 <option value="finance">Finance</option>
                 <option value="health">Health</option>
@@ -1614,7 +1614,7 @@ function ModuleDetail({
               </div>
               <input type="number" value={selectedModule.seedsReward}
                 onChange={e => setSelectedModule({ ...selectedModule, seedsReward: parseInt(e.target.value) || 0 })}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent" />
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent" />
             </div>
             <div>
               <div className="flex items-center justify-between mb-1">
@@ -1630,7 +1630,7 @@ function ModuleDetail({
               </div>
               <input type="text" value={selectedModule.badgeUnlock}
                 onChange={e => setSelectedModule({ ...selectedModule, badgeUnlock: e.target.value })}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent"
                 placeholder="e.g., Budget Master" />
             </div>
           </div>
@@ -1654,7 +1654,7 @@ function ModuleDetail({
             {/* Unified Add Button */}
             <div className="relative">
               <button onClick={() => setShowAddMenu(!showAddMenu)}
-                className="flex items-center gap-2 px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors text-sm font-medium">
+                className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors text-sm font-medium">
                 <Plus className="w-4 h-4" /> Add
                 <ChevronDown className="w-3.5 h-3.5" />
               </button>
@@ -1664,7 +1664,7 @@ function ModuleDetail({
                   <div className="absolute right-0 mt-2 w-52 bg-white rounded-lg shadow-xl border border-gray-200 py-1.5 z-[101]">
                     <button onClick={() => { handleAddSubModule(); setShowAddMenu(false); }}
                       className="w-full px-4 py-2 text-left hover:bg-gray-50 flex items-center gap-3 text-sm text-gray-700">
-                      <Layers className="w-4 h-4 text-teal-600" /> Sub-module
+                      <Layers className="w-4 h-4 text-brand-600" /> Sub-module
                     </button>
                     <button onClick={() => { setShowEventSelector(true); setShowAddMenu(false); }}
                       className="w-full px-4 py-2 text-left hover:bg-gray-50 flex items-center gap-3 text-sm text-gray-700">
@@ -1756,7 +1756,7 @@ function ModuleDetail({
                 <div className="flex-1 min-w-0">
                   {item.itemType === 'submodule' && item.subModule && (
                     <div className="flex items-center gap-2">
-                      <span className="px-2 py-0.5 bg-teal-100 text-teal-700 rounded text-xs font-medium shrink-0">Sub-module</span>
+                      <span className="px-2 py-0.5 bg-brand-100 text-brand-700 rounded text-xs font-medium shrink-0">Sub-module</span>
                       <span className="font-medium text-gray-900 text-sm truncate">{item.subModule.title || 'Untitled'}</span>
                       <span className="text-xs text-gray-400 shrink-0">{item.subModule.contentBlocks.length} lessons</span>
                     </div>
@@ -1781,7 +1781,7 @@ function ModuleDetail({
                 <div className="flex items-center gap-1.5 shrink-0">
                   {item.itemType === 'submodule' && (
                     <button onClick={e => { e.stopPropagation(); setSelectedSubModule(item.subModule!); setIsNewSubModule(false); setViewMode('submodule-detail'); }}
-                      className="p-1.5 text-teal-600 hover:text-teal-800 hover:bg-teal-50 rounded transition-colors">
+                      className="p-1.5 text-brand-600 hover:text-brand-800 hover:bg-brand-50 rounded transition-colors">
                       <Edit2 className="w-3.5 h-3.5" />
                     </button>
                   )}
@@ -1813,7 +1813,7 @@ function ModuleDetail({
                   {(['', 'red', 'yellow', 'green'] as const).map(level => (
                     <button key={level || 'all'} onClick={() => setEventFilterEngagement(level)}
                       className={`px-3 py-1 rounded-lg text-sm font-medium transition-colors ${
-                        eventFilterEngagement === level ? 'bg-teal-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                        eventFilterEngagement === level ? 'bg-primary text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                       }`}>{level || 'All'}</button>
                   ))}
                 </div>
@@ -1821,7 +1821,7 @@ function ModuleDetail({
             </div>
             <div className="flex-1 overflow-auto p-6 space-y-2">
               {mockEvents.filter((e: any) => !eventFilterEngagement || e.engagement === eventFilterEngagement).map((event: any) => (
-                <div key={event.id} className="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-teal-400 transition-colors">
+                <div key={event.id} className="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-brand-400 transition-colors">
                   <div className="flex-1">
                     <h4 className="font-medium text-gray-900 text-sm mb-0.5">{event.title}</h4>
                     <div className="flex items-center gap-2 text-xs text-gray-500">
@@ -1832,7 +1832,7 @@ function ModuleDetail({
                     </div>
                   </div>
                   <button onClick={() => handleAddEvent(event)}
-                    className="px-3 py-1.5 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors text-sm font-medium">
+                    className="px-3 py-1.5 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors text-sm font-medium">
                     Add
                   </button>
                 </div>
@@ -1875,7 +1875,7 @@ function ModuleDetail({
                                 <div className="text-xs text-gray-500 truncate">{subMod.description}</div>
                               </div>
                               <button onClick={() => handleAddLibrarySubModule(libModule, subMod)}
-                                className="px-2.5 py-1 bg-teal-600 text-white rounded text-xs font-medium hover:bg-teal-700 transition-colors shrink-0">
+                                className="px-2.5 py-1 bg-primary text-white rounded text-xs font-medium hover:bg-primary/90 transition-colors shrink-0">
                                 + Add
                               </button>
                             </div>
@@ -1916,7 +1916,7 @@ function SubModuleDetail({
           ← Back to Module
         </button>
         <button onClick={handleSaveSubModule}
-          className="flex items-center gap-2 px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors text-sm">
+          className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors text-sm">
           <Save className="w-4 h-4" /> {isNewSubModule ? 'Add Sub-module' : 'Update Sub-module'}
         </button>
       </div>
@@ -1928,7 +1928,7 @@ function SubModuleDetail({
             <label className="block text-sm font-medium text-gray-700 mb-1">Title *</label>
             <input type="text" value={selectedSubModule.title}
               onChange={e => setSelectedSubModule({ ...selectedSubModule, title: e.target.value })}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent"
               placeholder="e.g., Understanding Credit Scores" />
           </div>
           <div>
@@ -1936,7 +1936,7 @@ function SubModuleDetail({
             <textarea value={selectedSubModule.description}
               onChange={e => setSelectedSubModule({ ...selectedSubModule, description: e.target.value })}
               rows={2}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent"
               placeholder="What will this sub-module cover?" />
           </div>
         </div>
@@ -1948,7 +1948,7 @@ function SubModuleDetail({
           <h3 className="font-semibold text-gray-900">Lessons ({selectedSubModule.contentBlocks.length})</h3>
           <div className="relative">
             <button onClick={() => setShowAddContentMenu(!showAddContentMenu)}
-              className="flex items-center gap-2 px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors text-sm">
+              className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors text-sm">
               <Plus className="w-4 h-4" /> Add Lesson
             </button>
             {showAddContentMenu && (
@@ -2004,14 +2004,14 @@ function SubModuleDetail({
                       <label className="block text-sm font-medium text-gray-700 mb-1">Media URL</label>
                       <input type="text" value={block.mediaUrl || ''}
                         onChange={e => handleUpdateContentBlock(block.id, { mediaUrl: e.target.value })}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent text-sm"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent text-sm"
                         placeholder="https://..." />
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-1">Media Type</label>
                       <select value={block.mediaType || 'video'}
                         onChange={e => handleUpdateContentBlock(block.id, { mediaType: e.target.value as 'video' | 'audio' })}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent text-sm">
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent text-sm">
                         <option value="video">Video</option>
                         <option value="audio">Audio</option>
                       </select>
@@ -2025,7 +2025,7 @@ function SubModuleDetail({
                       <label className="block text-sm font-medium text-gray-700 mb-1">Question</label>
                       <input type="text" value={block.question || ''}
                         onChange={e => handleUpdateContentBlock(block.id, { question: e.target.value })}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent text-sm"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent text-sm"
                         placeholder="Enter your question..." />
                     </div>
                     <div>
@@ -2037,7 +2037,7 @@ function SubModuleDetail({
                             newOptions[optIndex] = e.target.value;
                             handleUpdateContentBlock(block.id, { options: newOptions });
                           }}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent text-sm mb-2"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent text-sm mb-2"
                           placeholder={`Option ${optIndex + 1}`} />
                       ))}
                     </div>
@@ -2049,7 +2049,7 @@ function SubModuleDetail({
                     <label className="block text-sm font-medium text-gray-700 mb-1">Question/Label</label>
                     <input type="text" value={block.question || ''}
                       onChange={e => handleUpdateContentBlock(block.id, { question: e.target.value })}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent text-sm"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent text-sm"
                       placeholder="Enter question or label..." />
                   </div>
                 )}

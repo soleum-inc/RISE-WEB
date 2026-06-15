@@ -291,7 +291,7 @@ export default function PathwayPreview() {
                 onClick={() => setFilterStatus('all')}
                 className={`px-3 py-1.5 rounded text-sm border ${
                   filterStatus === 'all'
-                    ? 'border-teal-600 bg-teal-50 text-teal-700 font-medium'
+                    ? 'border-brand-600 bg-brand-50 text-brand-700 font-medium'
                     : 'border-gray-300 hover:border-gray-400'
                 }`}
               >
@@ -334,7 +334,7 @@ export default function PathwayPreview() {
                   <div
                     key={module.id}
                     onClick={() => handleSelectModule(module)}
-                    className="p-5 bg-white border border-gray-200 rounded-lg hover:border-teal-500 hover:shadow-md transition-all cursor-pointer"
+                    className="p-5 bg-white border border-gray-200 rounded-lg hover:border-brand-500 hover:shadow-md transition-all cursor-pointer"
                   >
                     <div className="flex items-start justify-between">
                       <div className="flex-1">
@@ -353,7 +353,7 @@ export default function PathwayPreview() {
                           <span className="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs capitalize">
                             {module.pillar}
                           </span>
-                          <span className="px-2 py-1 bg-teal-100 text-teal-700 rounded text-xs font-medium">
+                          <span className="px-2 py-1 bg-brand-100 text-brand-700 rounded text-xs font-medium">
                             {module.seedsReward} seeds
                           </span>
                           {module.badgeUnlock && (
@@ -396,7 +396,7 @@ export default function PathwayPreview() {
               <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm capitalize">
                 {selectedModule.pillar}
               </span>
-              <span className="px-3 py-1 bg-teal-100 text-teal-700 rounded-full text-sm font-medium">
+              <span className="px-3 py-1 bg-brand-100 text-brand-700 rounded-full text-sm font-medium">
                 {selectedModule.seedsReward} Seeds
               </span>
               {selectedModule.badgeUnlock && (
@@ -510,7 +510,7 @@ export default function PathwayPreview() {
                   <div key={block.id} className="p-4 bg-gray-50 rounded-lg border border-gray-200">
                     <div className="flex items-start gap-3">
                       <div className="flex-shrink-0">
-                        <div className="w-8 h-8 rounded-full bg-teal-600 text-white flex items-center justify-center text-sm font-bold">
+                        <div className="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center text-sm font-bold">
                           {index + 1}
                         </div>
                       </div>

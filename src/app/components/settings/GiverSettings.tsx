@@ -5,8 +5,8 @@ export function GiverProfileOrganization() {
   return (
     <div>
       <div className="flex items-center gap-3 mb-6">
-        <div className="w-10 h-10 bg-teal-100 rounded-lg flex items-center justify-center">
-          <Building2 className="w-5 h-5 text-teal-600" />
+        <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center">
+          <Building2 className="w-5 h-5 text-brand-600" />
         </div>
         <div>
           <h2 className="text-lg text-gray-900">Profile & Organization</h2>
@@ -44,11 +44,11 @@ export function GiverProfileOrganization() {
           <p className="text-sm text-gray-900 mb-2">Service Areas (Geographic)</p>
           <div className="flex flex-wrap gap-2">
             {['Atlanta Metro', 'Fulton County', 'DeKalb County', 'Clayton County'].map(area => (
-              <span key={area} className="px-3 py-1 bg-teal-50 text-teal-700 text-xs rounded-full border border-teal-200">
+              <span key={area} className="px-3 py-1 bg-brand-50 text-brand-700 text-xs rounded-full border border-brand-200">
                 {area} &times;
               </span>
             ))}
-            <button className="px-3 py-1 text-xs text-gray-500 border border-dashed border-gray-300 rounded-full hover:border-teal-500 hover:text-teal-600">
+            <button className="px-3 py-1 text-xs text-gray-500 border border-dashed border-gray-300 rounded-full hover:border-brand-500 hover:text-brand-600">
               + Add Area
             </button>
           </div>
@@ -129,7 +129,7 @@ export function GiverGivingPreferences() {
             <input
               type="number"
               defaultValue={5000}
-              className="w-40 px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500"
+              className="w-40 px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500"
             />
             <span className="text-xs text-gray-400">per month</span>
           </div>
@@ -233,7 +233,7 @@ export function GiverTeamAccess() {
           ].map(member => (
             <div key={member.email} className="p-3 bg-gray-50 rounded-lg flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-teal-600 flex items-center justify-center text-white text-xs">
+                <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white text-xs">
                   {member.initials}
                 </div>
                 <div>
@@ -242,7 +242,7 @@ export function GiverTeamAccess() {
                 </div>
               </div>
               <span className={`px-2 py-1 text-xs rounded ${
-                member.role === 'Admin' ? 'bg-teal-100 text-teal-700' :
+                member.role === 'Admin' ? 'bg-brand-100 text-brand-700' :
                 member.role === 'Case Manager' ? 'bg-blue-100 text-blue-700' :
                 member.role === 'Finance' ? 'bg-amber-100 text-amber-700' :
                 'bg-purple-100 text-purple-700'
@@ -251,7 +251,7 @@ export function GiverTeamAccess() {
               </span>
             </div>
           ))}
-          <button className="w-full px-4 py-2 border-2 border-dashed border-gray-300 text-gray-600 rounded-lg text-sm hover:border-teal-600 hover:text-teal-600">
+          <button className="w-full px-4 py-2 border-2 border-dashed border-gray-300 text-gray-600 rounded-lg text-sm hover:border-brand-600 hover:text-brand-600">
             + Invite Team Member
           </button>
         </div>

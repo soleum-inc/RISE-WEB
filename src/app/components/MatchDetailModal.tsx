@@ -69,7 +69,7 @@ export function MatchDetailModal({ isOpen, onClose, requestId }: MatchDetailModa
           {/* AI Suggestions */}
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <Star className="w-5 h-5 text-teal-600" />
+              <Star className="w-5 h-5 text-brand-600" />
               <h3 className="font-semibold text-gray-900">AI Recommended Matches</h3>
             </div>
             
@@ -82,7 +82,7 @@ export function MatchDetailModal({ isOpen, onClose, requestId }: MatchDetailModa
                     onClick={() => setSelectedGiverId(giver.id)}
                     className={`w-full p-4 border-2 rounded-lg text-left transition-all ${
                       selectedGiverId === giver.id
-                        ? 'border-teal-600 bg-teal-50'
+                        ? 'border-brand-600 bg-brand-50'
                         : 'border-gray-200 hover:border-gray-300'
                     }`}
                   >
@@ -105,12 +105,12 @@ export function MatchDetailModal({ isOpen, onClose, requestId }: MatchDetailModa
                           </div>
                         )}
                         {/* Show why this is a match */}
-                        <p className="text-xs text-teal-700 italic mt-2">
+                        <p className="text-xs text-brand-700 italic mt-2">
                           ✓ High availability • ✓ Relevant experience • ✓ Strong track record
                         </p>
                       </div>
                       <div className="text-right ml-4">
-                        <div className="text-2xl font-bold text-teal-600">{matchScore}%</div>
+                        <div className="text-2xl font-bold text-brand-600">{matchScore}%</div>
                         <div className="text-xs text-gray-500">Match Score</div>
                       </div>
                     </div>
@@ -130,7 +130,7 @@ export function MatchDetailModal({ isOpen, onClose, requestId }: MatchDetailModa
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="Search for a different member..."
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent"
               />
             </div>
 
@@ -142,7 +142,7 @@ export function MatchDetailModal({ isOpen, onClose, requestId }: MatchDetailModa
                     onClick={() => setSelectedGiverId(giver.id)}
                     className={`w-full p-3 border rounded-lg text-left transition-all ${
                       selectedGiverId === giver.id
-                        ? 'border-teal-600 bg-teal-50'
+                        ? 'border-brand-600 bg-brand-50'
                         : 'border-gray-200 hover:bg-gray-50'
                     }`}
                   >
@@ -152,7 +152,7 @@ export function MatchDetailModal({ isOpen, onClose, requestId }: MatchDetailModa
                         <p className="text-xs text-gray-600">{giver.role} • {giver.significance.hoursGiven} hours</p>
                       </div>
                       {selectedGiverId === giver.id && (
-                        <CheckCircle2 className="w-5 h-5 text-teal-600" />
+                        <CheckCircle2 className="w-5 h-5 text-brand-600" />
                       )}
                     </div>
                   </button>
@@ -188,7 +188,7 @@ export function MatchDetailModal({ isOpen, onClose, requestId }: MatchDetailModa
             <button
               onClick={handleApproveMatch}
               disabled={!selectedGiverId}
-              className="px-6 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 disabled:bg-gray-300 disabled:cursor-not-allowed flex items-center gap-2"
+              className="px-6 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 disabled:bg-gray-300 disabled:cursor-not-allowed flex items-center gap-2"
             >
               <CheckCircle2 className="w-4 h-4" />
               Approve Match

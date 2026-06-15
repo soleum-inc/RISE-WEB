@@ -644,7 +644,7 @@ export default function MemberDetail() {
       {member.motivationalProfile && (
         <div className="bg-white rounded-lg border border-gray-200 p-6 mb-8">
           <div className="flex items-center gap-2 mb-4">
-            <Lightbulb className="w-5 h-5 text-teal-600" />
+            <Lightbulb className="w-5 h-5 text-brand-600" />
             <h2 className="text-lg font-semibold text-gray-900">Admin Notes & Recommendations</h2>
           </div>
 
@@ -658,7 +658,7 @@ export default function MemberDetail() {
 
             <div>
               <p className="text-sm font-medium text-gray-700 mb-2">💡 Recommendations</p>
-              <div className="text-sm text-teal-800 p-4 bg-teal-50 border border-teal-200 rounded">
+              <div className="text-sm text-brand-800 p-4 bg-brand-50 border border-brand-200 rounded">
                 {member.motivationalProfile.recommendations}
               </div>
             </div>

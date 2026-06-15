@@ -116,13 +116,13 @@ export function SharedAccountManagement() {
                 </div>
               </div>
               <span className={`text-xs px-2 py-0.5 rounded ${
-                account.status === 'Primary' ? 'bg-teal-100 text-teal-700' : 'bg-gray-200 text-gray-600'
+                account.status === 'Primary' ? 'bg-brand-100 text-brand-700' : 'bg-gray-200 text-gray-600'
               }`}>
                 {account.status}
               </span>
             </div>
           ))}
-          <button className="w-full px-4 py-2 border-2 border-dashed border-gray-300 text-gray-600 rounded-lg text-sm hover:border-teal-600 hover:text-teal-600">
+          <button className="w-full px-4 py-2 border-2 border-dashed border-gray-300 text-gray-600 rounded-lg text-sm hover:border-brand-600 hover:text-brand-600">
             + Link Another Account
           </button>
         </div>
@@ -171,8 +171,8 @@ export function SharedSupport() {
             </div>
           </button>
           <button className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 w-full text-left">
-            <div className="w-8 h-8 bg-teal-100 rounded-lg flex items-center justify-center shrink-0">
-              <MessageCircle className="w-4 h-4 text-teal-600" />
+            <div className="w-8 h-8 bg-brand-100 rounded-lg flex items-center justify-center shrink-0">
+              <MessageCircle className="w-4 h-4 text-brand-600" />
             </div>
             <div>
               <p className="text-sm text-gray-900">Chat with Support</p>
@@ -271,7 +271,7 @@ export function SharedTrustVerification() {
               <p className="text-xs text-gray-500 ml-6">Expires: {cred.expires}</p>
             </div>
           ))}
-          <button className="w-full px-4 py-2 border-2 border-dashed border-gray-300 text-gray-600 rounded-lg text-sm hover:border-teal-600 hover:text-teal-600">
+          <button className="w-full px-4 py-2 border-2 border-dashed border-gray-300 text-gray-600 rounded-lg text-sm hover:border-brand-600 hover:text-brand-600">
             + Add Credential
           </button>
         </div>

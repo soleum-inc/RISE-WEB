@@ -128,11 +128,11 @@ export function CreateContentModal({ isOpen, onClose }: CreateContentModalProps)
                     onClick={() => setContentType(type)}
                     className={`p-4 rounded-lg border-2 transition-all text-center ${
                       contentType === type
-                        ? 'border-teal-600 bg-teal-50 text-teal-700'
+                        ? 'border-brand-600 bg-brand-50 text-brand-700'
                         : 'border-gray-200 hover:border-gray-300'
                     }`}
                   >
-                    <Icon className={`w-6 h-6 mx-auto mb-2 ${contentType === type ? 'text-teal-600' : 'text-gray-600'}`} />
+                    <Icon className={`w-6 h-6 mx-auto mb-2 ${contentType === type ? 'text-brand-600' : 'text-gray-600'}`} />
                     <div className="text-sm font-medium capitalize">{type}</div>
                   </button>
                 );
@@ -194,8 +194,8 @@ export function CreateContentModal({ isOpen, onClose }: CreateContentModalProps)
                 </div>
               </div>
 
-              <div className="bg-teal-100 border border-teal-300 rounded-lg p-3 mt-3">
-                <p className="text-xs text-teal-900">
+              <div className="bg-brand-100 border border-brand-300 rounded-lg p-3 mt-3">
+                <p className="text-xs text-brand-900">
                   <strong>💡 Pro Tip:</strong> Check your Dashboard's Community BIAS Health section to see which dimensions need more content support.
                 </p>
               </div>
@@ -204,25 +204,25 @@ export function CreateContentModal({ isOpen, onClose }: CreateContentModalProps)
           )}
 
           {/* ─── Content Tips (both modes) ─── */}
-          <div className="bg-teal-50 border border-teal-200 rounded-lg p-5">
+          <div className="bg-brand-50 border border-brand-200 rounded-lg p-5">
             <h3 className="text-base font-semibold text-gray-900 mb-3 flex items-center gap-2">
-              <Lightbulb className="w-4 h-4 text-teal-600" />
+              <Lightbulb className="w-4 h-4 text-brand-600" />
               Content Tips
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
-              <div className="bg-white/80 rounded-lg p-3 border border-teal-200">
+              <div className="bg-white/80 rounded-lg p-3 border border-brand-200">
                 <p className="font-medium text-gray-800 mb-1">📹 Videos & Audio</p>
                 <p className="text-xs text-gray-600">Great for skill-building lessons, testimonials, and event recaps. Keep under 10 mins for best engagement.</p>
               </div>
-              <div className="bg-white/80 rounded-lg p-3 border border-teal-200">
+              <div className="bg-white/80 rounded-lg p-3 border border-brand-200">
                 <p className="font-medium text-gray-800 mb-1">📄 Articles</p>
                 <p className="text-xs text-gray-600">Ideal for detailed guides, announcements, and resource lists. Use headers and bullet points for readability.</p>
               </div>
-              <div className="bg-white/80 rounded-lg p-3 border border-teal-200">
+              <div className="bg-white/80 rounded-lg p-3 border border-brand-200">
                 <p className="font-medium text-gray-800 mb-1">📅 Event Posts</p>
                 <p className="text-xs text-gray-600">Drive sign-ups by featuring upcoming events in the community feed with key details and a clear call to action.</p>
               </div>
-              <div className="bg-white/80 rounded-lg p-3 border border-teal-200">
+              <div className="bg-white/80 rounded-lg p-3 border border-brand-200">
                 <p className="font-medium text-gray-800 mb-1">🏆 Recognition Posts</p>
                 <p className="text-xs text-gray-600">Celebrate member milestones, volunteer achievements, and course completions to boost morale and retention.</p>
               </div>
@@ -247,7 +247,7 @@ export function CreateContentModal({ isOpen, onClose }: CreateContentModalProps)
                   contentType === 'article' ? 'e.g., "5 Steps to Housing Stability"' :
                   'e.g., "Community Garden Kickoff Event"'
                 }
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent"
               />
             </div>
 
@@ -260,7 +260,7 @@ export function CreateContentModal({ isOpen, onClose }: CreateContentModalProps)
                 onChange={(e) => setDescription(e.target.value)}
                 placeholder="Brief summary of what this content covers..."
                 rows={3}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent"
               />
             </div>
           </div>
@@ -285,7 +285,7 @@ export function CreateContentModal({ isOpen, onClose }: CreateContentModalProps)
                     value={mediaUrl}
                     onChange={(e) => setMediaUrl(e.target.value)}
                     placeholder="https://www.youtube.com/watch?v=..."
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent"
                   />
                   <p className="text-xs text-gray-500 mt-1">
                     We'll embed the video to avoid hosting costs
@@ -313,7 +313,7 @@ export function CreateContentModal({ isOpen, onClose }: CreateContentModalProps)
                     value={mediaUrl}
                     onChange={(e) => setMediaUrl(e.target.value)}
                     placeholder="https://..."
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent"
                   />
                   <p className="text-xs text-gray-500 mt-1">
                     Paste a link to your hosted audio file or podcast episode
@@ -340,7 +340,7 @@ export function CreateContentModal({ isOpen, onClose }: CreateContentModalProps)
                   onChange={(e) => setArticleContent(e.target.value)}
                   placeholder="Write your article content here, or paste from another source..."
                   rows={10}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent font-mono text-sm"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent font-mono text-sm"
                 />
                 <p className="text-xs text-gray-500 mt-1">
                   You can format this with Markdown or rich text
@@ -363,7 +363,7 @@ export function CreateContentModal({ isOpen, onClose }: CreateContentModalProps)
                       setDescription(event.description);
                     }
                   }}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent"
                 >
                   <option value="">-- Select an Event --</option>
                   {projects.map((event) => (
@@ -441,7 +441,7 @@ export function CreateContentModal({ isOpen, onClose }: CreateContentModalProps)
                   type="datetime-local"
                   value={scheduledDate}
                   onChange={(e) => setScheduledDate(e.target.value)}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent"
                 />
               </div>
             )}
@@ -462,7 +462,7 @@ export function CreateContentModal({ isOpen, onClose }: CreateContentModalProps)
                   onChange={(e) => setSeedsReward(Number(e.target.value))}
                   min={0}
                   step={5}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent"
                 />
                 <p className="text-xs text-gray-500 mt-1">Points awarded when user completes this content</p>
               </div>
@@ -474,7 +474,7 @@ export function CreateContentModal({ isOpen, onClose }: CreateContentModalProps)
                 <select
                   value={badgeUnlock}
                   onChange={(e) => setBadgeUnlock(e.target.value)}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent"
                 >
                   <option value="">No badge</option>
                   <option value="financial-wizard">🧙 Financial Wizard</option>

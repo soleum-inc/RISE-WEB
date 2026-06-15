@@ -92,7 +92,7 @@ export default function Events() {
   const getScheduleBadge = (p: Project) => {
     if (p.scheduleType === 'repeating') return { label: 'Repeating', icon: Repeat, cls: 'bg-blue-50 text-blue-700 border-blue-200' };
     if (p.scheduleType === 'one-off') return { label: 'One-Off', icon: Clock, cls: 'bg-purple-50 text-purple-700 border-purple-200' };
-    return { label: 'Ongoing', icon: Zap, cls: 'bg-teal-50 text-teal-700 border-teal-200' };
+    return { label: 'Ongoing', icon: Zap, cls: 'bg-brand-50 text-brand-700 border-brand-200' };
   };
 
   const getCategoryLabel = (cat: EventCategory) => {
@@ -128,7 +128,7 @@ export default function Events() {
         </div>
         <button
           onClick={() => setIsModalOpen(true)}
-          className="inline-flex items-center gap-2 px-6 py-3 bg-teal-600 text-white rounded-lg font-medium hover:bg-teal-700 transition-colors"
+          className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-lg font-medium hover:bg-primary/90 transition-colors"
         >
           <Plus className="w-5 h-5" />
           Create New
@@ -163,14 +163,14 @@ export default function Events() {
             onClick={() => setCategoryTab(tab.key)}
             className={`inline-flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-colors ${
               categoryTab === tab.key
-                ? 'bg-white text-teal-700 shadow-sm'
+                ? 'bg-white text-brand-700 shadow-sm'
                 : 'text-gray-600 hover:text-gray-900'
             }`}
           >
             <tab.icon className="w-4 h-4" />
             {tab.label}
             <span className={`ml-1 text-xs px-1.5 py-0.5 rounded-full ${
-              categoryTab === tab.key ? 'bg-teal-100 text-teal-700' : 'bg-gray-200 text-gray-600'
+              categoryTab === tab.key ? 'bg-brand-100 text-brand-700' : 'bg-gray-200 text-gray-600'
             }`}>
               {getCounts(tab.key)}
             </span>
@@ -220,7 +220,7 @@ export default function Events() {
                   key={o}
                   onClick={() => setOwnershipFilter(o)}
                   className={`px-3 py-1.5 rounded-md text-xs font-medium transition-colors ${
-                    ownershipFilter === o ? 'bg-teal-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    ownershipFilter === o ? 'bg-primary text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                   }`}
                 >
                   {o === 'all' ? 'All' : 'Mine'}
@@ -234,7 +234,7 @@ export default function Events() {
             <button
               onClick={() => setViewMode('grid')}
               className={`p-1.5 rounded transition-colors ${
-                viewMode === 'grid' ? 'bg-white text-teal-600 shadow-sm' : 'text-gray-600 hover:text-gray-900'
+                viewMode === 'grid' ? 'bg-white text-brand-600 shadow-sm' : 'text-gray-600 hover:text-gray-900'
               }`}
             >
               <LayoutGrid className="w-4 h-4" />
@@ -242,7 +242,7 @@ export default function Events() {
             <button
               onClick={() => setViewMode('table')}
               className={`p-1.5 rounded transition-colors ${
-                viewMode === 'table' ? 'bg-white text-teal-600 shadow-sm' : 'text-gray-600 hover:text-gray-900'
+                viewMode === 'table' ? 'bg-white text-brand-600 shadow-sm' : 'text-gray-600 hover:text-gray-900'
               }`}
             >
               <List className="w-4 h-4" />
@@ -327,7 +327,7 @@ export default function Events() {
                   <div className="border-t border-gray-100 pt-3 mb-3">
                     <button
                       onClick={() => setExpandedCard(isExpanded ? null : project.id)}
-                      className="flex items-center justify-between w-full text-xs font-medium text-gray-700 hover:text-teal-700"
+                      className="flex items-center justify-between w-full text-xs font-medium text-gray-700 hover:text-brand-700"
                     >
                       <span className="flex items-center gap-1.5">
                         <Target className="w-3.5 h-3.5" />
@@ -361,7 +361,7 @@ export default function Events() {
                               <span className="text-gray-500">Skills Gained:</span>
                               <div className="flex flex-wrap gap-1 mt-1">
                                 {project.engagementMeta.skillsGained.map(s => (
-                                  <span key={s} className="px-1.5 py-0.5 bg-teal-50 text-teal-700 rounded text-xs border border-teal-200">{s}</span>
+                                  <span key={s} className="px-1.5 py-0.5 bg-brand-50 text-brand-700 rounded text-xs border border-brand-200">{s}</span>
                                 ))}
                               </div>
                             </div>
@@ -416,7 +416,7 @@ export default function Events() {
                   <div className="mt-auto">
                     <button
                       onClick={() => handleEditEvent(project)}
-                      className="w-full flex items-center justify-center gap-2 px-4 py-2 text-sm text-teal-600 hover:text-teal-700 hover:bg-teal-50 rounded-lg transition-colors border border-teal-200"
+                      className="w-full flex items-center justify-center gap-2 px-4 py-2 text-sm text-brand-600 hover:text-brand-700 hover:bg-brand-50 rounded-lg transition-colors border border-brand-200"
                     >
                       <Edit className="w-4 h-4" />
                       Edit
@@ -524,7 +524,7 @@ export default function Events() {
                       <td className="px-5 py-4 whitespace-nowrap text-right">
                         <button
                           onClick={() => handleEditEvent(project)}
-                          className="inline-flex items-center gap-1 px-3 py-1 text-sm text-teal-600 hover:text-teal-700 hover:bg-teal-50 rounded-lg transition-colors"
+                          className="inline-flex items-center gap-1 px-3 py-1 text-sm text-brand-600 hover:text-brand-700 hover:bg-brand-50 rounded-lg transition-colors"
                         >
                           <Edit className="w-4 h-4" />
                           Edit

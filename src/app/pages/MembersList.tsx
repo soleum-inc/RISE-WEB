@@ -73,7 +73,7 @@ export default function MembersList() {
           <h1 className="text-3xl font-bold text-gray-900">Members</h1>
           <p className="text-gray-500 mt-1">People & Verification</p>
         </div>
-        <button className="inline-flex items-center gap-2 px-6 py-3 bg-teal-600 text-white rounded-lg font-medium hover:bg-teal-700 transition-colors">
+        <button className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-lg font-medium hover:bg-primary/90 transition-colors">
           <Upload className="w-5 h-5" />
           Import CSV
         </button>
@@ -391,14 +391,14 @@ export default function MembersList() {
       {/* ─── Engagement Summary (both modes) ─── */}
       <div className="bg-white rounded-lg border border-gray-200 p-6 mb-8">
         <div className="flex items-center gap-2 mb-6">
-          <TrendingUp className="w-5 h-5 text-teal-600" />
+          <TrendingUp className="w-5 h-5 text-brand-600" />
           <h2 className="text-lg font-semibold text-gray-900">Engagement Summary</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-          <div className="p-4 bg-teal-50 rounded-lg border border-teal-200">
+          <div className="p-4 bg-brand-50 rounded-lg border border-brand-200">
             <p className="text-sm text-gray-600 mb-1">Active Volunteers</p>
-            <p className="text-3xl font-bold text-teal-700">{activeVolunteers}</p>
+            <p className="text-3xl font-bold text-brand-700">{activeVolunteers}</p>
             <p className="text-xs text-gray-500 mt-1">{Math.round((activeVolunteers / totalMembers) * 100)}% of community giving back</p>
           </div>
           <div className="p-4 bg-green-50 rounded-lg border border-green-200">
@@ -413,9 +413,9 @@ export default function MembersList() {
           </div>
         </div>
 
-        <div className="bg-teal-50 border border-teal-200 rounded-lg p-4">
-          <h3 className="font-semibold text-teal-900 mb-2">💡 Program Recommendations</h3>
-          <div className="space-y-2 text-sm text-teal-800">
+        <div className="bg-brand-50 border border-brand-200 rounded-lg p-4">
+          <h3 className="font-semibold text-brand-900 mb-2">💡 Program Recommendations</h3>
+          <div className="space-y-2 text-sm text-brand-800">
             <p>
               <strong>Volunteer recruitment:</strong> {activeVolunteers < totalMembers * 0.5
                 ? `Only ${Math.round((activeVolunteers / totalMembers) * 100)}% of members are volunteering. Consider targeted outreach to move Stability-stage members into active service roles.`

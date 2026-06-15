@@ -69,7 +69,7 @@ export default function Dashboard() {
       <div className="flex flex-wrap gap-3 mb-8">
         <Link
           to="/events"
-          className="inline-flex items-center gap-2 px-6 py-3 bg-teal-600 text-white rounded-lg font-medium hover:bg-teal-700 transition-colors"
+          className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-lg font-medium hover:bg-primary/90 transition-colors"
         >
           <Plus className="w-5 h-5" />
           Create Event
@@ -204,7 +204,7 @@ export default function Dashboard() {
             <h2 className="text-lg font-semibold text-gray-900">Community Health Overview</h2>
             <p className="text-sm text-gray-600 mt-1">Key metrics across your community</p>
           </div>
-          <Link to="/members" className="text-sm text-teal-600 hover:text-teal-700 font-medium flex items-center gap-1">
+          <Link to="/members" className="text-sm text-brand-600 hover:text-brand-700 font-medium flex items-center gap-1">
             View All Members <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
@@ -245,9 +245,9 @@ export default function Dashboard() {
         </div>
 
         {/* Action prompt */}
-        <div className="bg-teal-50 border border-teal-200 rounded-lg p-4">
-          <h4 className="font-semibold text-teal-900 mb-1">💡 Admin Tip</h4>
-          <p className="text-sm text-teal-800">
+        <div className="bg-brand-50 border border-brand-200 rounded-lg p-4">
+          <h4 className="font-semibold text-brand-900 mb-1">💡 Admin Tip</h4>
+          <p className="text-sm text-brand-800">
             {membersInCrisis > 2
               ? `You have ${membersInCrisis} members in crisis. Review case management and assign support resources to ensure no one falls through the cracks.`
               : membersInGrowth > totalMembers * 0.5
@@ -389,7 +389,7 @@ export default function Dashboard() {
         <div className="bg-white rounded-lg border border-gray-200 p-6">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-lg font-semibold text-gray-900">Recent Member Activity</h3>
-            <Link to="/members" className="text-sm text-teal-600 hover:text-teal-700 font-medium">View all</Link>
+            <Link to="/members" className="text-sm text-brand-600 hover:text-brand-700 font-medium">View all</Link>
           </div>
           <div className="space-y-3">
             {members.slice(0, 5).map(member => (
@@ -399,7 +399,7 @@ export default function Dashboard() {
                 className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-teal-600 flex items-center justify-center text-white text-sm font-semibold">
+                  <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white text-sm font-semibold">
                     {member.name.split(' ').map(n => n[0]).join('')}
                   </div>
                   <div>
@@ -422,7 +422,7 @@ export default function Dashboard() {
         <div className="bg-white rounded-lg border border-gray-200 p-6">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-lg font-semibold text-gray-900">Upcoming Events</h3>
-            <Link to="/events" className="text-sm text-teal-600 hover:text-teal-700 font-medium">View all</Link>
+            <Link to="/events" className="text-sm text-brand-600 hover:text-brand-700 font-medium">View all</Link>
           </div>
           <div className="space-y-3">
             {upcomingEvents.map(event => (
@@ -431,8 +431,8 @@ export default function Dashboard() {
                 className="flex items-start justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors"
               >
                 <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-teal-50 border border-teal-200 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Calendar className="w-4 h-4 text-teal-600" />
+                  <div className="w-8 h-8 rounded-lg bg-brand-50 border border-brand-200 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Calendar className="w-4 h-4 text-brand-600" />
                   </div>
                   <div>
                     <p className="text-sm font-medium text-gray-900">{event.title}</p>
@@ -454,7 +454,7 @@ export default function Dashboard() {
           </div>
           <Link
             to="/events"
-            className="mt-4 flex items-center justify-center gap-2 w-full py-2 border border-dashed border-gray-300 rounded-lg text-sm text-gray-500 hover:border-teal-400 hover:text-teal-600 transition-colors"
+            className="mt-4 flex items-center justify-center gap-2 w-full py-2 border border-dashed border-gray-300 rounded-lg text-sm text-gray-500 hover:border-brand-400 hover:text-brand-600 transition-colors"
           >
             <Plus className="w-4 h-4" />
             Create New Event

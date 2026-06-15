@@ -43,8 +43,8 @@ const sections: NavSection[] = [
   {
     id: 'beneficiary',
     label: 'Beneficiary Settings',
-    color: 'text-teal-700',
-    bgColor: 'bg-teal-50',
+    color: 'text-brand-700',
+    bgColor: 'bg-brand-50',
     items: [
       { id: 'ben-profile', label: 'Profile & Identity', icon: <User className="w-4 h-4" /> },
       { id: 'ben-matching', label: 'Needs & Matching', icon: <Radar className="w-4 h-4" /> },
@@ -150,7 +150,7 @@ export default function Settings() {
                               : 'text-gray-600 hover:bg-white/60 hover:text-gray-900'
                           }`}
                         >
-                          <span className={activeItem === item.id ? 'text-teal-600' : 'text-gray-400'}>
+                          <span className={activeItem === item.id ? 'text-brand-600' : 'text-gray-400'}>
                             {item.icon}
                           </span>
                           {item.label}
@@ -185,7 +185,7 @@ export default function Settings() {
                 <button className="px-4 py-2 text-sm text-gray-600 border border-gray-300 rounded-lg hover:bg-gray-50">
                   Reset to Defaults
                 </button>
-                <button className="px-4 py-2 text-sm text-white bg-teal-600 rounded-lg hover:bg-teal-700">
+                <button className="px-4 py-2 text-sm text-white bg-primary rounded-lg hover:bg-primary/90">
                   Save Changes
                 </button>
               </div>

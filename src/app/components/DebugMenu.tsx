@@ -44,21 +44,21 @@ export function DebugMenu() {
                   onClick={() => setMode('standard')}
                   className={`w-full flex items-start gap-3 p-3 rounded-lg border-2 transition-all text-left ${
                     mode === 'standard'
-                      ? 'border-teal-500 bg-teal-50'
+                      ? 'border-brand-500 bg-brand-50'
                       : 'border-gray-200 hover:border-gray-300 bg-white'
                   }`}
                 >
                   <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${
-                    mode === 'standard' ? 'bg-teal-600' : 'bg-gray-100'
+                    mode === 'standard' ? 'bg-primary' : 'bg-gray-100'
                   }`}>
                     <LayoutDashboard className={`w-4 h-4 ${mode === 'standard' ? 'text-white' : 'text-gray-500'}`} />
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between">
-                      <p className={`text-sm font-semibold ${mode === 'standard' ? 'text-teal-900' : 'text-gray-900'}`}>
+                      <p className={`text-sm font-semibold ${mode === 'standard' ? 'text-brand-900' : 'text-gray-900'}`}>
                         Standard Mode
                       </p>
-                      {mode === 'standard' && <Check className="w-4 h-4 text-teal-600" />}
+                      {mode === 'standard' && <Check className="w-4 h-4 text-brand-600" />}
                     </div>
                     <p className="text-xs text-gray-500 mt-0.5">
                       Clean admin view focused on member management, courses & events

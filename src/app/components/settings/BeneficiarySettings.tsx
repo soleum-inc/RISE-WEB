@@ -5,8 +5,8 @@ export function BeneficiaryProfileIdentity() {
   return (
     <div>
       <div className="flex items-center gap-3 mb-6">
-        <div className="w-10 h-10 bg-teal-100 rounded-lg flex items-center justify-center">
-          <User className="w-5 h-5 text-teal-600" />
+        <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center">
+          <User className="w-5 h-5 text-brand-600" />
         </div>
         <div>
           <h2 className="text-lg text-gray-900">Profile & Identity</h2>
@@ -38,15 +38,15 @@ export function BeneficiaryProfileIdentity() {
         <div className="grid grid-cols-3 gap-4">
           <div>
             <label className="block text-xs text-gray-500 mb-1">Adults</label>
-            <input type="number" defaultValue={2} min={0} className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500" />
+            <input type="number" defaultValue={2} min={0} className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500" />
           </div>
           <div>
             <label className="block text-xs text-gray-500 mb-1">Children</label>
-            <input type="number" defaultValue={3} min={0} className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500" />
+            <input type="number" defaultValue={3} min={0} className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500" />
           </div>
           <div>
             <label className="block text-xs text-gray-500 mb-1">Dependents</label>
-            <input type="number" defaultValue={1} min={0} className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500" />
+            <input type="number" defaultValue={1} min={0} className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500" />
           </div>
         </div>
       </SettingsSection>
@@ -254,7 +254,7 @@ export function BeneficiaryDocumentsRecords() {
           ))}
         </div>
         <div className="pt-3">
-          <button className="flex items-center gap-2 px-4 py-2 text-sm border-2 border-dashed border-gray-300 text-gray-600 rounded-lg hover:border-teal-500 hover:text-teal-600 w-full justify-center">
+          <button className="flex items-center gap-2 px-4 py-2 text-sm border-2 border-dashed border-gray-300 text-gray-600 rounded-lg hover:border-brand-500 hover:text-brand-600 w-full justify-center">
             <Upload className="w-4 h-4" />
             Upload Document
           </button>
