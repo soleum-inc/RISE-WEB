@@ -62,6 +62,16 @@ const outcomeTone: Record<CaseOutcomeResult, 'success' | 'warning' | 'danger'> =
   'Not Achieved': 'danger',
 };
 
+/** Header status pill tone — progressing states read green/positive. */
+const STATUS_TONE: Record<CaseStatus, 'neutral' | 'success' | 'warning'> = {
+  Requested: 'neutral',
+  Matched: 'success',
+  Accepted: 'success',
+  'In Progress': 'success',
+  Delivered: 'success',
+  'Outcome Recorded': 'success',
+};
+
 const outcomeOptions: CaseOutcomeResult[] = ['Achieved', 'Partially Achieved', 'Not Achieved'];
 
 const auditIcon: Record<AuditAction, React.ComponentType<{ className?: string }>> = {
@@ -229,64 +239,62 @@ export default function CaseDetail() {
       </Link>
 
       {/* Header */}
-      <div className={cn(panel, 'mb-6 p-6')}>
-        <div className="flex flex-wrap items-start justify-between gap-4">
-          <div>
-            <div className="flex items-center gap-2">
-              <span className="text-xs font-medium text-muted-foreground">{record.reference}</span>
-              <StatusBadge tone={record.urgency === 'acute' ? 'danger' : 'neutral'}>
-                {record.urgency === 'acute' ? 'Acute' : 'Chronic'}
-              </StatusBadge>
-              <StatusBadge tone="neutral">{record.category}</StatusBadge>
+      <div className={cn(panel, 'relative mb-6 p-6')}>
+        {/* Current status — pinned to the top-right corner so the case's state stays prominent. */}
+        {record.outcome ? (
+          <StatusBadge tone={outcomeTone[record.outcome.result]} dot className="absolute right-6 top-6 px-3 py-1 text-sm shadow-sm">
+            {record.outcome.result}
+          </StatusBadge>
+        ) : (
+          <StatusBadge tone={STATUS_TONE[record.status]} dot className="absolute right-6 top-6 px-3 py-1 text-sm shadow-sm">
+            {record.status}
+          </StatusBadge>
+        )}
+
+        <div className="pr-40">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="text-xs font-medium text-muted-foreground">{record.reference}</span>
+            <StatusBadge tone={record.urgency === 'acute' ? 'danger' : 'neutral'}>
+              {record.urgency === 'acute' ? 'Acute' : 'Chronic'}
+            </StatusBadge>
+            <StatusBadge tone="neutral">{record.category}</StatusBadge>
+          </div>
+          <h1 className="mt-1 text-2xl font-bold text-foreground">{record.need}</h1>
+          <div className="mt-3 flex flex-wrap items-center gap-3">
+            <Avatar initials={record.riser.initials} />
+            <div className="text-sm">
+              <p className="font-semibold text-foreground">{record.riser.name}</p>
+              <p className="text-muted-foreground">Riser{stageLabel ? ` · ${stageLabel}` : ''}</p>
             </div>
-            <h1 className="mt-1 text-2xl font-bold text-foreground">{record.need}</h1>
-            <div className="mt-3 flex items-center gap-3">
-              <Avatar initials={record.riser.initials} />
-              <div className="text-sm">
-                <p className="font-semibold text-foreground">{record.riser.name}</p>
-                <p className="text-muted-foreground">Riser{stageLabel ? ` · ${stageLabel}` : ''}</p>
-              </div>
-              <ArrowLeft className="size-4 rotate-180 text-muted-foreground" />
-              {record.patron ? (
-                <>
-                  <Avatar initials={record.patron.initials} tone="brand" />
-                  <div className="text-sm">
-                    <p className="font-semibold text-foreground">{record.patron.name}</p>
-                    <p className="text-muted-foreground">Patron{record.patron.detail ? ` · ${record.patron.detail}` : ''}</p>
-                  </div>
-                </>
-              ) : (
-                <span className="text-sm text-muted-foreground">Awaiting patron</span>
-              )}
-            </div>
+            <ArrowLeft className="size-4 rotate-180 text-muted-foreground" />
+            {record.patron ? (
+              <>
+                <Avatar initials={record.patron.initials} tone="brand" />
+                <div className="text-sm">
+                  <p className="font-semibold text-foreground">{record.patron.name}</p>
+                  <p className="text-muted-foreground">Patron{record.patron.detail ? ` · ${record.patron.detail}` : ''}</p>
+                </div>
+              </>
+            ) : (
+              <span className="text-sm text-muted-foreground">Awaiting patron</span>
+            )}
           </div>
 
-          <div className="flex flex-col items-end gap-3">
-            {/* View-as toggle — the record is conceptually viewable by both sides. */}
-            <div className="flex items-center gap-1 rounded-full border border-border bg-card p-1 backdrop-blur-md">
-              <Eye className="ml-2 size-4 text-muted-foreground" />
-              {(['patron', 'riser'] as const).map((v) => (
-                <button
-                  key={v}
-                  onClick={() => setViewAs(v)}
-                  className={cn(
-                    'rounded-full px-3 py-1 text-xs font-medium capitalize transition-colors',
-                    viewAs === v ? 'bg-primary text-primary-foreground' : 'text-muted-foreground hover:text-foreground',
-                  )}
-                >
-                  {v} view
-                </button>
-              ))}
-            </div>
-            {record.outcome ? (
-              <StatusBadge tone={outcomeTone[record.outcome.result]} dot>
-                {record.outcome.result}
-              </StatusBadge>
-            ) : (
-              <StatusBadge tone="neutral" dot>
-                {record.status}
-              </StatusBadge>
-            )}
+          {/* View-as toggle — the record is conceptually viewable by both sides. */}
+          <div className="mt-4 flex w-fit items-center gap-1 rounded-full border border-border bg-card p-1 backdrop-blur-md">
+            <Eye className="ml-2 size-4 text-muted-foreground" />
+            {(['patron', 'riser'] as const).map((v) => (
+              <button
+                key={v}
+                onClick={() => setViewAs(v)}
+                className={cn(
+                  'rounded-full px-3 py-1 text-xs font-medium capitalize transition-colors',
+                  viewAs === v ? 'bg-primary text-primary-foreground' : 'text-muted-foreground hover:text-foreground',
+                )}
+              >
+                {v} view
+              </button>
+            ))}
           </div>
         </div>
 
