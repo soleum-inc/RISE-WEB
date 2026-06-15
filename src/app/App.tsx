@@ -19,11 +19,13 @@ export default function App() {
   return (
     <FrameworkProvider>
       <BrowserRouter>
-        <div className="flex h-screen bg-gray-50">
+        <div className="flex h-screen bg-background text-foreground">
           <SideNav />
-          <div className="flex-1 flex flex-col overflow-hidden">
+          <div className="relative flex flex-1 flex-col overflow-hidden">
+            {/* Soft brand wash behind the top of the content (used sparingly). */}
+            <div className="bg-hero pointer-events-none absolute inset-x-0 top-0 h-56" />
             <TopBar />
-            <main className="flex-1 overflow-auto">
+            <main className="relative flex-1 overflow-auto">
               <Routes>
                 <Route path="/" element={<Navigate to="/dashboard" replace />} />
                 <Route path="/dashboard" element={<Dashboard />} />
