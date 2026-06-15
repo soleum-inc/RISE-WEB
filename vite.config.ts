@@ -25,6 +25,10 @@ export default defineConfig({
     tailwindcss(),
   ],
   resolve: {
+    // Ensure a single React instance (project lists react as an optional peer
+    // dep, so the bundler can otherwise resolve a second copy → "Invalid hook
+    // call" with libraries that use hooks).
+    dedupe: ['react', 'react-dom'],
     alias: {
       // Alias @ to the src directory
       '@': path.resolve(__dirname, './src'),
