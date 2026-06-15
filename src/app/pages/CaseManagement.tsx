@@ -10,7 +10,7 @@ export default function CaseManagement() {
   const getUrgencyColor = (urgency: string) => {
     switch (urgency) {
       case 'acute': return 'bg-red-100 text-red-800 border-red-200';
-      case 'chronic': return 'bg-brand-100 text-brand-800 border-brand-200';
+      case 'chronic': return 'bg-secondary text-foreground border-border';
       default: return 'bg-gray-100 text-gray-800 border-gray-200';
     }
   };
@@ -18,7 +18,7 @@ export default function CaseManagement() {
   const getUrgencyIcon = (urgency: string) => {
     switch (urgency) {
       case 'acute': return <AlertCircle className="w-5 h-5 text-red-600" />;
-      case 'chronic': return <Clock className="w-5 h-5 text-brand-600" />;
+      case 'chronic': return <Clock className="w-5 h-5 text-foreground" />;
       default: return <AlertCircle className="w-5 h-5 text-gray-600" />;
     }
   };
@@ -46,7 +46,7 @@ export default function CaseManagement() {
             onClick={() => setActiveTab('requests')}
             className={`flex-1 px-6 py-4 text-sm font-medium transition-colors ${
               activeTab === 'requests'
-                ? 'text-brand-700 border-b-2 border-brand-600'
+                ? 'text-foreground border-b-2 border-border'
                 : 'text-gray-600 hover:text-gray-900'
             }`}
           >
@@ -66,7 +66,7 @@ export default function CaseManagement() {
             onClick={() => setActiveTab('stalled')}
             className={`flex-1 px-6 py-4 text-sm font-medium transition-colors ${
               activeTab === 'stalled'
-                ? 'text-brand-700 border-b-2 border-brand-600'
+                ? 'text-foreground border-b-2 border-border'
                 : 'text-gray-600 hover:text-gray-900'
             }`}
           >

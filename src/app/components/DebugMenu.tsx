@@ -44,7 +44,7 @@ export function DebugMenu() {
                   onClick={() => setMode('standard')}
                   className={`w-full flex items-start gap-3 p-3 rounded-lg border-2 transition-all text-left ${
                     mode === 'standard'
-                      ? 'border-brand-500 bg-brand-50'
+                      ? 'border-border bg-secondary'
                       : 'border-gray-200 hover:border-gray-300 bg-white'
                   }`}
                 >
@@ -55,10 +55,10 @@ export function DebugMenu() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between">
-                      <p className={`text-sm font-semibold ${mode === 'standard' ? 'text-brand-900' : 'text-gray-900'}`}>
+                      <p className={`text-sm font-semibold ${mode === 'standard' ? 'text-foreground' : 'text-gray-900'}`}>
                         Standard Mode
                       </p>
-                      {mode === 'standard' && <Check className="w-4 h-4 text-brand-600" />}
+                      {mode === 'standard' && <Check className="w-4 h-4 text-foreground" />}
                     </div>
                     <p className="text-xs text-gray-500 mt-0.5">
                       Clean admin view focused on member management, courses & events
@@ -71,21 +71,21 @@ export function DebugMenu() {
                   onClick={() => setMode('assa')}
                   className={`w-full flex items-start gap-3 p-3 rounded-lg border-2 transition-all text-left ${
                     mode === 'assa'
-                      ? 'border-brand-500 bg-brand-50'
+                      ? 'border-border bg-secondary'
                       : 'border-gray-200 hover:border-gray-300 bg-white'
                   }`}
                 >
                   <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${
-                    mode === 'assa' ? 'bg-brand-600' : 'bg-gray-100'
+                    mode === 'assa' ? 'bg-primary' : 'bg-gray-100'
                   }`}>
                     <Heart className={`w-4 h-4 ${mode === 'assa' ? 'text-white' : 'text-gray-500'}`} />
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between">
-                      <p className={`text-sm font-semibold ${mode === 'assa' ? 'text-brand-900' : 'text-gray-900'}`}>
+                      <p className={`text-sm font-semibold ${mode === 'assa' ? 'text-foreground' : 'text-gray-900'}`}>
                         BIAS Framework Mode
                       </p>
-                      {mode === 'assa' && <Check className="w-4 h-4 text-brand-600" />}
+                      {mode === 'assa' && <Check className="w-4 h-4 text-foreground" />}
                     </div>
                     <p className="text-xs text-gray-500 mt-0.5">
                       Full BIAS lens: Belonging, Importance, Agency & Security dimensions
@@ -102,9 +102,9 @@ export function DebugMenu() {
               </p>
               <ul className="space-y-1.5">
                 {[
-                  { icon: <Heart className="w-3 h-3 text-brand-500" />, label: 'Community BIAS Health dashboard' },
-                  { icon: <Shield className="w-3 h-3 text-brand-500" />, label: 'Member BIAS quadrant cards' },
-                  { icon: <Zap className="w-3 h-3 text-brand-500" />, label: 'BIAS metric trends & charts' },
+                  { icon: <Heart className="w-3 h-3 text-foreground" />, label: 'Community BIAS Health dashboard' },
+                  { icon: <Shield className="w-3 h-3 text-foreground" />, label: 'Member BIAS quadrant cards' },
+                  { icon: <Zap className="w-3 h-3 text-foreground" />, label: 'BIAS metric trends & charts' },
                   { icon: <Award className="w-3 h-3 text-amber-500" />, label: 'BIAS motivator insights' },
                   { icon: <Settings2 className="w-3 h-3 text-gray-400" />, label: 'BIAS content guidance in posts' },
                 ].map((item, i) => (

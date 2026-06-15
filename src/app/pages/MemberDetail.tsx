@@ -17,7 +17,7 @@ export default function MemberDetail() {
       <div className="p-8">
         <div className="text-center">
           <h2 className="text-2xl font-bold text-gray-900">Member not found</h2>
-          <Link to="/members" className="text-brand-600 hover:text-brand-800 mt-4 inline-block">
+          <Link to="/members" className="text-foreground hover:text-foreground mt-4 inline-block">
             Back to Members
           </Link>
         </div>
@@ -67,7 +67,7 @@ export default function MemberDetail() {
       <div className="bg-white rounded-lg border border-gray-200 p-6 mb-8">
         <div className="flex items-start justify-between">
           <div className="flex items-center gap-4">
-            <div className="w-16 h-16 rounded-full bg-brand-600 flex items-center justify-center text-white text-2xl font-bold">
+            <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center text-white text-2xl font-bold">
               {member.name.split(' ').map(n => n[0]).join('')}
             </div>
             <div>
@@ -103,7 +103,7 @@ export default function MemberDetail() {
         <div className="bg-white rounded-lg border border-gray-200 p-6 mb-8">
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-2">
-              <TrendingUp className="w-5 h-5 text-brand-600" />
+              <TrendingUp className="w-5 h-5 text-foreground" />
               <h2 className="text-lg font-semibold text-gray-900">
                 {selectedMetric === 'all' ? 'Personal Progress - All BIAS Metrics' :
                  selectedMetric === 'acceptance' ? 'Belonging Progress' :
@@ -206,8 +206,8 @@ export default function MemberDetail() {
         {/* Course Progress */}
         <div className="bg-white rounded-lg border border-gray-200 p-6">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center">
-              <BookOpen className="w-5 h-5 text-brand-600" />
+            <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
+              <BookOpen className="w-5 h-5 text-foreground" />
             </div>
             <h2 className="text-lg font-semibold text-gray-900">Course Progress</h2>
           </div>
@@ -272,9 +272,9 @@ export default function MemberDetail() {
 
       {/* Onboarding Context */}
       {member.onboardingContext && (
-        <div className="bg-brand-50 border border-brand-200 rounded-lg p-4 mb-8">
-          <h3 className="font-semibold text-brand-900 mb-2">🎯 Onboarding Context</h3>
-          <p className="text-sm text-brand-800">{member.onboardingContext}</p>
+        <div className="bg-secondary border border-border rounded-lg p-4 mb-8">
+          <h3 className="font-semibold text-foreground mb-2">🎯 Onboarding Context</h3>
+          <p className="text-sm text-foreground">{member.onboardingContext}</p>
         </div>
       )}
 
@@ -290,8 +290,8 @@ export default function MemberDetail() {
           >
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center">
-                  <Heart className="w-5 h-5 text-brand-600" />
+                <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
+                  <Heart className="w-5 h-5 text-foreground" />
                 </div>
                 <h2 className="text-lg font-semibold text-gray-900">Belonging</h2>
               </div>
@@ -326,14 +326,14 @@ export default function MemberDetail() {
               </div>
 
               {member.acceptance.vouchCount < 2 && (
-                <div className="w-full px-4 py-2 bg-brand-600 text-white rounded-lg font-medium hover:bg-brand-700 transition-colors text-center">
+                <div className="w-full px-4 py-2 bg-primary text-white rounded-lg font-medium hover:bg-primary/90 transition-colors text-center">
                   Vouch for this Member
                 </div>
               )}
             </div>
 
             {selectedMetric === 'acceptance' && (
-              <div className="mt-3 text-xs text-brand-700 font-medium">↑ Click to view trend</div>
+              <div className="mt-3 text-xs text-foreground font-medium">↑ Click to view trend</div>
             )}
           </button>
 
@@ -346,8 +346,8 @@ export default function MemberDetail() {
           >
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center">
-                  <Shield className="w-5 h-5 text-brand-600" />
+                <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
+                  <Shield className="w-5 h-5 text-foreground" />
                 </div>
                 <h2 className="text-lg font-semibold text-gray-900">Security</h2>
               </div>
@@ -402,7 +402,7 @@ export default function MemberDetail() {
             </div>
 
             {selectedMetric === 'security' && (
-              <div className="mt-3 text-xs text-brand-700 font-medium">↑ Click to view trend</div>
+              <div className="mt-3 text-xs text-foreground font-medium">↑ Click to view trend</div>
             )}
           </button>
 
@@ -415,8 +415,8 @@ export default function MemberDetail() {
           >
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center">
-                  <Zap className="w-5 h-5 text-brand-600" />
+                <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
+                  <Zap className="w-5 h-5 text-foreground" />
                 </div>
                 <h2 className="text-lg font-semibold text-gray-900">Agency</h2>
               </div>
@@ -462,7 +462,7 @@ export default function MemberDetail() {
             </div>
 
             {selectedMetric === 'agency' && (
-              <div className="mt-3 text-xs text-brand-700 font-medium">↑ Click to view trend</div>
+              <div className="mt-3 text-xs text-foreground font-medium">↑ Click to view trend</div>
             )}
           </button>
 
@@ -539,7 +539,7 @@ export default function MemberDetail() {
                 <tr>
                   <td className="px-4 py-4">
                     <div className="flex items-center gap-2">
-                      <Heart className="w-4 h-4 text-brand-600" />
+                      <Heart className="w-4 h-4 text-foreground" />
                       <span className="font-semibold text-gray-900">Belonging</span>
                     </div>
                   </td>
@@ -554,7 +554,7 @@ export default function MemberDetail() {
                 <tr>
                   <td className="px-4 py-4">
                     <div className="flex items-center gap-2">
-                      <Shield className="w-4 h-4 text-brand-600" />
+                      <Shield className="w-4 h-4 text-foreground" />
                       <span className="font-semibold text-gray-900">Security</span>
                     </div>
                   </td>
@@ -568,7 +568,7 @@ export default function MemberDetail() {
                 <tr>
                   <td className="px-4 py-4">
                     <div className="flex items-center gap-2">
-                      <Zap className="w-4 h-4 text-brand-600" />
+                      <Zap className="w-4 h-4 text-foreground" />
                       <span className="font-semibold text-gray-900">Agency</span>
                     </div>
                   </td>
@@ -613,9 +613,9 @@ export default function MemberDetail() {
             <div>
               <p className="text-sm font-medium text-gray-700 mb-1">Primary Motivator</p>
               <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${
-                member.motivationalProfile.primaryMotivator === 'acceptance' ? 'bg-brand-100 text-brand-800' :
-                member.motivationalProfile.primaryMotivator === 'security' ? 'bg-brand-100 text-brand-800' :
-                member.motivationalProfile.primaryMotivator === 'agency' ? 'bg-brand-100 text-brand-800' :
+                member.motivationalProfile.primaryMotivator === 'acceptance' ? 'bg-secondary text-foreground' :
+                member.motivationalProfile.primaryMotivator === 'security' ? 'bg-secondary text-foreground' :
+                member.motivationalProfile.primaryMotivator === 'agency' ? 'bg-secondary text-foreground' :
                 member.motivationalProfile.primaryMotivator === 'significance' ? 'bg-amber-100 text-amber-800' :
                 'bg-gray-100 text-gray-800'
               }`}>
@@ -632,7 +632,7 @@ export default function MemberDetail() {
 
             <div>
               <p className="text-sm font-medium text-gray-700 mb-2">💡 Admin Recommendations</p>
-              <div className="text-sm text-brand-800 p-4 bg-brand-50 border border-brand-200 rounded">
+              <div className="text-sm text-foreground p-4 bg-secondary border border-border rounded">
                 {member.motivationalProfile.recommendations}
               </div>
             </div>
@@ -644,7 +644,7 @@ export default function MemberDetail() {
       {member.motivationalProfile && (
         <div className="bg-white rounded-lg border border-gray-200 p-6 mb-8">
           <div className="flex items-center gap-2 mb-4">
-            <Lightbulb className="w-5 h-5 text-brand-600" />
+            <Lightbulb className="w-5 h-5 text-foreground" />
             <h2 className="text-lg font-semibold text-gray-900">Admin Notes & Recommendations</h2>
           </div>
 
@@ -658,7 +658,7 @@ export default function MemberDetail() {
 
             <div>
               <p className="text-sm font-medium text-gray-700 mb-2">💡 Recommendations</p>
-              <div className="text-sm text-brand-800 p-4 bg-brand-50 border border-brand-200 rounded">
+              <div className="text-sm text-foreground p-4 bg-secondary border border-border rounded">
                 {member.motivationalProfile.recommendations}
               </div>
             </div>

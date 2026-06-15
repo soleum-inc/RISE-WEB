@@ -83,8 +83,8 @@ export default function MembersList() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         <div className="bg-white rounded-lg border-2 border-gray-200 p-6">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center">
-              <Users className="w-5 h-5 text-brand-600" />
+            <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
+              <Users className="w-5 h-5 text-foreground" />
             </div>
             <h3 className="font-semibold text-gray-900">Total Members</h3>
           </div>
@@ -147,12 +147,12 @@ export default function MembersList() {
           <button
             onClick={() => setSelectedMetric(selectedMetric === 'acceptance' ? 'all' : 'acceptance')}
             className={`bg-white rounded-lg border-2 p-6 text-left transition-all hover:shadow-lg ${
-              selectedMetric === 'acceptance' ? 'border-brand-500 shadow-lg' : 'border-gray-200'
+              selectedMetric === 'acceptance' ? 'border-border shadow-lg' : 'border-gray-200'
             }`}
           >
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center">
-                <Heart className="w-5 h-5 text-brand-600" />
+              <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
+                <Heart className="w-5 h-5 text-foreground" />
               </div>
               <h3 className="font-semibold text-gray-900">Belonging</h3>
             </div>
@@ -170,12 +170,12 @@ export default function MembersList() {
           <button
             onClick={() => setSelectedMetric(selectedMetric === 'security' ? 'all' : 'security')}
             className={`bg-white rounded-lg border-2 p-6 text-left transition-all hover:shadow-lg ${
-              selectedMetric === 'security' ? 'border-brand-500 shadow-lg' : 'border-gray-200'
+              selectedMetric === 'security' ? 'border-border shadow-lg' : 'border-gray-200'
             }`}
           >
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center">
-                <Shield className="w-5 h-5 text-brand-600" />
+              <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
+                <Shield className="w-5 h-5 text-foreground" />
               </div>
               <h3 className="font-semibold text-gray-900">Security</h3>
             </div>
@@ -193,12 +193,12 @@ export default function MembersList() {
           <button
             onClick={() => setSelectedMetric(selectedMetric === 'agency' ? 'all' : 'agency')}
             className={`bg-white rounded-lg border-2 p-6 text-left transition-all hover:shadow-lg ${
-              selectedMetric === 'agency' ? 'border-brand-500 shadow-lg' : 'border-gray-200'
+              selectedMetric === 'agency' ? 'border-border shadow-lg' : 'border-gray-200'
             }`}
           >
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center">
-                <Zap className="w-5 h-5 text-brand-600" />
+              <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
+                <Zap className="w-5 h-5 text-foreground" />
               </div>
               <h3 className="font-semibold text-gray-900">Agency</h3>
             </div>
@@ -242,7 +242,7 @@ export default function MembersList() {
         <div className="bg-white rounded-lg border border-gray-200 p-6 mb-8">
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-2">
-              <TrendingUp className="w-5 h-5 text-brand-600" />
+              <TrendingUp className="w-5 h-5 text-foreground" />
               <h2 className="text-lg font-semibold text-gray-900">
                 {selectedMetric === 'all' ? 'BIAS Metrics Trends' :
                  selectedMetric === 'acceptance' ? 'Belonging Trend' :
@@ -257,7 +257,7 @@ export default function MembersList() {
                   onClick={() => setTimeframe('weekly')}
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                     timeframe === 'weekly'
-                      ? 'bg-brand-600 text-white'
+                      ? 'bg-primary text-white'
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                   }`}
                 >
@@ -267,7 +267,7 @@ export default function MembersList() {
                   onClick={() => setTimeframe('monthly')}
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                     timeframe === 'monthly'
-                      ? 'bg-brand-600 text-white'
+                      ? 'bg-primary text-white'
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                   }`}
                 >
@@ -343,19 +343,19 @@ export default function MembersList() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-            <div className="p-4 bg-brand-50 rounded-lg border border-brand-200">
+            <div className="p-4 bg-secondary rounded-lg border border-border">
               <p className="text-sm text-gray-600 mb-1">High Acceptance Engagement</p>
-              <p className="text-3xl font-bold text-brand-700">{highAcceptance}</p>
+              <p className="text-3xl font-bold text-foreground">{highAcceptance}</p>
               <p className="text-xs text-gray-500 mt-1">{Math.round((highAcceptance / totalMembers) * 100)}% of members</p>
             </div>
-            <div className="p-4 bg-brand-50 rounded-lg border border-brand-200">
+            <div className="p-4 bg-secondary rounded-lg border border-border">
               <p className="text-sm text-gray-600 mb-1">Security Stable</p>
-              <p className="text-3xl font-bold text-brand-700">{highSecurity}</p>
+              <p className="text-3xl font-bold text-foreground">{highSecurity}</p>
               <p className="text-xs text-gray-500 mt-1">{Math.round((highSecurity / totalMembers) * 100)}% of members</p>
             </div>
-            <div className="p-4 bg-brand-50 rounded-lg border border-brand-200">
+            <div className="p-4 bg-secondary rounded-lg border border-border">
               <p className="text-sm text-gray-600 mb-1">High Agency (PAS ≥ 7)</p>
-              <p className="text-3xl font-bold text-brand-700">{highAgency}</p>
+              <p className="text-3xl font-bold text-foreground">{highAgency}</p>
               <p className="text-xs text-gray-500 mt-1">{Math.round((highAgency / totalMembers) * 100)}% of members</p>
             </div>
             <div className="p-4 bg-amber-50 rounded-lg border border-amber-200">
@@ -365,9 +365,9 @@ export default function MembersList() {
             </div>
           </div>
 
-          <div className="bg-brand-50 border border-brand-200 rounded-lg p-4">
-            <h3 className="font-semibold text-brand-900 mb-2">💡 Content & Program Recommendations</h3>
-            <div className="space-y-2 text-sm text-brand-800">
+          <div className="bg-secondary border border-border rounded-lg p-4">
+            <h3 className="font-semibold text-foreground mb-2">💡 Content & Program Recommendations</h3>
+            <div className="space-y-2 text-sm text-foreground">
               <p>
                 <strong>Balance needed:</strong> {highAcceptance > highAgency
                   ? 'Members are well-connected but need more skill-building opportunities. Create more Agency-focused lessons and pathways.'
@@ -391,14 +391,14 @@ export default function MembersList() {
       {/* ─── Engagement Summary (both modes) ─── */}
       <div className="bg-white rounded-lg border border-gray-200 p-6 mb-8">
         <div className="flex items-center gap-2 mb-6">
-          <TrendingUp className="w-5 h-5 text-brand-600" />
+          <TrendingUp className="w-5 h-5 text-foreground" />
           <h2 className="text-lg font-semibold text-gray-900">Engagement Summary</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-          <div className="p-4 bg-brand-50 rounded-lg border border-brand-200">
+          <div className="p-4 bg-secondary rounded-lg border border-border">
             <p className="text-sm text-gray-600 mb-1">Active Volunteers</p>
-            <p className="text-3xl font-bold text-brand-700">{activeVolunteers}</p>
+            <p className="text-3xl font-bold text-foreground">{activeVolunteers}</p>
             <p className="text-xs text-gray-500 mt-1">{Math.round((activeVolunteers / totalMembers) * 100)}% of community giving back</p>
           </div>
           <div className="p-4 bg-green-50 rounded-lg border border-green-200">
@@ -406,16 +406,16 @@ export default function MembersList() {
             <p className="text-3xl font-bold text-green-700">{members.reduce((s, m) => s + m.agency.pathwaysCompleted, 0)}</p>
             <p className="text-xs text-gray-500 mt-1">Across all members</p>
           </div>
-          <div className="p-4 bg-brand-50 rounded-lg border border-brand-200">
+          <div className="p-4 bg-secondary rounded-lg border border-border">
             <p className="text-sm text-gray-600 mb-1">Events Attended</p>
-            <p className="text-3xl font-bold text-brand-700">{members.reduce((s, m) => s + m.acceptance.eventsAttended, 0)}</p>
+            <p className="text-3xl font-bold text-foreground">{members.reduce((s, m) => s + m.acceptance.eventsAttended, 0)}</p>
             <p className="text-xs text-gray-500 mt-1">Total attendance across all events</p>
           </div>
         </div>
 
-        <div className="bg-brand-50 border border-brand-200 rounded-lg p-4">
-          <h3 className="font-semibold text-brand-900 mb-2">💡 Program Recommendations</h3>
-          <div className="space-y-2 text-sm text-brand-800">
+        <div className="bg-secondary border border-border rounded-lg p-4">
+          <h3 className="font-semibold text-foreground mb-2">💡 Program Recommendations</h3>
+          <div className="space-y-2 text-sm text-foreground">
             <p>
               <strong>Volunteer recruitment:</strong> {activeVolunteers < totalMembers * 0.5
                 ? `Only ${Math.round((activeVolunteers / totalMembers) * 100)}% of members are volunteering. Consider targeted outreach to move Stability-stage members into active service roles.`
@@ -441,7 +441,7 @@ export default function MembersList() {
                 onClick={() => setFilter(stage)}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                   filter === stage
-                    ? 'bg-brand-600 text-white'
+                    ? 'bg-primary text-white'
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
               >
@@ -474,7 +474,7 @@ export default function MembersList() {
                 return (
                   <tr key={member.id} className="hover:bg-gray-50 cursor-pointer transition-colors">
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <Link to={`/members/${member.id}`} className="text-sm font-medium text-brand-600 hover:text-brand-800">
+                      <Link to={`/members/${member.id}`} className="text-sm font-medium text-foreground hover:text-foreground">
                         {member.name}
                       </Link>
                     </td>

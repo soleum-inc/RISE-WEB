@@ -31,9 +31,9 @@ export default function CommunityFeed() {
 
   const getContentTypeBg = (type: string) => {
     switch (type) {
-      case 'video': return 'bg-brand-100 text-brand-700';
-      case 'audio': return 'bg-brand-100 text-brand-700';
-      case 'article': return 'bg-brand-100 text-brand-700';
+      case 'video': return 'bg-secondary text-foreground';
+      case 'audio': return 'bg-secondary text-foreground';
+      case 'article': return 'bg-secondary text-foreground';
       case 'event': return 'bg-orange-100 text-orange-700';
       default: return 'bg-gray-100 text-gray-700';
     }
@@ -54,9 +54,9 @@ export default function CommunityFeed() {
     if (!assa) return null;
     
     const assaConfig = {
-      acceptance: { bg: 'bg-brand-100', text: 'text-brand-700', icon: '💗', label: 'Acceptance' },
-      security: { bg: 'bg-brand-100', text: 'text-brand-700', icon: '🛡️', label: 'Security' },
-      agency: { bg: 'bg-brand-100', text: 'text-brand-700', icon: '⚡', label: 'Agency' },
+      acceptance: { bg: 'bg-secondary', text: 'text-foreground', icon: '💗', label: 'Acceptance' },
+      security: { bg: 'bg-secondary', text: 'text-foreground', icon: '🛡️', label: 'Security' },
+      agency: { bg: 'bg-secondary', text: 'text-foreground', icon: '⚡', label: 'Agency' },
       significance: { bg: 'bg-amber-100', text: 'text-amber-700', icon: '🏆', label: 'Significance' },
     };
 
@@ -233,7 +233,7 @@ export default function CommunityFeed() {
                       <div className="flex items-center gap-2">
                         <button
                           onClick={() => handleEdit(post)}
-                          className="text-brand-600 hover:text-brand-800"
+                          className="text-foreground hover:text-foreground"
                           title="Edit"
                         >
                           <Edit2 className="w-4 h-4" />
@@ -266,7 +266,7 @@ export default function CommunityFeed() {
             return (
               <div key={post.id} className="bg-white rounded-lg border border-gray-200 hover:shadow-lg transition-shadow overflow-hidden">
                 {/* Thumbnail */}
-                <div className="h-40 bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center relative">
+                <div className="h-40 bg-gradient-to-br from-secondary to-secondary flex items-center justify-center relative">
                   {post.thumbnailUrl ? (
                     <img src={post.thumbnailUrl} alt={post.title} className="w-full h-full object-cover" />
                   ) : (
@@ -290,12 +290,12 @@ export default function CommunityFeed() {
                   <div className="flex flex-wrap gap-2 mb-3">
                     {showASSA && getASSABadge(post.primaryASSA)}
                     {post.seedsReward > 0 && (
-                      <span className="px-2 py-1 bg-brand-100 text-brand-700 rounded text-xs font-medium">
+                      <span className="px-2 py-1 bg-secondary text-foreground rounded text-xs font-medium">
                         {post.seedsReward} Seeds
                       </span>
                     )}
                     {post.badgeUnlock && (
-                      <span className="px-2 py-1 bg-brand-100 text-brand-700 rounded text-xs">
+                      <span className="px-2 py-1 bg-secondary text-foreground rounded text-xs">
                         🏆 {post.badgeUnlock}
                       </span>
                     )}
@@ -311,7 +311,7 @@ export default function CommunityFeed() {
                     <div className="flex items-center gap-2">
                       <button
                         onClick={() => handleEdit(post)}
-                        className="text-brand-600 hover:text-brand-800"
+                        className="text-foreground hover:text-foreground"
                         title="Edit"
                       >
                         <Edit2 className="w-4 h-4" />

@@ -158,8 +158,8 @@ export default function Dashboard() {
         <div className="space-y-4">
           <div className="bg-white rounded-lg border border-gray-200 p-6">
             <div className="flex items-center gap-3 mb-2">
-              <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center">
-                <Users className="w-5 h-5 text-brand-600" />
+              <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
+                <Users className="w-5 h-5 text-foreground" />
               </div>
               <div>
                 <p className="text-sm text-gray-600">Total Members</p>
@@ -184,8 +184,8 @@ export default function Dashboard() {
 
           <div className="bg-white rounded-lg border border-gray-200 p-6">
             <div className="flex items-center gap-3 mb-2">
-              <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center">
-                <TrendingUp className="w-5 h-5 text-brand-600" />
+              <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
+                <TrendingUp className="w-5 h-5 text-foreground" />
               </div>
               <div>
                 <p className="text-sm text-gray-600">Lives Impacted</p>
@@ -204,7 +204,7 @@ export default function Dashboard() {
             <h2 className="text-lg font-semibold text-gray-900">Community Health Overview</h2>
             <p className="text-sm text-gray-600 mt-1">Key metrics across your community</p>
           </div>
-          <Link to="/members" className="text-sm text-brand-600 hover:text-brand-700 font-medium flex items-center gap-1">
+          <Link to="/members" className="text-sm text-foreground hover:text-foreground font-medium flex items-center gap-1">
             View All Members <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
@@ -218,12 +218,12 @@ export default function Dashboard() {
             <p className="text-3xl font-bold text-green-700">{membersInGrowth}</p>
             <p className="text-xs text-gray-500 mt-1">{Math.round((membersInGrowth / totalMembers) * 100)}% of members</p>
           </div>
-          <div className="bg-brand-50 rounded-lg p-4 border border-brand-200">
+          <div className="bg-secondary rounded-lg p-4 border border-border">
             <div className="flex items-center gap-2 mb-2">
-              <Activity className="w-4 h-4 text-brand-600" />
+              <Activity className="w-4 h-4 text-foreground" />
               <p className="text-sm text-gray-600">Active Volunteers</p>
             </div>
-            <p className="text-3xl font-bold text-brand-700">{activeVolunteers}</p>
+            <p className="text-3xl font-bold text-foreground">{activeVolunteers}</p>
             <p className="text-xs text-gray-500 mt-1">{Math.round((activeVolunteers / totalMembers) * 100)}% of members</p>
           </div>
           <div className="bg-amber-50 rounded-lg p-4 border border-amber-200">
@@ -245,9 +245,9 @@ export default function Dashboard() {
         </div>
 
         {/* Action prompt */}
-        <div className="bg-brand-50 border border-brand-200 rounded-lg p-4">
-          <h4 className="font-semibold text-brand-900 mb-1">💡 Admin Tip</h4>
-          <p className="text-sm text-brand-800">
+        <div className="bg-secondary border border-border rounded-lg p-4">
+          <h4 className="font-semibold text-foreground mb-1">💡 Admin Tip</h4>
+          <p className="text-sm text-foreground">
             {membersInCrisis > 2
               ? `You have ${membersInCrisis} members in crisis. Review case management and assign support resources to ensure no one falls through the cracks.`
               : membersInGrowth > totalMembers * 0.5
@@ -270,8 +270,8 @@ export default function Dashboard() {
             {/* Belonging */}
             <div className="bg-white rounded-lg border border-gray-200 p-4">
               <div className="flex items-center gap-2 mb-3">
-                <div className="w-8 h-8 bg-brand-100 rounded-lg flex items-center justify-center">
-                  <Heart className="w-4 h-4 text-brand-600" />
+                <div className="w-8 h-8 bg-secondary rounded-lg flex items-center justify-center">
+                  <Heart className="w-4 h-4 text-foreground" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <h3 className="text-sm font-semibold text-gray-900 truncate">Belonging</h3>
@@ -297,8 +297,8 @@ export default function Dashboard() {
             {/* Security */}
             <div className="bg-white rounded-lg border border-gray-200 p-4">
               <div className="flex items-center gap-2 mb-3">
-                <div className="w-8 h-8 bg-brand-100 rounded-lg flex items-center justify-center">
-                  <Shield className="w-4 h-4 text-brand-600" />
+                <div className="w-8 h-8 bg-secondary rounded-lg flex items-center justify-center">
+                  <Shield className="w-4 h-4 text-foreground" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <h3 className="text-sm font-semibold text-gray-900 truncate">Security</h3>
@@ -324,8 +324,8 @@ export default function Dashboard() {
             {/* Agency */}
             <div className="bg-white rounded-lg border border-gray-200 p-4">
               <div className="flex items-center gap-2 mb-3">
-                <div className="w-8 h-8 bg-brand-100 rounded-lg flex items-center justify-center">
-                  <Zap className="w-4 h-4 text-brand-600" />
+                <div className="w-8 h-8 bg-secondary rounded-lg flex items-center justify-center">
+                  <Zap className="w-4 h-4 text-foreground" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <h3 className="text-sm font-semibold text-gray-900 truncate">Agency</h3>
@@ -377,9 +377,9 @@ export default function Dashboard() {
           </div>
 
           {/* Overall Insights */}
-          <div className="bg-brand-50 border border-brand-200 rounded-lg p-4">
-            <h4 className="font-semibold text-brand-900 mb-2">💡 Admin Insights</h4>
-            <p className="text-sm text-brand-800">{biasInsights.overall}</p>
+          <div className="bg-secondary border border-border rounded-lg p-4">
+            <h4 className="font-semibold text-foreground mb-2">💡 Admin Insights</h4>
+            <p className="text-sm text-foreground">{biasInsights.overall}</p>
           </div>
         </div>
       )}
@@ -389,7 +389,7 @@ export default function Dashboard() {
         <div className="bg-white rounded-lg border border-gray-200 p-6">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-lg font-semibold text-gray-900">Recent Member Activity</h3>
-            <Link to="/members" className="text-sm text-brand-600 hover:text-brand-700 font-medium">View all</Link>
+            <Link to="/members" className="text-sm text-foreground hover:text-foreground font-medium">View all</Link>
           </div>
           <div className="space-y-3">
             {members.slice(0, 5).map(member => (
@@ -422,7 +422,7 @@ export default function Dashboard() {
         <div className="bg-white rounded-lg border border-gray-200 p-6">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-lg font-semibold text-gray-900">Upcoming Events</h3>
-            <Link to="/events" className="text-sm text-brand-600 hover:text-brand-700 font-medium">View all</Link>
+            <Link to="/events" className="text-sm text-foreground hover:text-foreground font-medium">View all</Link>
           </div>
           <div className="space-y-3">
             {upcomingEvents.map(event => (
@@ -431,8 +431,8 @@ export default function Dashboard() {
                 className="flex items-start justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors"
               >
                 <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-brand-50 border border-brand-200 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Calendar className="w-4 h-4 text-brand-600" />
+                  <div className="w-8 h-8 rounded-lg bg-secondary border border-border flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Calendar className="w-4 h-4 text-foreground" />
                   </div>
                   <div>
                     <p className="text-sm font-medium text-gray-900">{event.title}</p>
@@ -454,7 +454,7 @@ export default function Dashboard() {
           </div>
           <Link
             to="/events"
-            className="mt-4 flex items-center justify-center gap-2 w-full py-2 border border-dashed border-gray-300 rounded-lg text-sm text-gray-500 hover:border-brand-400 hover:text-brand-600 transition-colors"
+            className="mt-4 flex items-center justify-center gap-2 w-full py-2 border border-dashed border-gray-300 rounded-lg text-sm text-gray-500 hover:border-border hover:text-foreground transition-colors"
           >
             <Plus className="w-4 h-4" />
             Create New Event

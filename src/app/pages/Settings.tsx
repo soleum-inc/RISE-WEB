@@ -43,8 +43,8 @@ const sections: NavSection[] = [
   {
     id: 'beneficiary',
     label: 'Beneficiary Settings',
-    color: 'text-brand-700',
-    bgColor: 'bg-brand-50',
+    color: 'text-foreground',
+    bgColor: 'bg-secondary',
     items: [
       { id: 'ben-profile', label: 'Profile & Identity', icon: <User className="w-4 h-4" /> },
       { id: 'ben-matching', label: 'Needs & Matching', icon: <Radar className="w-4 h-4" /> },
@@ -57,8 +57,8 @@ const sections: NavSection[] = [
   {
     id: 'giver',
     label: 'Giver Settings',
-    color: 'text-brand-700',
-    bgColor: 'bg-brand-50',
+    color: 'text-foreground',
+    bgColor: 'bg-secondary',
     items: [
       { id: 'giv-profile', label: 'Profile & Organization', icon: <Building2 className="w-4 h-4" /> },
       { id: 'giv-preferences', label: 'Giving Preferences', icon: <Heart className="w-4 h-4" /> },
@@ -150,7 +150,7 @@ export default function Settings() {
                               : 'text-gray-600 hover:bg-white/60 hover:text-gray-900'
                           }`}
                         >
-                          <span className={activeItem === item.id ? 'text-brand-600' : 'text-gray-400'}>
+                          <span className={activeItem === item.id ? 'text-foreground' : 'text-gray-400'}>
                             {item.icon}
                           </span>
                           {item.label}

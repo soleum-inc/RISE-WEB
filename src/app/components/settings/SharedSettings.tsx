@@ -116,13 +116,13 @@ export function SharedAccountManagement() {
                 </div>
               </div>
               <span className={`text-xs px-2 py-0.5 rounded ${
-                account.status === 'Primary' ? 'bg-brand-100 text-brand-700' : 'bg-gray-200 text-gray-600'
+                account.status === 'Primary' ? 'bg-secondary text-foreground' : 'bg-gray-200 text-gray-600'
               }`}>
                 {account.status}
               </span>
             </div>
           ))}
-          <button className="w-full px-4 py-2 border-2 border-dashed border-gray-300 text-gray-600 rounded-lg text-sm hover:border-brand-600 hover:text-brand-600">
+          <button className="w-full px-4 py-2 border-2 border-dashed border-gray-300 text-gray-600 rounded-lg text-sm hover:border-border hover:text-foreground">
             + Link Another Account
           </button>
         </div>
@@ -150,8 +150,8 @@ export function SharedSupport() {
   return (
     <div>
       <div className="flex items-center gap-3 mb-6">
-        <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center">
-          <HelpCircle className="w-5 h-5 text-brand-600" />
+        <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
+          <HelpCircle className="w-5 h-5 text-foreground" />
         </div>
         <div>
           <h2 className="text-lg text-gray-900">Support</h2>
@@ -162,8 +162,8 @@ export function SharedSupport() {
       <SettingsSection title="Help Resources">
         <div className="space-y-3">
           <button className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 w-full text-left">
-            <div className="w-8 h-8 bg-brand-100 rounded-lg flex items-center justify-center shrink-0">
-              <HelpCircle className="w-4 h-4 text-brand-600" />
+            <div className="w-8 h-8 bg-secondary rounded-lg flex items-center justify-center shrink-0">
+              <HelpCircle className="w-4 h-4 text-foreground" />
             </div>
             <div>
               <p className="text-sm text-gray-900">Help Center</p>
@@ -171,8 +171,8 @@ export function SharedSupport() {
             </div>
           </button>
           <button className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 w-full text-left">
-            <div className="w-8 h-8 bg-brand-100 rounded-lg flex items-center justify-center shrink-0">
-              <MessageCircle className="w-4 h-4 text-brand-600" />
+            <div className="w-8 h-8 bg-secondary rounded-lg flex items-center justify-center shrink-0">
+              <MessageCircle className="w-4 h-4 text-foreground" />
             </div>
             <div>
               <p className="text-sm text-gray-900">Chat with Support</p>
@@ -271,7 +271,7 @@ export function SharedTrustVerification() {
               <p className="text-xs text-gray-500 ml-6">Expires: {cred.expires}</p>
             </div>
           ))}
-          <button className="w-full px-4 py-2 border-2 border-dashed border-gray-300 text-gray-600 rounded-lg text-sm hover:border-brand-600 hover:text-brand-600">
+          <button className="w-full px-4 py-2 border-2 border-dashed border-gray-300 text-gray-600 rounded-lg text-sm hover:border-border hover:text-foreground">
             + Add Credential
           </button>
         </div>

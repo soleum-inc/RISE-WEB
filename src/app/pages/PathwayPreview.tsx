@@ -291,7 +291,7 @@ export default function PathwayPreview() {
                 onClick={() => setFilterStatus('all')}
                 className={`px-3 py-1.5 rounded text-sm border ${
                   filterStatus === 'all'
-                    ? 'border-brand-600 bg-brand-50 text-brand-700 font-medium'
+                    ? 'border-border bg-secondary text-foreground font-medium'
                     : 'border-gray-300 hover:border-gray-400'
                 }`}
               >
@@ -334,7 +334,7 @@ export default function PathwayPreview() {
                   <div
                     key={module.id}
                     onClick={() => handleSelectModule(module)}
-                    className="p-5 bg-white border border-gray-200 rounded-lg hover:border-brand-500 hover:shadow-md transition-all cursor-pointer"
+                    className="p-5 bg-white border border-gray-200 rounded-lg hover:border-border hover:shadow-md transition-all cursor-pointer"
                   >
                     <div className="flex items-start justify-between">
                       <div className="flex-1">
@@ -353,11 +353,11 @@ export default function PathwayPreview() {
                           <span className="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs capitalize">
                             {module.pillar}
                           </span>
-                          <span className="px-2 py-1 bg-brand-100 text-brand-700 rounded text-xs font-medium">
+                          <span className="px-2 py-1 bg-secondary text-foreground rounded text-xs font-medium">
                             {module.seedsReward} seeds
                           </span>
                           {module.badgeUnlock && (
-                            <span className="px-2 py-1 bg-brand-100 text-brand-700 rounded text-xs">
+                            <span className="px-2 py-1 bg-secondary text-foreground rounded text-xs">
                               🏆 {module.badgeUnlock}
                             </span>
                           )}
@@ -396,11 +396,11 @@ export default function PathwayPreview() {
               <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm capitalize">
                 {selectedModule.pillar}
               </span>
-              <span className="px-3 py-1 bg-brand-100 text-brand-700 rounded-full text-sm font-medium">
+              <span className="px-3 py-1 bg-secondary text-foreground rounded-full text-sm font-medium">
                 {selectedModule.seedsReward} Seeds
               </span>
               {selectedModule.badgeUnlock && (
-                <span className="px-3 py-1 bg-brand-100 text-brand-700 rounded-full text-sm">
+                <span className="px-3 py-1 bg-secondary text-foreground rounded-full text-sm">
                   🏆 {selectedModule.badgeUnlock}
                 </span>
               )}
@@ -425,15 +425,15 @@ export default function PathwayPreview() {
                       {item.itemType === 'submodule' && item.subModule && (
                         <div
                           onClick={() => handleSelectSubModule(item.subModule!)}
-                          className="p-4 bg-brand-50 rounded-lg border border-brand-200 hover:border-brand-400 cursor-pointer transition-all"
+                          className="p-4 bg-secondary rounded-lg border border-border hover:border-border cursor-pointer transition-all"
                         >
                           <div className="flex items-start gap-3">
                             <div className="flex-shrink-0">
-                              <Circle className="w-5 h-5 text-brand-600" />
+                              <Circle className="w-5 h-5 text-foreground" />
                             </div>
                             <div className="flex-1 min-w-0">
                               <div className="flex items-center gap-2 mb-1">
-                                <span className="px-2 py-0.5 bg-brand-600 text-white rounded text-xs font-medium">
+                                <span className="px-2 py-0.5 bg-primary text-white rounded text-xs font-medium">
                                   SUB-MODULE
                                 </span>
                                 <h4 className="text-base font-semibold text-gray-900">
@@ -445,7 +445,7 @@ export default function PathwayPreview() {
                                 {item.subModule.contentBlocks.map((block: ContentBlock, blockIndex: number) => (
                                   <span
                                     key={block.id}
-                                    className="px-2 py-0.5 bg-white border border-brand-300 rounded text-xs text-gray-600"
+                                    className="px-2 py-0.5 bg-white border border-border rounded text-xs text-gray-600"
                                   >
                                     {getBlockIcon(block.type)} {block.type === 'event' ? 'Event' : `Q${blockIndex + 1}`}
                                   </span>
@@ -467,7 +467,7 @@ export default function PathwayPreview() {
                             <span className="px-2 py-0.5 bg-orange-600 text-white rounded text-xs font-medium">
                               EVENT
                             </span>
-                            <Calendar className="w-4 h-4 text-brand-600" />
+                            <Calendar className="w-4 h-4 text-foreground" />
                             <span className="text-sm font-medium">{item.eventBlock.eventTitle}</span>
                             <span className={`px-2 py-0.5 rounded text-xs text-white ${getEventColor(item.eventBlock.eventEngagement)}`}>
                               {item.eventBlock.eventEngagement}
@@ -488,7 +488,7 @@ export default function PathwayPreview() {
         <div>
           <div className="mb-6 flex items-start gap-3">
             <div className="flex-shrink-0 mt-1">
-              <Circle className="w-6 h-6 text-brand-600" />
+              <Circle className="w-6 h-6 text-foreground" />
             </div>
             <div>
               <h2 className="text-2xl font-bold text-gray-900 mb-2">{selectedSubModule.title}</h2>
@@ -523,10 +523,10 @@ export default function PathwayPreview() {
                           <p className="text-sm text-gray-700 mt-2">{block.question}</p>
                         )}
                         {block.type === 'event' && block.eventTitle && (
-                          <div className="mt-2 p-3 bg-brand-50 border border-brand-200 rounded">
+                          <div className="mt-2 p-3 bg-secondary border border-border rounded">
                             <div className="flex items-center gap-2 mb-1">
-                              <Calendar className="w-4 h-4 text-brand-700" />
-                              <span className="text-sm font-medium text-brand-900">{block.eventTitle}</span>
+                              <Calendar className="w-4 h-4 text-foreground" />
+                              <span className="text-sm font-medium text-foreground">{block.eventTitle}</span>
                             </div>
                             <span className={`inline-block px-2 py-0.5 rounded text-xs text-white ${getEventColor(block.eventEngagement)}`}>
                               {block.eventEngagement} engagement
@@ -534,7 +534,7 @@ export default function PathwayPreview() {
                           </div>
                         )}
                         {block.type === 'media' && (
-                          <div className="mt-2 p-3 bg-brand-50 border border-brand-200 rounded text-xs text-brand-700">
+                          <div className="mt-2 p-3 bg-secondary border border-border rounded text-xs text-foreground">
                             Media content block (video/audio)
                           </div>
                         )}

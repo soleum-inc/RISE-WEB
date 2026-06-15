@@ -717,7 +717,7 @@ export default function ModuleBuilder() {
           <button
             onClick={() => setActiveTab('builder')}
             className={`py-4 px-2 border-b-2 font-medium text-sm transition-colors ${
-              activeTab === 'builder' ? 'border-brand-600 text-brand-600' : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+              activeTab === 'builder' ? 'border-border text-foreground' : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
             }`}
           >
             Module Builder
@@ -725,7 +725,7 @@ export default function ModuleBuilder() {
           <button
             onClick={() => setActiveTab('library')}
             className={`py-4 px-2 border-b-2 font-medium text-sm transition-colors ${
-              activeTab === 'library' ? 'border-brand-600 text-brand-600' : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+              activeTab === 'library' ? 'border-border text-foreground' : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
             }`}
           >
             Content Library
@@ -773,7 +773,7 @@ export default function ModuleBuilder() {
                       key={mode.key}
                       onClick={() => setImportMode(mode.key)}
                       className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                        importMode === mode.key ? 'bg-brand-100 text-brand-700 border border-brand-200' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                        importMode === mode.key ? 'bg-secondary text-foreground border border-border' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                       }`}
                     >
                       <mode.icon className="w-4 h-4" />
@@ -834,7 +834,7 @@ export default function ModuleBuilder() {
                 {/* File Upload */}
                 {importMode === 'file' && (
                   <div className="space-y-3">
-                    <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-brand-400 transition-colors cursor-pointer"
+                    <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-border transition-colors cursor-pointer"
                       onClick={() => fileInputRef.current?.click()}>
                       <FileUp className="w-8 h-8 text-gray-400 mx-auto mb-3" />
                       <p className="text-sm font-medium text-gray-700">Click to upload or drag and drop</p>
@@ -924,11 +924,11 @@ export default function ModuleBuilder() {
                   </div>
                   <div className="ml-3 flex items-center bg-gray-100 rounded-lg p-1">
                     <button onClick={() => setLibraryView('table')}
-                      className={`p-1.5 rounded transition-colors ${libraryView === 'table' ? 'bg-white text-brand-600 shadow-sm' : 'text-gray-600 hover:text-gray-900'}`}>
+                      className={`p-1.5 rounded transition-colors ${libraryView === 'table' ? 'bg-white text-foreground shadow-sm' : 'text-gray-600 hover:text-gray-900'}`}>
                       <LayoutList className="w-4 h-4" />
                     </button>
                     <button onClick={() => setLibraryView('grid')}
-                      className={`p-1.5 rounded transition-colors ${libraryView === 'grid' ? 'bg-white text-brand-600 shadow-sm' : 'text-gray-600 hover:text-gray-900'}`}>
+                      className={`p-1.5 rounded transition-colors ${libraryView === 'grid' ? 'bg-white text-foreground shadow-sm' : 'text-gray-600 hover:text-gray-900'}`}>
                       <Grid className="w-4 h-4" />
                     </button>
                   </div>
@@ -963,7 +963,7 @@ export default function ModuleBuilder() {
                               <div className="text-xs text-gray-500 mt-0.5 max-w-xs truncate">{item.description}</div>
                             </td>
                             <td className="px-5 py-3">
-                              <span className="px-2 py-1 bg-brand-50 text-brand-700 rounded text-xs font-medium capitalize">{item.contentType}</span>
+                              <span className="px-2 py-1 bg-secondary text-foreground rounded text-xs font-medium capitalize">{item.contentType}</span>
                             </td>
                             <td className="px-5 py-3">
                               <div className="flex items-center gap-1.5 text-xs text-gray-500">
@@ -1003,7 +1003,7 @@ export default function ModuleBuilder() {
                     {filteredImports.map(item => (
                       <div key={item.id} className="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
                         <div className="flex items-start justify-between mb-2">
-                          <span className="px-2 py-1 bg-brand-50 text-brand-700 rounded text-xs font-medium capitalize">{item.contentType}</span>
+                          <span className="px-2 py-1 bg-secondary text-foreground rounded text-xs font-medium capitalize">{item.contentType}</span>
                           <select value={item.stage} onChange={e => handleTagItem(item.id, e.target.value as GraduationStage | '')}
                             className={`px-2 py-1 rounded text-xs font-medium border-0 cursor-pointer ${getStageBadgeColor(item.stage || 'untagged')}`}>
                             <option value="">Untagged</option>
@@ -1059,7 +1059,7 @@ export default function ModuleBuilder() {
                               <div className="text-xs text-gray-500 mt-0.5 max-w-xs truncate">{resource.description}</div>
                             </td>
                             <td className="px-5 py-3">
-                              <span className="px-2 py-1 bg-brand-50 text-brand-700 rounded text-xs font-medium capitalize">{resource.type}</span>
+                              <span className="px-2 py-1 bg-secondary text-foreground rounded text-xs font-medium capitalize">{resource.type}</span>
                             </td>
                             <td className="px-5 py-3 text-sm text-gray-600 capitalize">{resource.pillar}</td>
                             <td className="px-5 py-3">
@@ -1070,7 +1070,7 @@ export default function ModuleBuilder() {
                             <td className="px-5 py-3 text-sm text-gray-600">{resource.seedsValue}</td>
                             <td className="px-5 py-3 text-right">
                               <button onClick={() => addResourceToModule(resource)}
-                                className="text-brand-600 hover:text-brand-800 text-xs font-medium">
+                                className="text-foreground hover:text-foreground text-xs font-medium">
                                 + Add to Module
                               </button>
                             </td>
@@ -1084,7 +1084,7 @@ export default function ModuleBuilder() {
                     {filteredResources.map(resource => (
                       <div key={resource.id} className="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
                         <div className="flex items-start justify-between mb-2">
-                          <span className="px-2 py-1 bg-brand-50 text-brand-700 rounded text-xs font-medium capitalize">{resource.type}</span>
+                          <span className="px-2 py-1 bg-secondary text-foreground rounded text-xs font-medium capitalize">{resource.type}</span>
                           <span className={`px-2 py-1 rounded text-xs font-medium ${getStageBadgeColor(resource.stage)}`}>{resource.stage}</span>
                         </div>
                         <h4 className="font-medium text-gray-900 text-sm mb-1">{resource.title}</h4>
@@ -1092,7 +1092,7 @@ export default function ModuleBuilder() {
                         <div className="flex items-center justify-between pt-2 border-t border-gray-100">
                           <span className="text-xs text-gray-400">{resource.seedsValue} Seeds</span>
                           <button onClick={() => addResourceToModule(resource)}
-                            className="text-brand-600 hover:text-brand-800 text-xs font-medium">+ Add to Module</button>
+                            className="text-foreground hover:text-foreground text-xs font-medium">+ Add to Module</button>
                         </div>
                       </div>
                     ))}
@@ -1120,7 +1120,7 @@ export default function ModuleBuilder() {
                   </div>
                   <div className="flex items-center gap-3">
                     <button onClick={() => setShowWizard(true)}
-                      className="flex items-center gap-2 px-4 py-2 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors text-sm font-medium">
+                      className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors text-sm font-medium">
                       <Wand2 className="w-4 h-4" /> Module Wizard
                     </button>
                     <button onClick={() => handleCreateNewModule()}
@@ -1154,11 +1154,11 @@ export default function ModuleBuilder() {
                       </div>
                       <div className="ml-3 flex items-center bg-gray-100 rounded-lg p-1">
                         <button onClick={() => setModuleListView('table')}
-                          className={`p-1.5 rounded transition-colors ${moduleListView === 'table' ? 'bg-white text-brand-600 shadow-sm' : 'text-gray-600 hover:text-gray-900'}`}>
+                          className={`p-1.5 rounded transition-colors ${moduleListView === 'table' ? 'bg-white text-foreground shadow-sm' : 'text-gray-600 hover:text-gray-900'}`}>
                           <LayoutList className="w-4 h-4" />
                         </button>
                         <button onClick={() => setModuleListView('grid')}
-                          className={`p-1.5 rounded transition-colors ${moduleListView === 'grid' ? 'bg-white text-brand-600 shadow-sm' : 'text-gray-600 hover:text-gray-900'}`}>
+                          className={`p-1.5 rounded transition-colors ${moduleListView === 'grid' ? 'bg-white text-foreground shadow-sm' : 'text-gray-600 hover:text-gray-900'}`}>
                           <Grid className="w-4 h-4" />
                         </button>
                       </div>
@@ -1177,11 +1177,11 @@ export default function ModuleBuilder() {
                     {modules.length === 0 && (
                       <div className="flex gap-3 justify-center">
                         <button onClick={() => setShowWizard(true)}
-                          className="flex items-center gap-2 px-4 py-2 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors text-sm font-medium">
+                          className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors text-sm font-medium">
                           <Wand2 className="w-4 h-4" /> Use Wizard
                         </button>
                         <button onClick={() => handleCreateNewModule()}
-                          className="text-brand-600 hover:text-brand-800 font-medium text-sm">
+                          className="text-foreground hover:text-foreground font-medium text-sm">
                           Create blank module
                         </button>
                       </div>
@@ -1271,8 +1271,8 @@ export default function ModuleBuilder() {
                       <div className="p-6 border-b border-gray-200">
                         <div className="flex items-center justify-between">
                           <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center">
-                              <Wand2 className="w-5 h-5 text-brand-600" />
+                            <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
+                              <Wand2 className="w-5 h-5 text-foreground" />
                             </div>
                             <div>
                               <h3 className="text-lg font-bold text-gray-900">Module Wizard</h3>
@@ -1288,14 +1288,14 @@ export default function ModuleBuilder() {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           {wizardTemplates.map((template, i) => (
                             <button key={i} onClick={() => handleCreateNewModule(template)}
-                              className="text-left p-5 border-2 border-gray-200 rounded-lg hover:border-brand-400 hover:bg-brand-50/30 transition-all group">
+                              className="text-left p-5 border-2 border-gray-200 rounded-lg hover:border-border hover:bg-accent/30 transition-all group">
                               <div className="flex items-center gap-2 mb-2">
                                 <span className={`px-2 py-0.5 rounded text-xs font-medium ${getStageBadgeColor(template.stage)}`}>
                                   {template.stage}
                                 </span>
                                 <span className="px-2 py-0.5 bg-gray-100 text-gray-600 rounded text-xs capitalize">{template.pillar}</span>
                               </div>
-                              <h4 className="font-semibold text-gray-900 mb-1 group-hover:text-brand-700 transition-colors">{template.title}</h4>
+                              <h4 className="font-semibold text-gray-900 mb-1 group-hover:text-foreground transition-colors">{template.title}</h4>
                               <p className="text-xs text-gray-500 mb-3">{template.description}</p>
                               <div className="text-xs text-gray-400">
                                 {template.subModules.length} sub-modules: {template.subModules.join(', ')}
@@ -1306,7 +1306,7 @@ export default function ModuleBuilder() {
                         <div className="mt-6 p-4 bg-gray-50 rounded-lg border border-gray-200 text-center">
                           <p className="text-sm text-gray-600 mb-2">Want to start from scratch?</p>
                           <button onClick={() => { handleCreateNewModule(); setShowWizard(false); }}
-                            className="text-brand-600 hover:text-brand-800 font-medium text-sm">
+                            className="text-foreground hover:text-foreground font-medium text-sm">
                             Create blank module
                           </button>
                         </div>
@@ -1502,7 +1502,7 @@ function ModuleDetail({
                     setSelectedModule({ ...selectedModule, headerImage: suggested });
                     toast.success('Header image suggested!');
                   }}
-                  className="px-3 py-2 bg-brand-600 text-white rounded-lg text-sm font-medium hover:bg-brand-700 transition-colors shadow-lg flex items-center gap-1.5"
+                  className="px-3 py-2 bg-primary text-white rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors shadow-lg flex items-center gap-1.5"
                 >
                   <Sparkles className="w-3.5 h-3.5" /> Suggest
                 </button>
@@ -1532,7 +1532,7 @@ function ModuleDetail({
                     setSelectedModule({ ...selectedModule, headerImage: suggested });
                     toast.success('Header image suggested!');
                   }}
-                  className="flex items-center gap-2 px-4 py-2 bg-brand-50 border border-brand-200 text-brand-700 rounded-lg text-sm font-medium hover:bg-brand-100 transition-colors"
+                  className="flex items-center gap-2 px-4 py-2 bg-secondary border border-border text-foreground rounded-lg text-sm font-medium hover:bg-accent transition-colors"
                 >
                   <Sparkles className="w-4 h-4" /> Suggest Image
                 </button>
@@ -1561,7 +1561,7 @@ function ModuleDetail({
             <div className="flex items-center justify-between mb-1">
               <label className="block text-sm font-medium text-gray-700">Description</label>
               {selectedModule.title && !selectedModule.description && (
-                <span className="text-xs text-brand-600 italic">Auto-fills when you enter a title</span>
+                <span className="text-xs text-foreground italic">Auto-fills when you enter a title</span>
               )}
             </div>
             <textarea value={selectedModule.description}
@@ -1608,7 +1608,7 @@ function ModuleDetail({
                   setSelectedModule({ ...selectedModule, seedsReward: suggested });
                   toast.success(`Suggested ${suggested} seeds`);
                 }}
-                  className="flex items-center gap-1 text-xs text-brand-600 hover:text-brand-800 font-medium">
+                  className="flex items-center gap-1 text-xs text-foreground hover:text-foreground font-medium">
                   <Sparkles className="w-3 h-3" /> Suggest
                 </button>
               </div>
@@ -1624,7 +1624,7 @@ function ModuleDetail({
                   setSelectedModule({ ...selectedModule, badgeUnlock: suggested });
                   toast.success(`Suggested: ${suggested}`);
                 }}
-                  className="flex items-center gap-1 text-xs text-brand-600 hover:text-brand-800 font-medium">
+                  className="flex items-center gap-1 text-xs text-foreground hover:text-foreground font-medium">
                   <Sparkles className="w-3 h-3" /> Suggest
                 </button>
               </div>
@@ -1646,7 +1646,7 @@ function ModuleDetail({
             {/* Smart Suggest Toggle */}
             <button onClick={() => setShowSmartSuggest(!showSmartSuggest)}
               className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
-                showSmartSuggest ? 'bg-brand-100 text-brand-700' : 'bg-brand-50 text-brand-600 hover:bg-brand-100'
+                showSmartSuggest ? 'bg-secondary text-foreground' : 'bg-secondary text-foreground hover:bg-accent'
               }`}>
               <Sparkles className="w-4 h-4" /> Smart Suggest
             </button>
@@ -1664,7 +1664,7 @@ function ModuleDetail({
                   <div className="absolute right-0 mt-2 w-52 bg-white rounded-lg shadow-xl border border-gray-200 py-1.5 z-[101]">
                     <button onClick={() => { handleAddSubModule(); setShowAddMenu(false); }}
                       className="w-full px-4 py-2 text-left hover:bg-gray-50 flex items-center gap-3 text-sm text-gray-700">
-                      <Layers className="w-4 h-4 text-brand-600" /> Sub-module
+                      <Layers className="w-4 h-4 text-foreground" /> Sub-module
                     </button>
                     <button onClick={() => { setShowEventSelector(true); setShowAddMenu(false); }}
                       className="w-full px-4 py-2 text-left hover:bg-gray-50 flex items-center gap-3 text-sm text-gray-700">
@@ -1672,7 +1672,7 @@ function ModuleDetail({
                     </button>
                     <button onClick={() => { setShowModuleLibrary(true); setShowAddMenu(false); }}
                       className="w-full px-4 py-2 text-left hover:bg-gray-50 flex items-center gap-3 text-sm text-gray-700">
-                      <BookOpen className="w-4 h-4 text-brand-600" /> From Template Library
+                      <BookOpen className="w-4 h-4 text-foreground" /> From Template Library
                     </button>
                   </div>
                 </>
@@ -1683,35 +1683,35 @@ function ModuleDetail({
 
         {/* Smart Suggestions Panel */}
         {showSmartSuggest && (
-          <div className="mb-4 p-4 bg-brand-50 border border-brand-200 rounded-lg">
+          <div className="mb-4 p-4 bg-secondary border border-border rounded-lg">
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-brand-600" />
-                <h4 className="font-medium text-brand-900 text-sm">
+                <Sparkles className="w-4 h-4 text-foreground" />
+                <h4 className="font-medium text-foreground text-sm">
                   Suggested content for {selectedModule.stage ? `${getStageLabel(selectedModule.stage)} stage` : 'this module'}
                 </h4>
               </div>
-              <button onClick={() => setShowSmartSuggest(false)} className="text-brand-400 hover:text-brand-600">
+              <button onClick={() => setShowSmartSuggest(false)} className="text-foreground hover:text-foreground">
                 <X className="w-4 h-4" />
               </button>
             </div>
             {selectedModule.stage ? (
               <div className="space-y-2 max-h-48 overflow-auto">
                 {getStageSuggestions().slice(0, 8).map((sm: any, i: number) => (
-                  <div key={i} className="flex items-center justify-between p-2.5 bg-white rounded-lg border border-brand-100">
+                  <div key={i} className="flex items-center justify-between p-2.5 bg-white rounded-lg border border-border">
                     <div className="flex-1 min-w-0 mr-3">
                       <div className="text-sm font-medium text-gray-900">{sm.title}</div>
                       <div className="text-xs text-gray-500 truncate">{sm.description}</div>
                     </div>
                     <button onClick={() => handleAddLibrarySubModule({ title: sm.parentTitle }, sm)}
-                      className="px-2.5 py-1 bg-brand-600 text-white rounded text-xs font-medium hover:bg-brand-700 transition-colors shrink-0">
+                      className="px-2.5 py-1 bg-primary text-white rounded text-xs font-medium hover:bg-primary/90 transition-colors shrink-0">
                       + Add
                     </button>
                   </div>
                 ))}
               </div>
             ) : (
-              <p className="text-sm text-brand-700">Select a graduation stage above to get contextual suggestions.</p>
+              <p className="text-sm text-foreground">Select a graduation stage above to get contextual suggestions.</p>
             )}
           </div>
         )}
@@ -1756,7 +1756,7 @@ function ModuleDetail({
                 <div className="flex-1 min-w-0">
                   {item.itemType === 'submodule' && item.subModule && (
                     <div className="flex items-center gap-2">
-                      <span className="px-2 py-0.5 bg-brand-100 text-brand-700 rounded text-xs font-medium shrink-0">Sub-module</span>
+                      <span className="px-2 py-0.5 bg-secondary text-foreground rounded text-xs font-medium shrink-0">Sub-module</span>
                       <span className="font-medium text-gray-900 text-sm truncate">{item.subModule.title || 'Untitled'}</span>
                       <span className="text-xs text-gray-400 shrink-0">{item.subModule.contentBlocks.length} lessons</span>
                     </div>
@@ -1770,7 +1770,7 @@ function ModuleDetail({
                   )}
                   {item.itemType === 'resource' && item.resource && (
                     <div className="flex items-center gap-2">
-                      <span className="px-2 py-0.5 bg-brand-100 text-brand-700 rounded text-xs font-medium shrink-0">Resource</span>
+                      <span className="px-2 py-0.5 bg-secondary text-foreground rounded text-xs font-medium shrink-0">Resource</span>
                       <span className="font-medium text-gray-900 text-sm truncate">{item.resource.title}</span>
                       <span className="text-xs text-gray-400 shrink-0">{item.resource.seedsValue} seeds</span>
                     </div>
@@ -1781,7 +1781,7 @@ function ModuleDetail({
                 <div className="flex items-center gap-1.5 shrink-0">
                   {item.itemType === 'submodule' && (
                     <button onClick={e => { e.stopPropagation(); setSelectedSubModule(item.subModule!); setIsNewSubModule(false); setViewMode('submodule-detail'); }}
-                      className="p-1.5 text-brand-600 hover:text-brand-800 hover:bg-brand-50 rounded transition-colors">
+                      className="p-1.5 text-foreground hover:text-foreground hover:bg-accent rounded transition-colors">
                       <Edit2 className="w-3.5 h-3.5" />
                     </button>
                   )}
@@ -1821,7 +1821,7 @@ function ModuleDetail({
             </div>
             <div className="flex-1 overflow-auto p-6 space-y-2">
               {mockEvents.filter((e: any) => !eventFilterEngagement || e.engagement === eventFilterEngagement).map((event: any) => (
-                <div key={event.id} className="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-brand-400 transition-colors">
+                <div key={event.id} className="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-border transition-colors">
                   <div className="flex-1">
                     <h4 className="font-medium text-gray-900 text-sm mb-0.5">{event.title}</h4>
                     <div className="flex items-center gap-2 text-xs text-gray-500">
@@ -1989,7 +1989,7 @@ function SubModuleDetail({
                 <div className="flex items-start justify-between mb-3">
                   <div className="flex items-center gap-2">
                     <span className="text-sm font-medium text-gray-500">#{index + 1}</span>
-                    <span className="px-2 py-1 bg-brand-100 text-brand-700 rounded text-xs font-medium capitalize">
+                    <span className="px-2 py-1 bg-secondary text-foreground rounded text-xs font-medium capitalize">
                       {block.type.replace('-', ' ')}
                     </span>
                   </div>

@@ -50,7 +50,7 @@ export function MatchDetailModal({ isOpen, onClose, requestId }: MatchDetailModa
 
         <div className="space-y-6 py-4">
           {/* Request Context */}
-          <div className="p-4 bg-brand-50 border border-brand-200 rounded-lg">
+          <div className="p-4 bg-secondary border border-border rounded-lg">
             <h3 className="font-semibold text-gray-900 mb-2">Request Details</h3>
             <div className="space-y-1 text-sm">
               <p><span className="font-medium">From:</span> {request.submittedBy}</p>
@@ -58,7 +58,7 @@ export function MatchDetailModal({ isOpen, onClose, requestId }: MatchDetailModa
               <p><span className="font-medium">Need:</span> {request.content}</p>
               <p><span className="font-medium">Urgency:</span> 
                 <span className={`ml-2 px-2 py-0.5 rounded text-xs font-medium ${
-                  request.urgency === 'acute' ? 'bg-red-100 text-red-800' : 'bg-brand-100 text-brand-800'
+                  request.urgency === 'acute' ? 'bg-red-100 text-red-800' : 'bg-secondary text-foreground'
                 }`}>
                   {request.urgency === 'acute' ? 'Acute Crisis' : 'Chronic Need'}
                 </span>
@@ -69,7 +69,7 @@ export function MatchDetailModal({ isOpen, onClose, requestId }: MatchDetailModa
           {/* AI Suggestions */}
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <Star className="w-5 h-5 text-brand-600" />
+              <Star className="w-5 h-5 text-foreground" />
               <h3 className="font-semibold text-gray-900">AI Recommended Matches</h3>
             </div>
             
@@ -82,7 +82,7 @@ export function MatchDetailModal({ isOpen, onClose, requestId }: MatchDetailModa
                     onClick={() => setSelectedGiverId(giver.id)}
                     className={`w-full p-4 border-2 rounded-lg text-left transition-all ${
                       selectedGiverId === giver.id
-                        ? 'border-brand-600 bg-brand-50'
+                        ? 'border-border bg-secondary'
                         : 'border-gray-200 hover:border-gray-300'
                     }`}
                   >
@@ -105,12 +105,12 @@ export function MatchDetailModal({ isOpen, onClose, requestId }: MatchDetailModa
                           </div>
                         )}
                         {/* Show why this is a match */}
-                        <p className="text-xs text-brand-700 italic mt-2">
+                        <p className="text-xs text-foreground italic mt-2">
                           ✓ High availability • ✓ Relevant experience • ✓ Strong track record
                         </p>
                       </div>
                       <div className="text-right ml-4">
-                        <div className="text-2xl font-bold text-brand-600">{matchScore}%</div>
+                        <div className="text-2xl font-bold text-foreground">{matchScore}%</div>
                         <div className="text-xs text-gray-500">Match Score</div>
                       </div>
                     </div>
@@ -142,7 +142,7 @@ export function MatchDetailModal({ isOpen, onClose, requestId }: MatchDetailModa
                     onClick={() => setSelectedGiverId(giver.id)}
                     className={`w-full p-3 border rounded-lg text-left transition-all ${
                       selectedGiverId === giver.id
-                        ? 'border-brand-600 bg-brand-50'
+                        ? 'border-border bg-secondary'
                         : 'border-gray-200 hover:bg-gray-50'
                     }`}
                   >
@@ -152,7 +152,7 @@ export function MatchDetailModal({ isOpen, onClose, requestId }: MatchDetailModa
                         <p className="text-xs text-gray-600">{giver.role} • {giver.significance.hoursGiven} hours</p>
                       </div>
                       {selectedGiverId === giver.id && (
-                        <CheckCircle2 className="w-5 h-5 text-brand-600" />
+                        <CheckCircle2 className="w-5 h-5 text-foreground" />
                       )}
                     </div>
                   </button>

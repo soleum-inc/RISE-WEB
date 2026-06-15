@@ -52,8 +52,8 @@ export function ASSAHealthMetrics({ metrics, showInsights = false, insights }: A
         <div className="bg-white rounded-lg border border-gray-200 p-4">
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center">
-                <Heart className="w-5 h-5 text-brand-600" />
+              <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
+                <Heart className="w-5 h-5 text-foreground" />
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900">Belonging</h3>
@@ -84,8 +84,8 @@ export function ASSAHealthMetrics({ metrics, showInsights = false, insights }: A
         <div className="bg-white rounded-lg border border-gray-200 p-4">
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center">
-                <Shield className="w-5 h-5 text-brand-600" />
+              <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
+                <Shield className="w-5 h-5 text-foreground" />
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900">Security</h3>
@@ -116,8 +116,8 @@ export function ASSAHealthMetrics({ metrics, showInsights = false, insights }: A
         <div className="bg-white rounded-lg border border-gray-200 p-4">
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center">
-                <Zap className="w-5 h-5 text-brand-600" />
+              <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
+                <Zap className="w-5 h-5 text-foreground" />
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900">Agency</h3>
@@ -179,9 +179,9 @@ export function ASSAHealthMetrics({ metrics, showInsights = false, insights }: A
 
       {/* Overall Insights */}
       {showInsights && insights?.overall && (
-        <div className="bg-brand-50 border border-brand-200 rounded-lg p-4">
-          <h4 className="font-semibold text-brand-900 mb-2">💡 Admin Insights</h4>
-          <p className="text-sm text-brand-800">{insights.overall}</p>
+        <div className="bg-secondary border border-border rounded-lg p-4">
+          <h4 className="font-semibold text-foreground mb-2">💡 Admin Insights</h4>
+          <p className="text-sm text-foreground">{insights.overall}</p>
         </div>
       )}
     </div>

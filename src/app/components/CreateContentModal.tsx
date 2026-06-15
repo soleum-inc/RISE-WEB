@@ -128,11 +128,11 @@ export function CreateContentModal({ isOpen, onClose }: CreateContentModalProps)
                     onClick={() => setContentType(type)}
                     className={`p-4 rounded-lg border-2 transition-all text-center ${
                       contentType === type
-                        ? 'border-brand-600 bg-brand-50 text-brand-700'
+                        ? 'border-border bg-secondary text-foreground'
                         : 'border-gray-200 hover:border-gray-300'
                     }`}
                   >
-                    <Icon className={`w-6 h-6 mx-auto mb-2 ${contentType === type ? 'text-brand-600' : 'text-gray-600'}`} />
+                    <Icon className={`w-6 h-6 mx-auto mb-2 ${contentType === type ? 'text-foreground' : 'text-gray-600'}`} />
                     <div className="text-sm font-medium capitalize">{type}</div>
                   </button>
                 );
@@ -142,7 +142,7 @@ export function CreateContentModal({ isOpen, onClose }: CreateContentModalProps)
 
           {/* ─── BIAS MODE: BIAS Content Guidance (additive) ─── */}
           {showASSA && (
-          <div className="bg-gradient-to-br from-brand-50 to-brand-50 border border-brand-200 rounded-lg p-5">
+          <div className="bg-gradient-to-br from-secondary to-secondary border border-border rounded-lg p-5">
             <h3 className="text-base font-semibold text-gray-900 mb-3 flex items-center gap-2">
               💡 BIAS Content Guidance
             </h3>
@@ -153,32 +153,32 @@ export function CreateContentModal({ isOpen, onClose }: CreateContentModalProps)
               </p>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="bg-white/70 rounded-lg p-3 border border-brand-200">
+                <div className="bg-white/70 rounded-lg p-3 border border-border">
                   <div className="flex items-center gap-2 mb-1">
                     <span className="text-base">💗</span>
-                    <h4 className="font-semibold text-sm text-brand-900">Belonging</h4>
+                    <h4 className="font-semibold text-sm text-foreground">Belonging</h4>
                   </div>
-                  <p className="text-xs text-brand-800">
+                  <p className="text-xs text-foreground">
                     Content that builds belonging, welcomes newcomers, shares success stories, and creates connection
                   </p>
                 </div>
 
-                <div className="bg-white/70 rounded-lg p-3 border border-brand-200">
+                <div className="bg-white/70 rounded-lg p-3 border border-border">
                   <div className="flex items-center gap-2 mb-1">
                     <span className="text-base">🛡️</span>
-                    <h4 className="font-semibold text-sm text-brand-900">Security</h4>
+                    <h4 className="font-semibold text-sm text-foreground">Security</h4>
                   </div>
-                  <p className="text-xs text-brand-800">
+                  <p className="text-xs text-foreground">
                     Content about safety, basic needs, housing, food access, healthcare, and crisis resources
                   </p>
                 </div>
 
-                <div className="bg-white/70 rounded-lg p-3 border border-brand-200">
+                <div className="bg-white/70 rounded-lg p-3 border border-border">
                   <div className="flex items-center gap-2 mb-1">
                     <span className="text-base">⚡</span>
-                    <h4 className="font-semibold text-sm text-brand-900">Agency</h4>
+                    <h4 className="font-semibold text-sm text-foreground">Agency</h4>
                   </div>
-                  <p className="text-xs text-brand-800">
+                  <p className="text-xs text-foreground">
                     Content that builds skills, teaches new abilities, offers career development, and empowers action
                   </p>
                 </div>
@@ -194,8 +194,8 @@ export function CreateContentModal({ isOpen, onClose }: CreateContentModalProps)
                 </div>
               </div>
 
-              <div className="bg-brand-100 border border-brand-300 rounded-lg p-3 mt-3">
-                <p className="text-xs text-brand-900">
+              <div className="bg-secondary border border-border rounded-lg p-3 mt-3">
+                <p className="text-xs text-foreground">
                   <strong>💡 Pro Tip:</strong> Check your Dashboard's Community BIAS Health section to see which dimensions need more content support.
                 </p>
               </div>
@@ -204,25 +204,25 @@ export function CreateContentModal({ isOpen, onClose }: CreateContentModalProps)
           )}
 
           {/* ─── Content Tips (both modes) ─── */}
-          <div className="bg-brand-50 border border-brand-200 rounded-lg p-5">
+          <div className="bg-secondary border border-border rounded-lg p-5">
             <h3 className="text-base font-semibold text-gray-900 mb-3 flex items-center gap-2">
-              <Lightbulb className="w-4 h-4 text-brand-600" />
+              <Lightbulb className="w-4 h-4 text-foreground" />
               Content Tips
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
-              <div className="bg-white/80 rounded-lg p-3 border border-brand-200">
+              <div className="bg-white/80 rounded-lg p-3 border border-border">
                 <p className="font-medium text-gray-800 mb-1">📹 Videos & Audio</p>
                 <p className="text-xs text-gray-600">Great for skill-building lessons, testimonials, and event recaps. Keep under 10 mins for best engagement.</p>
               </div>
-              <div className="bg-white/80 rounded-lg p-3 border border-brand-200">
+              <div className="bg-white/80 rounded-lg p-3 border border-border">
                 <p className="font-medium text-gray-800 mb-1">📄 Articles</p>
                 <p className="text-xs text-gray-600">Ideal for detailed guides, announcements, and resource lists. Use headers and bullet points for readability.</p>
               </div>
-              <div className="bg-white/80 rounded-lg p-3 border border-brand-200">
+              <div className="bg-white/80 rounded-lg p-3 border border-border">
                 <p className="font-medium text-gray-800 mb-1">📅 Event Posts</p>
                 <p className="text-xs text-gray-600">Drive sign-ups by featuring upcoming events in the community feed with key details and a clear call to action.</p>
               </div>
-              <div className="bg-white/80 rounded-lg p-3 border border-brand-200">
+              <div className="bg-white/80 rounded-lg p-3 border border-border">
                 <p className="font-medium text-gray-800 mb-1">🏆 Recognition Posts</p>
                 <p className="text-xs text-gray-600">Celebrate member milestones, volunteer achievements, and course completions to boost morale and retention.</p>
               </div>

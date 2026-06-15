@@ -267,7 +267,7 @@ export function CreateProjectModal({ isOpen, onClose, onCreate, onUpdate, editin
                       key={opt.value}
                       onClick={() => setCategory(opt.value as EventCategory)}
                       className={`p-3 rounded-lg border-2 text-left transition-all ${
-                        category === opt.value ? 'border-brand-600 bg-brand-50' : 'border-gray-200 hover:border-gray-300'
+                        category === opt.value ? 'border-border bg-secondary' : 'border-gray-200 hover:border-gray-300'
                       }`}
                     >
                       <opt.icon className="w-5 h-5 text-gray-700 mb-1" />
@@ -291,7 +291,7 @@ export function CreateProjectModal({ isOpen, onClose, onCreate, onUpdate, editin
                       key={opt.value}
                       onClick={() => setScheduleType(opt.value as ScheduleType)}
                       className={`flex items-center gap-2 p-3 rounded-lg border-2 text-left transition-all ${
-                        scheduleType === opt.value ? 'border-brand-600 bg-brand-50' : 'border-gray-200 hover:border-gray-300'
+                        scheduleType === opt.value ? 'border-border bg-secondary' : 'border-gray-200 hover:border-gray-300'
                       }`}
                     >
                       <opt.icon className="w-4 h-4 text-gray-600" />
@@ -376,11 +376,11 @@ export function CreateProjectModal({ isOpen, onClose, onCreate, onUpdate, editin
           {/* Step 2: Logic Tags */}
           {currentStep === 2 && (
             <div className="space-y-4">
-              <div className="flex items-start gap-2 p-3 bg-brand-50 border border-brand-200 rounded-lg mb-4">
-                <Info className="w-5 h-5 text-brand-600 mt-0.5 flex-shrink-0" />
+              <div className="flex items-start gap-2 p-3 bg-secondary border border-border rounded-lg mb-4">
+                <Info className="w-5 h-5 text-foreground mt-0.5 flex-shrink-0" />
                 <div>
-                  <p className="text-sm font-medium text-brand-900">Required for Pathway Logic</p>
-                  <p className="text-xs text-brand-700 mt-1">These tags determine who sees this in the mobile app</p>
+                  <p className="text-sm font-medium text-foreground">Required for Pathway Logic</p>
+                  <p className="text-xs text-foreground mt-1">These tags determine who sees this in the mobile app</p>
                 </div>
               </div>
 
@@ -426,7 +426,7 @@ export function CreateProjectModal({ isOpen, onClose, onCreate, onUpdate, editin
                       key={option.value}
                       onClick={() => setEngagementLevel(option.value as EngagementLevel)}
                       className={`w-full px-4 py-3 rounded-lg border-2 text-left transition-all ${
-                        engagementLevel === option.value ? 'border-brand-600 bg-brand-50' : 'border-gray-200 hover:border-gray-300'
+                        engagementLevel === option.value ? 'border-border bg-secondary' : 'border-gray-200 hover:border-gray-300'
                       }`}
                     >
                       <div className="font-medium text-gray-900">{option.emoji} {option.label}</div>

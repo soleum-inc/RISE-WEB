@@ -5,8 +5,8 @@ export function BeneficiaryProfileIdentity() {
   return (
     <div>
       <div className="flex items-center gap-3 mb-6">
-        <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center">
-          <User className="w-5 h-5 text-brand-600" />
+        <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
+          <User className="w-5 h-5 text-foreground" />
         </div>
         <div>
           <h2 className="text-lg text-gray-900">Profile & Identity</h2>
@@ -82,8 +82,8 @@ export function BeneficiaryNeedsMatching() {
   return (
     <div>
       <div className="flex items-center gap-3 mb-6">
-        <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center">
-          <Radar className="w-5 h-5 text-brand-600" />
+        <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
+          <Radar className="w-5 h-5 text-foreground" />
         </div>
         <div>
           <h2 className="text-lg text-gray-900">Needs & Matching</h2>
@@ -184,8 +184,8 @@ export function BeneficiaryNotifications() {
   return (
     <div>
       <div className="flex items-center gap-3 mb-6">
-        <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center">
-          <Bell className="w-5 h-5 text-brand-600" />
+        <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
+          <Bell className="w-5 h-5 text-foreground" />
         </div>
         <div>
           <h2 className="text-lg text-gray-900">Notifications</h2>
@@ -216,8 +216,8 @@ export function BeneficiaryDocumentsRecords() {
   return (
     <div>
       <div className="flex items-center gap-3 mb-6">
-        <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center">
-          <FileText className="w-5 h-5 text-brand-600" />
+        <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
+          <FileText className="w-5 h-5 text-foreground" />
         </div>
         <div>
           <h2 className="text-lg text-gray-900">Documents & Records</h2>
@@ -254,7 +254,7 @@ export function BeneficiaryDocumentsRecords() {
           ))}
         </div>
         <div className="pt-3">
-          <button className="flex items-center gap-2 px-4 py-2 text-sm border-2 border-dashed border-gray-300 text-gray-600 rounded-lg hover:border-brand-500 hover:text-brand-600 w-full justify-center">
+          <button className="flex items-center gap-2 px-4 py-2 text-sm border-2 border-dashed border-gray-300 text-gray-600 rounded-lg hover:border-border hover:text-foreground w-full justify-center">
             <Upload className="w-4 h-4" />
             Upload Document
           </button>

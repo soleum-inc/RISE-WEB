@@ -105,7 +105,7 @@ export function SettingsCheckboxGroup({ label, description, options }: SettingsC
             <input
               type="checkbox"
               defaultChecked={opt.defaultChecked}
-              className="w-3.5 h-3.5 text-brand-600 rounded border-gray-300"
+              className="w-3.5 h-3.5 text-foreground rounded border-gray-300"
             />
             <span className="text-sm text-gray-700">{opt.label}</span>
           </label>

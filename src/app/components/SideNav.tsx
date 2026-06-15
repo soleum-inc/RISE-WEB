@@ -150,7 +150,7 @@ export function SideNav() {
 
       <div className="border-t border-sidebar-border p-3">
         <div className="flex items-center gap-3 px-3 py-2">
-          <div className="bg-brand-gradient grid size-10 place-items-center rounded-full font-semibold text-white">
+          <div className="grid size-10 place-items-center rounded-full bg-secondary font-semibold text-foreground">
             PT
           </div>
           <div className="min-w-0 flex-1">

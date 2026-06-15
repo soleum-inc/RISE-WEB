@@ -5,8 +5,8 @@ export function GiverProfileOrganization() {
   return (
     <div>
       <div className="flex items-center gap-3 mb-6">
-        <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center">
-          <Building2 className="w-5 h-5 text-brand-600" />
+        <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
+          <Building2 className="w-5 h-5 text-foreground" />
         </div>
         <div>
           <h2 className="text-lg text-gray-900">Profile & Organization</h2>
@@ -44,11 +44,11 @@ export function GiverProfileOrganization() {
           <p className="text-sm text-gray-900 mb-2">Service Areas (Geographic)</p>
           <div className="flex flex-wrap gap-2">
             {['Atlanta Metro', 'Fulton County', 'DeKalb County', 'Clayton County'].map(area => (
-              <span key={area} className="px-3 py-1 bg-brand-50 text-brand-700 text-xs rounded-full border border-brand-200">
+              <span key={area} className="px-3 py-1 bg-secondary text-foreground text-xs rounded-full border border-border">
                 {area} &times;
               </span>
             ))}
-            <button className="px-3 py-1 text-xs text-gray-500 border border-dashed border-gray-300 rounded-full hover:border-brand-500 hover:text-brand-600">
+            <button className="px-3 py-1 text-xs text-gray-500 border border-dashed border-gray-300 rounded-full hover:border-border hover:text-foreground">
               + Add Area
             </button>
           </div>
@@ -57,11 +57,11 @@ export function GiverProfileOrganization() {
           <p className="text-sm text-gray-900 mb-2">Categories of Aid Offered</p>
           <div className="flex flex-wrap gap-2">
             {['Food Assistance', 'Housing', 'Job Training', 'Mental Health', 'Youth Programs', 'Emergency Aid'].map(cat => (
-              <span key={cat} className="px-3 py-1 bg-brand-50 text-brand-700 text-xs rounded-full border border-brand-200">
+              <span key={cat} className="px-3 py-1 bg-secondary text-foreground text-xs rounded-full border border-border">
                 {cat} &times;
               </span>
             ))}
-            <button className="px-3 py-1 text-xs text-gray-500 border border-dashed border-gray-300 rounded-full hover:border-brand-500 hover:text-brand-600">
+            <button className="px-3 py-1 text-xs text-gray-500 border border-dashed border-gray-300 rounded-full hover:border-border hover:text-foreground">
               + Add Category
             </button>
           </div>
@@ -143,8 +143,8 @@ export function GiverTransparencyReporting() {
   return (
     <div>
       <div className="flex items-center gap-3 mb-6">
-        <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center">
-          <BarChart3 className="w-5 h-5 text-brand-600" />
+        <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
+          <BarChart3 className="w-5 h-5 text-foreground" />
         </div>
         <div>
           <h2 className="text-lg text-gray-900">Transparency & Reporting</h2>
@@ -187,8 +187,8 @@ export function GiverNotifications() {
   return (
     <div>
       <div className="flex items-center gap-3 mb-6">
-        <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center">
-          <Bell className="w-5 h-5 text-brand-600" />
+        <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
+          <Bell className="w-5 h-5 text-foreground" />
         </div>
         <div>
           <h2 className="text-lg text-gray-900">Giver Notifications</h2>
@@ -214,8 +214,8 @@ export function GiverTeamAccess() {
   return (
     <div>
       <div className="flex items-center gap-3 mb-6">
-        <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center">
-          <Users className="w-5 h-5 text-brand-600" />
+        <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
+          <Users className="w-5 h-5 text-foreground" />
         </div>
         <div>
           <h2 className="text-lg text-gray-900">Team & Access</h2>
@@ -242,16 +242,16 @@ export function GiverTeamAccess() {
                 </div>
               </div>
               <span className={`px-2 py-1 text-xs rounded ${
-                member.role === 'Admin' ? 'bg-brand-100 text-brand-700' :
-                member.role === 'Case Manager' ? 'bg-brand-100 text-brand-700' :
+                member.role === 'Admin' ? 'bg-secondary text-foreground' :
+                member.role === 'Case Manager' ? 'bg-secondary text-foreground' :
                 member.role === 'Finance' ? 'bg-amber-100 text-amber-700' :
-                'bg-brand-100 text-brand-700'
+                'bg-secondary text-foreground'
               }`}>
                 {member.role}
               </span>
             </div>
           ))}
-          <button className="w-full px-4 py-2 border-2 border-dashed border-gray-300 text-gray-600 rounded-lg text-sm hover:border-brand-600 hover:text-brand-600">
+          <button className="w-full px-4 py-2 border-2 border-dashed border-gray-300 text-gray-600 rounded-lg text-sm hover:border-border hover:text-foreground">
             + Invite Team Member
           </button>
         </div>

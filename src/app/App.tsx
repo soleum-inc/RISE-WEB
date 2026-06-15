@@ -28,7 +28,7 @@ function PageLoader() {
   return (
     <div className="flex h-full min-h-[60vh] items-center justify-center">
       <div
-        className="size-6 animate-spin rounded-full border-2 border-brand-200 border-t-brand-600"
+        className="size-6 animate-spin rounded-full border-2 border-border border-t-brand-600"
         role="status"
         aria-label="Loading"
       />

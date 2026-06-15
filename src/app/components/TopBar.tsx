@@ -59,7 +59,7 @@ export function TopBar() {
         type="button"
         className="flex items-center gap-3 rounded-full border border-border bg-card py-1.5 pl-1.5 pr-3 shadow-sm transition-colors hover:bg-accent"
       >
-        <span className="bg-brand-gradient grid size-9 place-items-center rounded-full text-sm font-bold text-white">
+        <span className="grid size-9 place-items-center rounded-full bg-secondary text-sm font-bold text-foreground">
           RR
         </span>
         <span className="flex flex-col items-start leading-tight">
