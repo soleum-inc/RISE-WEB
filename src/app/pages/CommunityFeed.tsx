@@ -31,9 +31,9 @@ export default function CommunityFeed() {
 
   const getContentTypeBg = (type: string) => {
     switch (type) {
-      case 'video': return 'bg-purple-100 text-purple-700';
-      case 'audio': return 'bg-pink-100 text-pink-700';
-      case 'article': return 'bg-blue-100 text-blue-700';
+      case 'video': return 'bg-brand-100 text-brand-700';
+      case 'audio': return 'bg-brand-100 text-brand-700';
+      case 'article': return 'bg-brand-100 text-brand-700';
       case 'event': return 'bg-orange-100 text-orange-700';
       default: return 'bg-gray-100 text-gray-700';
     }
@@ -54,9 +54,9 @@ export default function CommunityFeed() {
     if (!assa) return null;
     
     const assaConfig = {
-      acceptance: { bg: 'bg-pink-100', text: 'text-pink-700', icon: '💗', label: 'Acceptance' },
-      security: { bg: 'bg-blue-100', text: 'text-blue-700', icon: '🛡️', label: 'Security' },
-      agency: { bg: 'bg-purple-100', text: 'text-purple-700', icon: '⚡', label: 'Agency' },
+      acceptance: { bg: 'bg-brand-100', text: 'text-brand-700', icon: '💗', label: 'Acceptance' },
+      security: { bg: 'bg-brand-100', text: 'text-brand-700', icon: '🛡️', label: 'Security' },
+      agency: { bg: 'bg-brand-100', text: 'text-brand-700', icon: '⚡', label: 'Agency' },
       significance: { bg: 'bg-amber-100', text: 'text-amber-700', icon: '🏆', label: 'Significance' },
     };
 
@@ -295,7 +295,7 @@ export default function CommunityFeed() {
                       </span>
                     )}
                     {post.badgeUnlock && (
-                      <span className="px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs">
+                      <span className="px-2 py-1 bg-brand-100 text-brand-700 rounded text-xs">
                         🏆 {post.badgeUnlock}
                       </span>
                     )}

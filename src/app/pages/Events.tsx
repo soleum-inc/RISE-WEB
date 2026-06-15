@@ -90,8 +90,8 @@ export default function Events() {
   };
 
   const getScheduleBadge = (p: Project) => {
-    if (p.scheduleType === 'repeating') return { label: 'Repeating', icon: Repeat, cls: 'bg-blue-50 text-blue-700 border-blue-200' };
-    if (p.scheduleType === 'one-off') return { label: 'One-Off', icon: Clock, cls: 'bg-purple-50 text-purple-700 border-purple-200' };
+    if (p.scheduleType === 'repeating') return { label: 'Repeating', icon: Repeat, cls: 'bg-brand-50 text-brand-700 border-brand-200' };
+    if (p.scheduleType === 'one-off') return { label: 'One-Off', icon: Clock, cls: 'bg-brand-50 text-brand-700 border-brand-200' };
     return { label: 'Ongoing', icon: Zap, cls: 'bg-brand-50 text-brand-700 border-brand-200' };
   };
 
@@ -139,7 +139,7 @@ export default function Events() {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
         {[
           { label: 'Total Active', value: allProjects.length, color: 'bg-gray-50 border-gray-200', icon: LayoutGrid },
-          { label: 'Events', value: getCounts('event'), color: 'bg-blue-50 border-blue-200', icon: Calendar },
+          { label: 'Events', value: getCounts('event'), color: 'bg-brand-50 border-brand-200', icon: Calendar },
           { label: 'Programs', value: getCounts('program'), color: 'bg-amber-50 border-amber-200', icon: BookOpen },
           { label: 'Micro-Loans', value: getCounts('micro-loan'), color: 'bg-green-50 border-green-200', icon: DollarSign },
         ].map(card => (
@@ -191,7 +191,7 @@ export default function Events() {
               <button
                 onClick={() => setFilter('All')}
                 className={`px-3 py-1.5 rounded-md text-xs font-medium transition-colors ${
-                  filter === 'All' ? 'bg-purple-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  filter === 'All' ? 'bg-brand-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
               >
                 All
@@ -201,7 +201,7 @@ export default function Events() {
                   key={color}
                   onClick={() => setFilter(color)}
                   className={`px-3 py-1.5 rounded-md text-xs font-medium transition-colors flex items-center gap-1.5 ${
-                    filter === color ? 'bg-purple-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    filter === color ? 'bg-brand-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                   }`}
                 >
                   <span className={`w-2 h-2 rounded-full ${getColorDot(color)}`} />

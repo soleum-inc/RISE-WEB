@@ -57,8 +57,8 @@ const sections: NavSection[] = [
   {
     id: 'giver',
     label: 'Giver Settings',
-    color: 'text-blue-700',
-    bgColor: 'bg-blue-50',
+    color: 'text-brand-700',
+    bgColor: 'bg-brand-50',
     items: [
       { id: 'giv-profile', label: 'Profile & Organization', icon: <Building2 className="w-4 h-4" /> },
       { id: 'giv-preferences', label: 'Giving Preferences', icon: <Heart className="w-4 h-4" /> },

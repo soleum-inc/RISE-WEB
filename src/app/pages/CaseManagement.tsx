@@ -10,7 +10,7 @@ export default function CaseManagement() {
   const getUrgencyColor = (urgency: string) => {
     switch (urgency) {
       case 'acute': return 'bg-red-100 text-red-800 border-red-200';
-      case 'chronic': return 'bg-blue-100 text-blue-800 border-blue-200';
+      case 'chronic': return 'bg-brand-100 text-brand-800 border-brand-200';
       default: return 'bg-gray-100 text-gray-800 border-gray-200';
     }
   };
@@ -18,7 +18,7 @@ export default function CaseManagement() {
   const getUrgencyIcon = (urgency: string) => {
     switch (urgency) {
       case 'acute': return <AlertCircle className="w-5 h-5 text-red-600" />;
-      case 'chronic': return <Clock className="w-5 h-5 text-blue-600" />;
+      case 'chronic': return <Clock className="w-5 h-5 text-brand-600" />;
       default: return <AlertCircle className="w-5 h-5 text-gray-600" />;
     }
   };

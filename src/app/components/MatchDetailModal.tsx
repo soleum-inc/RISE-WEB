@@ -50,7 +50,7 @@ export function MatchDetailModal({ isOpen, onClose, requestId }: MatchDetailModa
 
         <div className="space-y-6 py-4">
           {/* Request Context */}
-          <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg">
+          <div className="p-4 bg-brand-50 border border-brand-200 rounded-lg">
             <h3 className="font-semibold text-gray-900 mb-2">Request Details</h3>
             <div className="space-y-1 text-sm">
               <p><span className="font-medium">From:</span> {request.submittedBy}</p>
@@ -58,7 +58,7 @@ export function MatchDetailModal({ isOpen, onClose, requestId }: MatchDetailModa
               <p><span className="font-medium">Need:</span> {request.content}</p>
               <p><span className="font-medium">Urgency:</span> 
                 <span className={`ml-2 px-2 py-0.5 rounded text-xs font-medium ${
-                  request.urgency === 'acute' ? 'bg-red-100 text-red-800' : 'bg-blue-100 text-blue-800'
+                  request.urgency === 'acute' ? 'bg-red-100 text-red-800' : 'bg-brand-100 text-brand-800'
                 }`}>
                   {request.urgency === 'acute' ? 'Acute Crisis' : 'Chronic Need'}
                 </span>

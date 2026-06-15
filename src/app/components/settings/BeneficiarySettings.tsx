@@ -82,8 +82,8 @@ export function BeneficiaryNeedsMatching() {
   return (
     <div>
       <div className="flex items-center gap-3 mb-6">
-        <div className="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center">
-          <Radar className="w-5 h-5 text-indigo-600" />
+        <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center">
+          <Radar className="w-5 h-5 text-brand-600" />
         </div>
         <div>
           <h2 className="text-lg text-gray-900">Needs & Matching</h2>
@@ -184,8 +184,8 @@ export function BeneficiaryNotifications() {
   return (
     <div>
       <div className="flex items-center gap-3 mb-6">
-        <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
-          <Bell className="w-5 h-5 text-purple-600" />
+        <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center">
+          <Bell className="w-5 h-5 text-brand-600" />
         </div>
         <div>
           <h2 className="text-lg text-gray-900">Notifications</h2>
@@ -216,8 +216,8 @@ export function BeneficiaryDocumentsRecords() {
   return (
     <div>
       <div className="flex items-center gap-3 mb-6">
-        <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-          <FileText className="w-5 h-5 text-blue-600" />
+        <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center">
+          <FileText className="w-5 h-5 text-brand-600" />
         </div>
         <div>
           <h2 className="text-lg text-gray-900">Documents & Records</h2>

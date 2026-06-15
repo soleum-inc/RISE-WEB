@@ -158,8 +158,8 @@ export default function Dashboard() {
         <div className="space-y-4">
           <div className="bg-white rounded-lg border border-gray-200 p-6">
             <div className="flex items-center gap-3 mb-2">
-              <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-                <Users className="w-5 h-5 text-blue-600" />
+              <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center">
+                <Users className="w-5 h-5 text-brand-600" />
               </div>
               <div>
                 <p className="text-sm text-gray-600">Total Members</p>
@@ -184,8 +184,8 @@ export default function Dashboard() {
 
           <div className="bg-white rounded-lg border border-gray-200 p-6">
             <div className="flex items-center gap-3 mb-2">
-              <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
-                <TrendingUp className="w-5 h-5 text-purple-600" />
+              <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center">
+                <TrendingUp className="w-5 h-5 text-brand-600" />
               </div>
               <div>
                 <p className="text-sm text-gray-600">Lives Impacted</p>
@@ -218,12 +218,12 @@ export default function Dashboard() {
             <p className="text-3xl font-bold text-green-700">{membersInGrowth}</p>
             <p className="text-xs text-gray-500 mt-1">{Math.round((membersInGrowth / totalMembers) * 100)}% of members</p>
           </div>
-          <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
+          <div className="bg-brand-50 rounded-lg p-4 border border-brand-200">
             <div className="flex items-center gap-2 mb-2">
-              <Activity className="w-4 h-4 text-blue-600" />
+              <Activity className="w-4 h-4 text-brand-600" />
               <p className="text-sm text-gray-600">Active Volunteers</p>
             </div>
-            <p className="text-3xl font-bold text-blue-700">{activeVolunteers}</p>
+            <p className="text-3xl font-bold text-brand-700">{activeVolunteers}</p>
             <p className="text-xs text-gray-500 mt-1">{Math.round((activeVolunteers / totalMembers) * 100)}% of members</p>
           </div>
           <div className="bg-amber-50 rounded-lg p-4 border border-amber-200">
@@ -270,8 +270,8 @@ export default function Dashboard() {
             {/* Belonging */}
             <div className="bg-white rounded-lg border border-gray-200 p-4">
               <div className="flex items-center gap-2 mb-3">
-                <div className="w-8 h-8 bg-pink-100 rounded-lg flex items-center justify-center">
-                  <Heart className="w-4 h-4 text-pink-600" />
+                <div className="w-8 h-8 bg-brand-100 rounded-lg flex items-center justify-center">
+                  <Heart className="w-4 h-4 text-brand-600" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <h3 className="text-sm font-semibold text-gray-900 truncate">Belonging</h3>
@@ -297,8 +297,8 @@ export default function Dashboard() {
             {/* Security */}
             <div className="bg-white rounded-lg border border-gray-200 p-4">
               <div className="flex items-center gap-2 mb-3">
-                <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
-                  <Shield className="w-4 h-4 text-blue-600" />
+                <div className="w-8 h-8 bg-brand-100 rounded-lg flex items-center justify-center">
+                  <Shield className="w-4 h-4 text-brand-600" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <h3 className="text-sm font-semibold text-gray-900 truncate">Security</h3>
@@ -324,8 +324,8 @@ export default function Dashboard() {
             {/* Agency */}
             <div className="bg-white rounded-lg border border-gray-200 p-4">
               <div className="flex items-center gap-2 mb-3">
-                <div className="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center">
-                  <Zap className="w-4 h-4 text-purple-600" />
+                <div className="w-8 h-8 bg-brand-100 rounded-lg flex items-center justify-center">
+                  <Zap className="w-4 h-4 text-brand-600" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <h3 className="text-sm font-semibold text-gray-900 truncate">Agency</h3>
@@ -377,9 +377,9 @@ export default function Dashboard() {
           </div>
 
           {/* Overall Insights */}
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-            <h4 className="font-semibold text-blue-900 mb-2">💡 Admin Insights</h4>
-            <p className="text-sm text-blue-800">{biasInsights.overall}</p>
+          <div className="bg-brand-50 border border-brand-200 rounded-lg p-4">
+            <h4 className="font-semibold text-brand-900 mb-2">💡 Admin Insights</h4>
+            <p className="text-sm text-brand-800">{biasInsights.overall}</p>
           </div>
         </div>
       )}

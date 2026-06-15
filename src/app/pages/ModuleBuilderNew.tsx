@@ -963,7 +963,7 @@ export default function ModuleBuilder() {
                               <div className="text-xs text-gray-500 mt-0.5 max-w-xs truncate">{item.description}</div>
                             </td>
                             <td className="px-5 py-3">
-                              <span className="px-2 py-1 bg-blue-50 text-blue-700 rounded text-xs font-medium capitalize">{item.contentType}</span>
+                              <span className="px-2 py-1 bg-brand-50 text-brand-700 rounded text-xs font-medium capitalize">{item.contentType}</span>
                             </td>
                             <td className="px-5 py-3">
                               <div className="flex items-center gap-1.5 text-xs text-gray-500">
@@ -1003,7 +1003,7 @@ export default function ModuleBuilder() {
                     {filteredImports.map(item => (
                       <div key={item.id} className="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
                         <div className="flex items-start justify-between mb-2">
-                          <span className="px-2 py-1 bg-blue-50 text-blue-700 rounded text-xs font-medium capitalize">{item.contentType}</span>
+                          <span className="px-2 py-1 bg-brand-50 text-brand-700 rounded text-xs font-medium capitalize">{item.contentType}</span>
                           <select value={item.stage} onChange={e => handleTagItem(item.id, e.target.value as GraduationStage | '')}
                             className={`px-2 py-1 rounded text-xs font-medium border-0 cursor-pointer ${getStageBadgeColor(item.stage || 'untagged')}`}>
                             <option value="">Untagged</option>
@@ -1059,7 +1059,7 @@ export default function ModuleBuilder() {
                               <div className="text-xs text-gray-500 mt-0.5 max-w-xs truncate">{resource.description}</div>
                             </td>
                             <td className="px-5 py-3">
-                              <span className="px-2 py-1 bg-purple-50 text-purple-700 rounded text-xs font-medium capitalize">{resource.type}</span>
+                              <span className="px-2 py-1 bg-brand-50 text-brand-700 rounded text-xs font-medium capitalize">{resource.type}</span>
                             </td>
                             <td className="px-5 py-3 text-sm text-gray-600 capitalize">{resource.pillar}</td>
                             <td className="px-5 py-3">
@@ -1084,7 +1084,7 @@ export default function ModuleBuilder() {
                     {filteredResources.map(resource => (
                       <div key={resource.id} className="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
                         <div className="flex items-start justify-between mb-2">
-                          <span className="px-2 py-1 bg-purple-50 text-purple-700 rounded text-xs font-medium capitalize">{resource.type}</span>
+                          <span className="px-2 py-1 bg-brand-50 text-brand-700 rounded text-xs font-medium capitalize">{resource.type}</span>
                           <span className={`px-2 py-1 rounded text-xs font-medium ${getStageBadgeColor(resource.stage)}`}>{resource.stage}</span>
                         </div>
                         <h4 className="font-medium text-gray-900 text-sm mb-1">{resource.title}</h4>
@@ -1120,7 +1120,7 @@ export default function ModuleBuilder() {
                   </div>
                   <div className="flex items-center gap-3">
                     <button onClick={() => setShowWizard(true)}
-                      className="flex items-center gap-2 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors text-sm font-medium">
+                      className="flex items-center gap-2 px-4 py-2 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors text-sm font-medium">
                       <Wand2 className="w-4 h-4" /> Module Wizard
                     </button>
                     <button onClick={() => handleCreateNewModule()}
@@ -1177,7 +1177,7 @@ export default function ModuleBuilder() {
                     {modules.length === 0 && (
                       <div className="flex gap-3 justify-center">
                         <button onClick={() => setShowWizard(true)}
-                          className="flex items-center gap-2 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors text-sm font-medium">
+                          className="flex items-center gap-2 px-4 py-2 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors text-sm font-medium">
                           <Wand2 className="w-4 h-4" /> Use Wizard
                         </button>
                         <button onClick={() => handleCreateNewModule()}
@@ -1271,8 +1271,8 @@ export default function ModuleBuilder() {
                       <div className="p-6 border-b border-gray-200">
                         <div className="flex items-center justify-between">
                           <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
-                              <Wand2 className="w-5 h-5 text-purple-600" />
+                            <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center">
+                              <Wand2 className="w-5 h-5 text-brand-600" />
                             </div>
                             <div>
                               <h3 className="text-lg font-bold text-gray-900">Module Wizard</h3>
@@ -1288,14 +1288,14 @@ export default function ModuleBuilder() {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           {wizardTemplates.map((template, i) => (
                             <button key={i} onClick={() => handleCreateNewModule(template)}
-                              className="text-left p-5 border-2 border-gray-200 rounded-lg hover:border-purple-400 hover:bg-purple-50/30 transition-all group">
+                              className="text-left p-5 border-2 border-gray-200 rounded-lg hover:border-brand-400 hover:bg-brand-50/30 transition-all group">
                               <div className="flex items-center gap-2 mb-2">
                                 <span className={`px-2 py-0.5 rounded text-xs font-medium ${getStageBadgeColor(template.stage)}`}>
                                   {template.stage}
                                 </span>
                                 <span className="px-2 py-0.5 bg-gray-100 text-gray-600 rounded text-xs capitalize">{template.pillar}</span>
                               </div>
-                              <h4 className="font-semibold text-gray-900 mb-1 group-hover:text-purple-700 transition-colors">{template.title}</h4>
+                              <h4 className="font-semibold text-gray-900 mb-1 group-hover:text-brand-700 transition-colors">{template.title}</h4>
                               <p className="text-xs text-gray-500 mb-3">{template.description}</p>
                               <div className="text-xs text-gray-400">
                                 {template.subModules.length} sub-modules: {template.subModules.join(', ')}
@@ -1502,7 +1502,7 @@ function ModuleDetail({
                     setSelectedModule({ ...selectedModule, headerImage: suggested });
                     toast.success('Header image suggested!');
                   }}
-                  className="px-3 py-2 bg-purple-600 text-white rounded-lg text-sm font-medium hover:bg-purple-700 transition-colors shadow-lg flex items-center gap-1.5"
+                  className="px-3 py-2 bg-brand-600 text-white rounded-lg text-sm font-medium hover:bg-brand-700 transition-colors shadow-lg flex items-center gap-1.5"
                 >
                   <Sparkles className="w-3.5 h-3.5" /> Suggest
                 </button>
@@ -1532,7 +1532,7 @@ function ModuleDetail({
                     setSelectedModule({ ...selectedModule, headerImage: suggested });
                     toast.success('Header image suggested!');
                   }}
-                  className="flex items-center gap-2 px-4 py-2 bg-purple-50 border border-purple-200 text-purple-700 rounded-lg text-sm font-medium hover:bg-purple-100 transition-colors"
+                  className="flex items-center gap-2 px-4 py-2 bg-brand-50 border border-brand-200 text-brand-700 rounded-lg text-sm font-medium hover:bg-brand-100 transition-colors"
                 >
                   <Sparkles className="w-4 h-4" /> Suggest Image
                 </button>
@@ -1608,7 +1608,7 @@ function ModuleDetail({
                   setSelectedModule({ ...selectedModule, seedsReward: suggested });
                   toast.success(`Suggested ${suggested} seeds`);
                 }}
-                  className="flex items-center gap-1 text-xs text-purple-600 hover:text-purple-800 font-medium">
+                  className="flex items-center gap-1 text-xs text-brand-600 hover:text-brand-800 font-medium">
                   <Sparkles className="w-3 h-3" /> Suggest
                 </button>
               </div>
@@ -1624,7 +1624,7 @@ function ModuleDetail({
                   setSelectedModule({ ...selectedModule, badgeUnlock: suggested });
                   toast.success(`Suggested: ${suggested}`);
                 }}
-                  className="flex items-center gap-1 text-xs text-purple-600 hover:text-purple-800 font-medium">
+                  className="flex items-center gap-1 text-xs text-brand-600 hover:text-brand-800 font-medium">
                   <Sparkles className="w-3 h-3" /> Suggest
                 </button>
               </div>
@@ -1646,7 +1646,7 @@ function ModuleDetail({
             {/* Smart Suggest Toggle */}
             <button onClick={() => setShowSmartSuggest(!showSmartSuggest)}
               className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
-                showSmartSuggest ? 'bg-purple-100 text-purple-700' : 'bg-purple-50 text-purple-600 hover:bg-purple-100'
+                showSmartSuggest ? 'bg-brand-100 text-brand-700' : 'bg-brand-50 text-brand-600 hover:bg-brand-100'
               }`}>
               <Sparkles className="w-4 h-4" /> Smart Suggest
             </button>
@@ -1672,7 +1672,7 @@ function ModuleDetail({
                     </button>
                     <button onClick={() => { setShowModuleLibrary(true); setShowAddMenu(false); }}
                       className="w-full px-4 py-2 text-left hover:bg-gray-50 flex items-center gap-3 text-sm text-gray-700">
-                      <BookOpen className="w-4 h-4 text-blue-600" /> From Template Library
+                      <BookOpen className="w-4 h-4 text-brand-600" /> From Template Library
                     </button>
                   </div>
                 </>
@@ -1683,35 +1683,35 @@ function ModuleDetail({
 
         {/* Smart Suggestions Panel */}
         {showSmartSuggest && (
-          <div className="mb-4 p-4 bg-purple-50 border border-purple-200 rounded-lg">
+          <div className="mb-4 p-4 bg-brand-50 border border-brand-200 rounded-lg">
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-purple-600" />
-                <h4 className="font-medium text-purple-900 text-sm">
+                <Sparkles className="w-4 h-4 text-brand-600" />
+                <h4 className="font-medium text-brand-900 text-sm">
                   Suggested content for {selectedModule.stage ? `${getStageLabel(selectedModule.stage)} stage` : 'this module'}
                 </h4>
               </div>
-              <button onClick={() => setShowSmartSuggest(false)} className="text-purple-400 hover:text-purple-600">
+              <button onClick={() => setShowSmartSuggest(false)} className="text-brand-400 hover:text-brand-600">
                 <X className="w-4 h-4" />
               </button>
             </div>
             {selectedModule.stage ? (
               <div className="space-y-2 max-h-48 overflow-auto">
                 {getStageSuggestions().slice(0, 8).map((sm: any, i: number) => (
-                  <div key={i} className="flex items-center justify-between p-2.5 bg-white rounded-lg border border-purple-100">
+                  <div key={i} className="flex items-center justify-between p-2.5 bg-white rounded-lg border border-brand-100">
                     <div className="flex-1 min-w-0 mr-3">
                       <div className="text-sm font-medium text-gray-900">{sm.title}</div>
                       <div className="text-xs text-gray-500 truncate">{sm.description}</div>
                     </div>
                     <button onClick={() => handleAddLibrarySubModule({ title: sm.parentTitle }, sm)}
-                      className="px-2.5 py-1 bg-purple-600 text-white rounded text-xs font-medium hover:bg-purple-700 transition-colors shrink-0">
+                      className="px-2.5 py-1 bg-brand-600 text-white rounded text-xs font-medium hover:bg-brand-700 transition-colors shrink-0">
                       + Add
                     </button>
                   </div>
                 ))}
               </div>
             ) : (
-              <p className="text-sm text-purple-700">Select a graduation stage above to get contextual suggestions.</p>
+              <p className="text-sm text-brand-700">Select a graduation stage above to get contextual suggestions.</p>
             )}
           </div>
         )}
@@ -1770,7 +1770,7 @@ function ModuleDetail({
                   )}
                   {item.itemType === 'resource' && item.resource && (
                     <div className="flex items-center gap-2">
-                      <span className="px-2 py-0.5 bg-blue-100 text-blue-700 rounded text-xs font-medium shrink-0">Resource</span>
+                      <span className="px-2 py-0.5 bg-brand-100 text-brand-700 rounded text-xs font-medium shrink-0">Resource</span>
                       <span className="font-medium text-gray-900 text-sm truncate">{item.resource.title}</span>
                       <span className="text-xs text-gray-400 shrink-0">{item.resource.seedsValue} seeds</span>
                     </div>
@@ -1989,7 +1989,7 @@ function SubModuleDetail({
                 <div className="flex items-start justify-between mb-3">
                   <div className="flex items-center gap-2">
                     <span className="text-sm font-medium text-gray-500">#{index + 1}</span>
-                    <span className="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs font-medium capitalize">
+                    <span className="px-2 py-1 bg-brand-100 text-brand-700 rounded text-xs font-medium capitalize">
                       {block.type.replace('-', ' ')}
                     </span>
                   </div>

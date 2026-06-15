@@ -142,7 +142,7 @@ export function CreateContentModal({ isOpen, onClose }: CreateContentModalProps)
 
           {/* ─── BIAS MODE: BIAS Content Guidance (additive) ─── */}
           {showASSA && (
-          <div className="bg-gradient-to-br from-blue-50 to-purple-50 border border-blue-200 rounded-lg p-5">
+          <div className="bg-gradient-to-br from-brand-50 to-brand-50 border border-brand-200 rounded-lg p-5">
             <h3 className="text-base font-semibold text-gray-900 mb-3 flex items-center gap-2">
               💡 BIAS Content Guidance
             </h3>
@@ -153,32 +153,32 @@ export function CreateContentModal({ isOpen, onClose }: CreateContentModalProps)
               </p>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="bg-white/70 rounded-lg p-3 border border-pink-200">
+                <div className="bg-white/70 rounded-lg p-3 border border-brand-200">
                   <div className="flex items-center gap-2 mb-1">
                     <span className="text-base">💗</span>
-                    <h4 className="font-semibold text-sm text-pink-900">Belonging</h4>
+                    <h4 className="font-semibold text-sm text-brand-900">Belonging</h4>
                   </div>
-                  <p className="text-xs text-pink-800">
+                  <p className="text-xs text-brand-800">
                     Content that builds belonging, welcomes newcomers, shares success stories, and creates connection
                   </p>
                 </div>
 
-                <div className="bg-white/70 rounded-lg p-3 border border-blue-200">
+                <div className="bg-white/70 rounded-lg p-3 border border-brand-200">
                   <div className="flex items-center gap-2 mb-1">
                     <span className="text-base">🛡️</span>
-                    <h4 className="font-semibold text-sm text-blue-900">Security</h4>
+                    <h4 className="font-semibold text-sm text-brand-900">Security</h4>
                   </div>
-                  <p className="text-xs text-blue-800">
+                  <p className="text-xs text-brand-800">
                     Content about safety, basic needs, housing, food access, healthcare, and crisis resources
                   </p>
                 </div>
 
-                <div className="bg-white/70 rounded-lg p-3 border border-purple-200">
+                <div className="bg-white/70 rounded-lg p-3 border border-brand-200">
                   <div className="flex items-center gap-2 mb-1">
                     <span className="text-base">⚡</span>
-                    <h4 className="font-semibold text-sm text-purple-900">Agency</h4>
+                    <h4 className="font-semibold text-sm text-brand-900">Agency</h4>
                   </div>
-                  <p className="text-xs text-purple-800">
+                  <p className="text-xs text-brand-800">
                     Content that builds skills, teaches new abilities, offers career development, and empowers action
                   </p>
                 </div>

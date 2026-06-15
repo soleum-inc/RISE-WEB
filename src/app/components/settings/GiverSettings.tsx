@@ -57,11 +57,11 @@ export function GiverProfileOrganization() {
           <p className="text-sm text-gray-900 mb-2">Categories of Aid Offered</p>
           <div className="flex flex-wrap gap-2">
             {['Food Assistance', 'Housing', 'Job Training', 'Mental Health', 'Youth Programs', 'Emergency Aid'].map(cat => (
-              <span key={cat} className="px-3 py-1 bg-blue-50 text-blue-700 text-xs rounded-full border border-blue-200">
+              <span key={cat} className="px-3 py-1 bg-brand-50 text-brand-700 text-xs rounded-full border border-brand-200">
                 {cat} &times;
               </span>
             ))}
-            <button className="px-3 py-1 text-xs text-gray-500 border border-dashed border-gray-300 rounded-full hover:border-blue-500 hover:text-blue-600">
+            <button className="px-3 py-1 text-xs text-gray-500 border border-dashed border-gray-300 rounded-full hover:border-brand-500 hover:text-brand-600">
               + Add Category
             </button>
           </div>
@@ -143,8 +143,8 @@ export function GiverTransparencyReporting() {
   return (
     <div>
       <div className="flex items-center gap-3 mb-6">
-        <div className="w-10 h-10 bg-cyan-100 rounded-lg flex items-center justify-center">
-          <BarChart3 className="w-5 h-5 text-cyan-600" />
+        <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center">
+          <BarChart3 className="w-5 h-5 text-brand-600" />
         </div>
         <div>
           <h2 className="text-lg text-gray-900">Transparency & Reporting</h2>
@@ -187,8 +187,8 @@ export function GiverNotifications() {
   return (
     <div>
       <div className="flex items-center gap-3 mb-6">
-        <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
-          <Bell className="w-5 h-5 text-purple-600" />
+        <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center">
+          <Bell className="w-5 h-5 text-brand-600" />
         </div>
         <div>
           <h2 className="text-lg text-gray-900">Giver Notifications</h2>
@@ -214,8 +214,8 @@ export function GiverTeamAccess() {
   return (
     <div>
       <div className="flex items-center gap-3 mb-6">
-        <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-          <Users className="w-5 h-5 text-blue-600" />
+        <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center">
+          <Users className="w-5 h-5 text-brand-600" />
         </div>
         <div>
           <h2 className="text-lg text-gray-900">Team & Access</h2>
@@ -243,9 +243,9 @@ export function GiverTeamAccess() {
               </div>
               <span className={`px-2 py-1 text-xs rounded ${
                 member.role === 'Admin' ? 'bg-brand-100 text-brand-700' :
-                member.role === 'Case Manager' ? 'bg-blue-100 text-blue-700' :
+                member.role === 'Case Manager' ? 'bg-brand-100 text-brand-700' :
                 member.role === 'Finance' ? 'bg-amber-100 text-amber-700' :
-                'bg-purple-100 text-purple-700'
+                'bg-brand-100 text-brand-700'
               }`}>
                 {member.role}
               </span>
