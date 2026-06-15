@@ -4,6 +4,7 @@ import { members, StatusColor, weeklyASSAData, monthlyASSAData } from '../data/m
 import { Heart, Shield, Lightning as Zap, Medal as Award, Circle, TrendUp as TrendingUp, UploadSimple as Upload, Lightbulb, Users, UserCheck, WarningCircle as AlertCircle, Pulse as Activity } from "@phosphor-icons/react";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { useFramework } from '../context/FrameworkContext';
+import { StatusBadge } from '../components/ui/status-badge';
 
 export default function MembersList() {
   const { showASSA } = useFramework();
@@ -94,32 +95,26 @@ export default function MembersList() {
 
         <div className="bg-white rounded-lg border-2 border-gray-200 p-6">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
-              <UserCheck className="w-5 h-5 text-green-600" />
+            <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
+              <UserCheck className="w-5 h-5 text-foreground" />
             </div>
             <h3 className="font-semibold text-gray-900">In Growth</h3>
           </div>
           <div className="text-3xl font-bold text-gray-900">{membersInGrowth}</div>
           <p className="text-sm text-gray-600 mt-1">{Math.round((membersInGrowth / totalMembers) * 100)}% of community</p>
-          <div className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-700 mt-2">
-            <Circle className="w-2 h-2 fill-current" />
-            Thriving
-          </div>
+          <StatusBadge tone="neutral" dot className="mt-2">Thriving</StatusBadge>
         </div>
 
         <div className="bg-white rounded-lg border-2 border-gray-200 p-6">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center">
-              <Activity className="w-5 h-5 text-amber-600" />
+            <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
+              <Activity className="w-5 h-5 text-foreground" />
             </div>
             <h3 className="font-semibold text-gray-900">Service Hours</h3>
           </div>
           <div className="text-3xl font-bold text-gray-900">{totalServiceHours.toLocaleString()}</div>
           <p className="text-sm text-gray-600 mt-1">Total contributed</p>
-          <div className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-700 mt-2">
-            <Circle className="w-2 h-2 fill-current" />
-            Active
-          </div>
+          <StatusBadge tone="neutral" dot className="mt-2">Active</StatusBadge>
         </div>
 
         <div className={`bg-white rounded-lg border-2 p-6 ${membersInCrisis > 3 ? 'border-red-300' : 'border-gray-200'}`}>
@@ -220,8 +215,8 @@ export default function MembersList() {
             }`}
           >
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center">
-                <Award className="w-5 h-5 text-amber-600" />
+              <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
+                <Award className="w-5 h-5 text-foreground" />
               </div>
               <h3 className="font-semibold text-gray-900">Importance</h3>
             </div>
@@ -338,7 +333,7 @@ export default function MembersList() {
       {showASSA && (
         <div className="bg-white rounded-lg border border-gray-200 p-6 mb-8">
           <div className="flex items-center gap-2 mb-6">
-            <Lightbulb className="w-5 h-5 text-amber-600" />
+            <Lightbulb className="w-5 h-5 text-foreground" />
             <h2 className="text-lg font-semibold text-gray-900">BIAS Motivator Insights</h2>
           </div>
 
@@ -401,9 +396,9 @@ export default function MembersList() {
             <p className="text-3xl font-bold text-foreground">{activeVolunteers}</p>
             <p className="text-xs text-gray-500 mt-1">{Math.round((activeVolunteers / totalMembers) * 100)}% of community giving back</p>
           </div>
-          <div className="p-4 bg-green-50 rounded-lg border border-green-200">
+          <div className="p-4 bg-secondary rounded-lg border border-border">
             <p className="text-sm text-gray-600 mb-1">Courses Completed</p>
-            <p className="text-3xl font-bold text-green-700">{members.reduce((s, m) => s + m.agency.pathwaysCompleted, 0)}</p>
+            <p className="text-3xl font-bold text-foreground">{members.reduce((s, m) => s + m.agency.pathwaysCompleted, 0)}</p>
             <p className="text-xs text-gray-500 mt-1">Across all members</p>
           </div>
           <div className="p-4 bg-secondary rounded-lg border border-border">

@@ -239,18 +239,18 @@ export default function MemberDetail() {
         {/* Service & Impact */}
         <div className="bg-white rounded-lg border border-gray-200 p-6">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center">
-              <Star className="w-5 h-5 text-amber-600" />
+            <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
+              <Star className="w-5 h-5 text-foreground" />
             </div>
             <h2 className="text-lg font-semibold text-gray-900">Service & Impact</h2>
           </div>
           <div className="grid grid-cols-2 gap-4 mb-4">
-            <div className="bg-amber-50 rounded p-3 text-center border border-amber-200">
-              <div className="text-2xl font-bold text-amber-700">{member.significance.hoursGiven}</div>
+            <div className="bg-secondary rounded p-3 text-center border border-border">
+              <div className="text-2xl font-bold text-foreground">{member.significance.hoursGiven}</div>
               <div className="text-xs text-gray-600 mt-1">Hours Given</div>
             </div>
-            <div className="bg-green-50 rounded p-3 text-center border border-green-200">
-              <div className="text-2xl font-bold text-green-700">{member.significance.livesImpacted}</div>
+            <div className="bg-secondary rounded p-3 text-center border border-border">
+              <div className="text-2xl font-bold text-foreground">{member.significance.livesImpacted}</div>
               <div className="text-xs text-gray-600 mt-1">Lives Impacted</div>
             </div>
           </div>
@@ -475,8 +475,8 @@ export default function MemberDetail() {
           >
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center">
-                  <Award className="w-5 h-5 text-amber-600" />
+                <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
+                  <Award className="w-5 h-5 text-foreground" />
                 </div>
                 <h2 className="text-lg font-semibold text-gray-900">Importance</h2>
               </div>
@@ -583,7 +583,7 @@ export default function MemberDetail() {
                 <tr>
                   <td className="px-4 py-4">
                     <div className="flex items-center gap-2">
-                      <Award className="w-4 h-4 text-amber-600" />
+                      <Award className="w-4 h-4 text-foreground" />
                       <span className="font-semibold text-gray-900">Importance</span>
                     </div>
                   </td>
@@ -605,7 +605,7 @@ export default function MemberDetail() {
       {showASSA && member.motivationalProfile && (
         <div className="bg-white rounded-lg border border-gray-200 p-6 mb-8">
           <div className="flex items-center gap-2 mb-4">
-            <Lightbulb className="w-5 h-5 text-amber-600" />
+            <Lightbulb className="w-5 h-5 text-foreground" />
             <h2 className="text-lg font-semibold text-gray-900">Motivational Insights</h2>
           </div>
 

@@ -180,8 +180,8 @@ export function SharedSupport() {
             </div>
           </button>
           <button className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 w-full text-left">
-            <div className="w-8 h-8 bg-amber-100 rounded-lg flex items-center justify-center shrink-0">
-              <AlertOctagon className="w-4 h-4 text-amber-600" />
+            <div className="w-8 h-8 bg-secondary rounded-lg flex items-center justify-center shrink-0">
+              <AlertOctagon className="w-4 h-4 text-foreground" />
             </div>
             <div>
               <p className="text-sm text-gray-900">Report a Service or Bad Actor</p>
@@ -221,8 +221,8 @@ export function SharedTrustVerification() {
   return (
     <div>
       <div className="flex items-center gap-3 mb-6">
-        <div className="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center">
-          <BadgeCheck className="w-5 h-5 text-emerald-600" />
+        <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
+          <BadgeCheck className="w-5 h-5 text-foreground" />
         </div>
         <div>
           <h2 className="text-lg text-gray-900">Trust & Verification</h2>

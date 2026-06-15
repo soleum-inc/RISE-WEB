@@ -34,7 +34,7 @@ export function ASSAHealthMetrics({ metrics, showInsights = false, insights }: A
   };
 
   const getTrendIcon = (trend?: 'up' | 'down' | 'stable') => {
-    if (trend === 'up') return <TrendingUp className="w-4 h-4 text-green-600" />;
+    if (trend === 'up') return <TrendingUp className="w-4 h-4 text-foreground" />;
     if (trend === 'down') return <TrendingDown className="w-4 h-4 text-red-600" />;
     return <Minus className="w-4 h-4 text-gray-400" />;
   };
@@ -148,8 +148,8 @@ export function ASSAHealthMetrics({ metrics, showInsights = false, insights }: A
         <div className="bg-white rounded-lg border border-gray-200 p-4">
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center">
-                <Award className="w-5 h-5 text-amber-600" />
+              <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
+                <Award className="w-5 h-5 text-foreground" />
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900">Importance</h3>

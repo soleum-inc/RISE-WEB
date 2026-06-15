@@ -127,8 +127,8 @@ export function BeneficiaryPrivacyData() {
   return (
     <div>
       <div className="flex items-center gap-3 mb-6">
-        <div className="w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center">
-          <EyeOff className="w-5 h-5 text-amber-600" />
+        <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
+          <EyeOff className="w-5 h-5 text-foreground" />
         </div>
         <div>
           <h2 className="text-lg text-gray-900">Privacy & Data</h2>
@@ -281,8 +281,8 @@ export function BeneficiaryAccessibility() {
   return (
     <div>
       <div className="flex items-center gap-3 mb-6">
-        <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
-          <Accessibility className="w-5 h-5 text-green-600" />
+        <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
+          <Accessibility className="w-5 h-5 text-foreground" />
         </div>
         <div>
           <h2 className="text-lg text-gray-900">Accessibility & Experience</h2>

@@ -1668,7 +1668,7 @@ function ModuleDetail({
                     </button>
                     <button onClick={() => { setShowEventSelector(true); setShowAddMenu(false); }}
                       className="w-full px-4 py-2 text-left hover:bg-gray-50 flex items-center gap-3 text-sm text-gray-700">
-                      <Calendar className="w-4 h-4 text-orange-600" /> Event
+                      <Calendar className="w-4 h-4 text-foreground" /> Event
                     </button>
                     <button onClick={() => { setShowModuleLibrary(true); setShowAddMenu(false); }}
                       className="w-full px-4 py-2 text-left hover:bg-gray-50 flex items-center gap-3 text-sm text-gray-700">
