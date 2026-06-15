@@ -78,7 +78,7 @@
   --secondary: #f1e7dc; /* warm sand surface */
   --secondary-foreground: #2b2d42;
   --muted: #f1e7dc;
-  --muted-foreground: #a89b91; /* warm taupe for subtitles/secondary */
+  --muted-foreground: #6f635a; /* deep warm taupe — secondary text, contrast-tuned */
   --accent: rgba(255, 255, 255, 0.5); /* frosted hover surface */
   --accent-foreground: #2b2d42;
   --destructive: #e8533f; /* coral-red */
@@ -108,7 +108,7 @@
   --radius: 1.25rem; /* 20px base → cards 24px, lg 20px, md 18px */
 
   /* --- Sidebar (frosted) -------------------------------------------------- */
-  --sidebar: rgba(255, 255, 255, 0.45);
+  --sidebar: rgba(255, 255, 255, 0.62);
   --sidebar-foreground: #2b2d42;
   --sidebar-primary: var(--brand-500);
   --sidebar-primary-foreground: #fbf6ef;
@@ -232,8 +232,8 @@
   --color-gray-200: #ebdfd3;
   --color-gray-300: #ddcfc1;
   --color-gray-400: #c9beb4;
-  --color-gray-500: #a89b91;
-  --color-gray-600: #8a7d72;
+  --color-gray-500: #7c6f63;
+  --color-gray-600: #635850;
   --color-gray-700: #4a4a5e;
   --color-gray-800: #34344a;
   --color-gray-900: #2b2d42;

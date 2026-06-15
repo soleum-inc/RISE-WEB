@@ -5,7 +5,6 @@ import {
   CalendarBlank,
   Broadcast,
   BookOpen,
-  Gear,
   CaretDown,
   CaretRight,
   ChartLineUp,
@@ -156,14 +155,6 @@ export function SideNav() {
             <NavLink to="/trust-audit" className={({ isActive }) => topClass(isActive)}>
               <ShieldCheck className="size-5" />
               <span>Trust &amp; Audit</span>
-            </NavLink>
-          </li>
-
-          {/* Settings */}
-          <li>
-            <NavLink to="/settings" className={({ isActive }) => topClass(isActive)}>
-              <Gear className="size-5" />
-              <span>Settings</span>
             </NavLink>
           </li>
         </ul>

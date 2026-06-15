@@ -52,7 +52,7 @@ export function NeedsAttentionQueue({ className }: { className?: string }) {
                   <span className="text-xs text-muted-foreground">{c.reference}</span>
                   {isEsc && <StatusBadge tone="warning" dot>Escalated</StatusBadge>}
                 </div>
-                <p className="mt-0.5 line-clamp-1 text-sm text-muted-foreground">{c.need}</p>
+                <p className="mt-0.5 line-clamp-1 text-sm text-foreground/70">{c.need}</p>
               </div>
               <div className="flex shrink-0 items-center gap-2">
                 <button

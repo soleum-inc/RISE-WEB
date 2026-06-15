@@ -84,7 +84,7 @@ export default function CaseManagement() {
             <Link
               key={c.id}
               to={`/cases/${c.id}`}
-              className="block rounded-xl border border-border bg-card/60 p-4 backdrop-blur-md transition-shadow hover:shadow-md"
+              className="block rounded-xl border border-border bg-card/80 p-4 backdrop-blur-md transition-shadow hover:shadow-md"
             >
               <div className="flex items-start justify-between gap-3">
                 <div className="flex items-start gap-3">

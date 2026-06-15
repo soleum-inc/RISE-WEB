@@ -123,11 +123,14 @@ export default function Impact() {
                 <div
                   key={d.category}
                   className="rounded-xl border border-white/40 p-4"
-                  style={{ backgroundColor: `rgba(232, 83, 63, ${0.07 + intensity * 0.5})` }}
+                  style={{ backgroundColor: `rgba(232, 83, 63, ${0.05 + intensity * 0.15})` }}
                 >
                   <p className="text-sm font-medium text-foreground">{d.category}</p>
                   <p className="text-2xl font-bold text-foreground">{d.count}</p>
-                  <p className="text-xs text-muted-foreground">open requests</p>
+                  <p className="text-xs text-foreground/60">open requests</p>
+                  <div className="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-foreground/10">
+                    <div className="h-full rounded-full bg-brand-500" style={{ width: `${Math.round(intensity * 100)}%` }} />
+                  </div>
                 </div>
               );
             })}

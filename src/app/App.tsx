@@ -11,7 +11,6 @@ import { TopBar } from './components/TopBar';
 import { Toaster } from './components/ui/sonner';
 import { FrameworkProvider } from './context/FrameworkContext';
 import { VerticalProvider } from './context/VerticalContext';
-import { DebugMenu } from './components/DebugMenu';
 
 // Route-level code splitting: each page (and heavy deps like recharts) ships in
 // its own chunk and only loads when navigated to, shrinking the initial bundle.
@@ -96,7 +95,6 @@ export default function App() {
           </div>
         </div>
         <Toaster />
-        <DebugMenu />
       </BrowserRouter>
     </FrameworkProvider>
     </VerticalProvider>

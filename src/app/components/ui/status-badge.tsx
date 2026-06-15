@@ -11,7 +11,7 @@ const statusBadgeVariants = cva(
   {
     variants: {
       tone: {
-        neutral: "bg-secondary text-muted-foreground",
+        neutral: "bg-secondary text-foreground/75",
         success: "bg-green-50 text-green-700",
         warning: "bg-amber-50 text-amber-700",
         danger: "bg-red-50 text-red-700",
@@ -22,7 +22,7 @@ const statusBadgeVariants = cva(
 );
 
 const dotColor: Record<string, string> = {
-  neutral: "bg-muted-foreground",
+  neutral: "bg-foreground/50",
   success: "bg-green-500",
   warning: "bg-amber-500",
   danger: "bg-red-500",

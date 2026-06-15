@@ -79,7 +79,7 @@ export const verticals: Record<VerticalId, VerticalTheme> = {
   },
   workforce: {
     id: "workforce",
-    label: "Workforce Program",
+    label: "Talent Program",
     org: { name: "Ascend Workforce", location: "Midwest Hub", initials: "AW", domain: "ascendworkforce.org" },
     user: { name: "Maria Gomez", role: "Workforce Lead", initials: "MG" },
     personLabel: "Talent",
