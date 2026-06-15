@@ -35,6 +35,8 @@ export interface StatCardProps extends React.ComponentProps<"div"> {
   value: React.ReactNode;
   sublabel?: React.ReactNode;
   tone?: StatTone;
+  /** Optional trend chip (▲/▼) shown next to the value — use only with real comparison data. */
+  delta?: { value: string; direction: "up" | "down"; positive: boolean };
 }
 
 export function StatCard({
@@ -43,6 +45,7 @@ export function StatCard({
   value,
   sublabel,
   tone = "neutral",
+  delta,
   className,
   ...props
 }: StatCardProps) {
@@ -61,7 +64,19 @@ export function StatCard({
         )}
         <p className="text-sm text-muted-foreground">{label}</p>
       </div>
-      <p className={cn("text-3xl font-bold", valueColor[tone])}>{value}</p>
+      <div className="flex items-baseline gap-2">
+        <p className={cn("text-3xl font-bold", valueColor[tone])}>{value}</p>
+        {delta && (
+          <span
+            className={cn(
+              "inline-flex items-center gap-0.5 rounded-full px-1.5 py-0.5 text-xs font-medium",
+              delta.positive ? "bg-green-50 text-green-700" : "bg-red-50 text-red-700",
+            )}
+          >
+            {delta.direction === "up" ? "▲" : "▼"} {delta.value}
+          </span>
+        )}
+      </div>
       {sublabel != null && (
         <p className="mt-1 text-xs text-muted-foreground">{sublabel}</p>
       )}

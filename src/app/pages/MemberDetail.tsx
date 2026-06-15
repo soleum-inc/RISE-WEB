@@ -8,6 +8,7 @@ import { StatusBadge } from '../components/ui/status-badge';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { useFramework } from '../context/FrameworkContext';
 import { useVertical } from '../context/VerticalContext';
+import { bandTone } from '../data/impact';
 
 export default function MemberDetail() {
   const { id } = useParams();
@@ -213,7 +214,7 @@ export default function MemberDetail() {
                 <span className="text-sm text-gray-700">Pathway Completion</span>
                 <span className="text-sm font-medium text-gray-900">{member.agency.progress}%</span>
               </div>
-              <Progress value={member.agency.progress} className="h-2" />
+              <Progress value={member.agency.progress} tone={bandTone(member.agency.progress, 50, 80)} className="h-2" />
               <p className="text-xs text-gray-500 mt-1">{member.agency.completedQuests.length} of {member.agency.totalQuests} modules done</p>
             </div>
             {member.agency.completedQuests.length > 0 && (
@@ -423,7 +424,7 @@ export default function MemberDetail() {
                     <span className="text-3xl font-bold text-gray-900">{member.agency.pasScore}</span>
                     <span className="text-sm text-gray-500">/ 10</span>
                   </div>
-                  <Progress value={member.agency.pasScore * 10} className="h-2" />
+                  <Progress value={member.agency.pasScore * 10} tone={bandTone(member.agency.pasScore * 10, 50, 70)} className="h-2" />
                 </div>
               </div>
 
@@ -436,7 +437,7 @@ export default function MemberDetail() {
                       {member.agency.completedQuests.length} / {member.agency.totalQuests}
                     </span>
                   </div>
-                  <Progress value={member.agency.progress} className="h-2 mb-3" />
+                  <Progress value={member.agency.progress} tone={bandTone(member.agency.progress, 50, 80)} className="h-2 mb-3" />
                   {member.agency.completedQuests.length > 0 && (
                     <div className="space-y-1">
                       {member.agency.completedQuests.map((quest, index) => (

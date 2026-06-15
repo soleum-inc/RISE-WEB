@@ -11,8 +11,25 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 import { useVertical } from '../context/VerticalContext';
-import { impactGoals, cohortMovement, demandByCategory } from '../data/impact';
+import { impactGoals, cohortMovement, demandByCategory, bandTone } from '../data/impact';
+import { StatusBadge } from '../components/ui/status-badge';
 import { cn } from '../components/ui/utils';
+
+const GOAL_BAR: Record<'success' | 'warning' | 'danger', string> = {
+  success: 'bg-success',
+  warning: 'bg-warning',
+  danger: 'bg-destructive',
+};
+const GOAL_TEXT: Record<'success' | 'warning' | 'danger', string> = {
+  success: 'text-success',
+  warning: 'text-warning',
+  danger: 'text-destructive',
+};
+const GOAL_LABEL: Record<'success' | 'warning' | 'danger', string> = {
+  success: 'On track',
+  warning: 'Near target',
+  danger: 'Behind',
+};
 
 const panel = 'rounded-2xl border border-white/40 bg-card shadow-sm backdrop-blur-xl';
 
@@ -53,21 +70,33 @@ export default function Impact() {
           <Target className="size-5 text-muted-foreground" />
           Outcomes against goals
         </h2>
-        <p className="mb-5 text-xs text-muted-foreground">Progress toward this period's targets.</p>
+        <div className="mb-5 flex flex-wrap items-center justify-between gap-2">
+          <p className="text-xs text-muted-foreground">Progress toward this period's targets.</p>
+          <div className="flex items-center gap-3 text-xs text-muted-foreground">
+            <span className="flex items-center gap-1"><span className="size-2 rounded-full bg-destructive" /> Behind</span>
+            <span className="flex items-center gap-1"><span className="size-2 rounded-full bg-warning" /> Near target</span>
+            <span className="flex items-center gap-1"><span className="size-2 rounded-full bg-success" /> On track</span>
+          </div>
+        </div>
         <div className="space-y-5">
           {goals.map((g) => {
             const pct = Math.min(100, Math.round((g.current / g.target) * 100));
+            const tone = bandTone(pct, 65, 90);
             return (
               <div key={g.label}>
-                <div className="mb-1.5 flex items-center justify-between text-sm">
+                <div className="mb-1.5 flex flex-wrap items-center justify-between gap-2 text-sm">
                   <span className="font-medium text-foreground">{g.label}</span>
-                  <span className="text-muted-foreground">
-                    {g.current.toLocaleString()} of {g.target.toLocaleString()}
-                    {g.unit ? ` ${g.unit}` : ''} · {pct}%
-                  </span>
+                  <div className="flex items-center gap-2">
+                    <span className="text-muted-foreground">
+                      {g.current.toLocaleString()} of {g.target.toLocaleString()}
+                      {g.unit ? ` ${g.unit}` : ''} ·{' '}
+                      <span className={cn('font-semibold', GOAL_TEXT[tone])}>{pct}%</span>
+                    </span>
+                    <StatusBadge tone={tone}>{GOAL_LABEL[tone]}</StatusBadge>
+                  </div>
                 </div>
                 <div className="h-2.5 w-full overflow-hidden rounded-full bg-secondary">
-                  <div className="h-full rounded-full bg-brand-500" style={{ width: `${pct}%` }} />
+                  <div className={cn('h-full rounded-full', GOAL_BAR[tone])} style={{ width: `${pct}%` }} />
                 </div>
               </div>
             );

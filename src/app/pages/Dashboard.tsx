@@ -1,7 +1,8 @@
 import { WarningCircle as AlertCircle, Users, FolderOpen, TrendUp as TrendingUp, Plus, Chat as MessageSquare, Heart, Shield, Lightning as Zap, Medal as Award, CalendarBlank as Calendar, BookOpen, UserCheck, Pulse as Activity, ArrowRight, SealCheck, Clock } from "@phosphor-icons/react";
 import { Link } from 'react-router';
-import { members, moderationQueue, inactiveMatches, projects } from '../data/mockData';
+import { members, moderationQueue, inactiveMatches, projects, monthlyASSAData } from '../data/mockData';
 import { cases } from '../data/cases';
+import { bandTone } from '../data/impact';
 import { NeedsAttentionQueue } from '../components/NeedsAttentionQueue';
 import { useFramework } from '../context/FrameworkContext';
 import { useVertical } from '../context/VerticalContext';
@@ -20,6 +21,15 @@ export default function Dashboard() {
   const notAchievedCount = closedCases.filter(c => c.outcome?.result === 'Not Achieved').length;
   const awaitingOutcome = cases.filter(c => c.status === 'Delivered').length;
   const closureRate = cases.length ? Math.round((closedCases.length / cases.length) * 100) : 0;
+
+  // Community trend metrics (vs last month) — from the genuine monthly series.
+  const trendNow = monthlyASSAData[monthlyASSAData.length - 1];
+  const trendPrev = monthlyASSAData[monthlyASSAData.length - 2];
+  const mkDelta = (diff: number, unit: string, decimals = 0) => ({
+    value: `${Math.abs(diff).toFixed(decimals)}${unit ? ' ' + unit : ''}`,
+    direction: (diff >= 0 ? 'up' : 'down') as 'up' | 'down',
+    positive: diff >= 0,
+  });
 
   // Calculate stats
   const pendingVerification = members.filter(m => m.status === 'Pending').length;
@@ -199,6 +209,47 @@ export default function Dashboard() {
             label="Lives Impacted"
             value={livesImpactedThisMonth}
             sublabel="This Month"
+          />
+        </div>
+      </div>
+
+      {/* ─── Community Trends (vs last month, from the monthly series) ─── */}
+      <div className="mb-8">
+        <h2 className="mb-3 text-lg font-semibold text-gray-900">
+          Community Trends <span className="text-sm font-normal text-muted-foreground">· vs last month</span>
+        </h2>
+        <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+          <StatCard
+            icon={<Heart />}
+            label="Belonging"
+            value={`${trendNow.acceptance}%`}
+            tone={bandTone(trendNow.acceptance, 50, 75)}
+            delta={mkDelta(trendNow.acceptance - trendPrev.acceptance, 'pts')}
+            sublabel="members with 2+ vouches"
+          />
+          <StatCard
+            icon={<Shield />}
+            label="Security"
+            value={`${trendNow.security}%`}
+            tone={bandTone(trendNow.security, 50, 75)}
+            delta={mkDelta(trendNow.security - trendPrev.security, 'pts')}
+            sublabel="stable basic needs"
+          />
+          <StatCard
+            icon={<Zap />}
+            label="Agency"
+            value={trendNow.agency}
+            tone={bandTone(trendNow.agency, 5, 7)}
+            delta={mkDelta(trendNow.agency - trendPrev.agency, '', 1)}
+            sublabel="avg PAS / 10"
+          />
+          <StatCard
+            icon={<Award />}
+            label="Service hours"
+            value={trendNow.significance}
+            tone={bandTone(trendNow.significance, 20, 30)}
+            delta={mkDelta(trendNow.significance - trendPrev.significance, 'hrs')}
+            sublabel="avg per member"
           />
         </div>
       </div>

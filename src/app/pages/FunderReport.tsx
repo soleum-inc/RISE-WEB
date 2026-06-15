@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router';
 import { Printer, ArrowLeft, ShieldCheck } from '@phosphor-icons/react';
 import { useVertical } from '../context/VerticalContext';
-import { impactGoals, cohortMovement } from '../data/impact';
+import { impactGoals, cohortMovement, bandTone } from '../data/impact';
 import { cases, orgAuditLog } from '../data/cases';
 import { PRODUCT_NAME } from '../config/verticals';
 
@@ -85,12 +85,17 @@ export default function FunderReport() {
           <ul className="space-y-3">
             {goals.map((g) => {
               const pct = Math.min(100, Math.round((g.current / g.target) * 100));
+              const tone = bandTone(pct, 65, 90);
+              const bar = tone === 'success' ? 'bg-success' : tone === 'warning' ? 'bg-warning' : 'bg-destructive';
+              const txt = tone === 'success' ? 'text-success' : tone === 'warning' ? 'text-warning' : 'text-destructive';
+              const word = tone === 'success' ? 'On track' : tone === 'warning' ? 'Near' : 'Behind';
               return (
                 <li key={g.label} className="flex items-center justify-between gap-4 text-sm">
                   <span className="text-foreground">{g.label}</span>
                   <span className="flex items-center gap-3">
+                    <span className={`w-16 text-right text-xs font-medium ${txt}`}>{word}</span>
                     <span className="h-2 w-32 overflow-hidden rounded-full bg-secondary">
-                      <span className="block h-full rounded-full bg-brand-500" style={{ width: `${pct}%` }} />
+                      <span className={`block h-full rounded-full ${bar}`} style={{ width: `${pct}%` }} />
                     </span>
                     <span className="w-28 text-right text-muted-foreground">
                       {g.current.toLocaleString()} / {g.target.toLocaleString()}

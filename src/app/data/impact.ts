@@ -6,6 +6,13 @@
 import { type VerticalId, type VerticalTheme } from '../config/verticals';
 import { cases } from './cases';
 
+/** Traffic-light tone: value ≥ goodAt → success, ≥ okAt → warning, else danger. */
+export function bandTone(value: number, okAt: number, goodAt: number): 'success' | 'warning' | 'danger' {
+  if (value >= goodAt) return 'success';
+  if (value >= okAt) return 'warning';
+  return 'danger';
+}
+
 export interface ImpactGoal {
   label: string;
   current: number;
