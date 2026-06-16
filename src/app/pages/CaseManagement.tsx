@@ -6,7 +6,8 @@ import {
   CheckCircle as CheckCircle2,
   CaretRight,
 } from '@phosphor-icons/react';
-import { cases, type CaseStatus } from '../data/cases';
+import { type Case, type CaseStatus } from '../data/cases';
+import { useCases } from '../context/CasesContext';
 import { useVertical } from '../context/VerticalContext';
 import { StatusBadge } from '../components/ui/status-badge';
 import { NeedsAttentionQueue } from '../components/NeedsAttentionQueue';
@@ -25,7 +26,7 @@ function statusTone(status: CaseStatus): 'neutral' | 'success' | 'warning' | 'da
   }
 }
 
-function isStalled(c: (typeof cases)[number]): boolean {
+function isStalled(c: Case): boolean {
   return (
     (c.status === 'In Progress' || c.status === 'Accepted') && (c.daysInactive ?? 0) >= 4
   );
@@ -35,6 +36,7 @@ const panel = 'rounded-2xl border border-white/40 bg-card shadow-sm backdrop-blu
 
 export default function CaseManagement() {
   const { theme } = useVertical();
+  const { cases } = useCases();
   const [activeTab, setActiveTab] = useState<'incoming' | 'active'>('incoming');
 
   const incoming = cases.filter((c) => INCOMING.includes(c.status));

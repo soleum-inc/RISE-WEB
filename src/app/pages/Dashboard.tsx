@@ -1,7 +1,7 @@
 import { WarningCircle as AlertCircle, Users, FolderOpen, TrendUp as TrendingUp, Plus, Chat as MessageSquare, Heart, Shield, Lightning as Zap, Medal as Award, CalendarBlank as Calendar, BookOpen, UserCheck, Pulse as Activity, ArrowRight, SealCheck, Clock } from "@phosphor-icons/react";
 import { Link } from 'react-router';
 import { members, moderationQueue, inactiveMatches, projects, monthlyASSAData } from '../data/mockData';
-import { cases } from '../data/cases';
+import { useCases } from '../context/CasesContext';
 import { bandTone } from '../data/impact';
 import { NeedsAttentionQueue } from '../components/NeedsAttentionQueue';
 import { useFramework } from '../context/FrameworkContext';
@@ -13,6 +13,7 @@ import { StatusBadge } from '../components/ui/status-badge';
 export default function Dashboard() {
   const { showASSA } = useFramework();
   const { theme } = useVertical();
+  const { cases } = useCases();
 
   // Outcome rollup (cases closed with a measured result)
   const closedCases = cases.filter(c => c.status === 'Outcome Recorded');

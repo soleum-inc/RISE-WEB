@@ -20,7 +20,6 @@ import {
   ArrowsClockwise,
 } from '@phosphor-icons/react';
 import {
-  cases,
   caseStates,
   buildAuditForCase,
   auditActionLabel,
@@ -31,6 +30,7 @@ import {
   type MatchDecision,
 } from '../data/cases';
 import { MatchDetailModal } from '../components/MatchDetailModal';
+import { useCases } from '../context/CasesContext';
 import { useVertical } from '../context/VerticalContext';
 import { StatusBadge } from '../components/ui/status-badge';
 import { Button } from '../components/ui/button';
@@ -142,10 +142,16 @@ function Avatar({ initials, tone = 'neutral' }: { initials: string; tone?: 'neut
 
 export default function CaseDetail() {
   const { id } = useParams();
-  const found = cases.find((c) => c.id === id);
   const { theme } = useVertical();
+  const {
+    getCase,
+    loading,
+    confirmMatch: confirmMatchWrite,
+    recordOutcome: recordOutcomeWrite,
+    sendMessage: sendMessageWrite,
+  } = useCases();
 
-  const [record, setRecord] = useState<Case | undefined>(found);
+  const record = id ? getCase(id) : undefined;
   const [viewAs, setViewAs] = useState<'patron' | 'riser'>('patron');
   const [outcomeOpen, setOutcomeOpen] = useState(false);
   const [outcomeResult, setOutcomeResult] = useState<CaseOutcomeResult | null>(null);
@@ -156,7 +162,7 @@ export default function CaseDetail() {
   if (!record) {
     return (
       <div className="p-8 text-center">
-        <h2 className="text-2xl font-bold text-foreground">Case not found</h2>
+        <h2 className="text-2xl font-bold text-foreground">{loading ? 'Loading case…' : 'Case not found'}</h2>
         <Link to="/members/case-management" className="mt-4 inline-block text-brand-700 hover:underline">
           Back to {theme.caseLabel}
         </Link>
@@ -172,51 +178,18 @@ export default function CaseDetail() {
 
   function recordOutcome() {
     if (!outcomeResult || !outcomeNote.trim()) return;
-    setRecord((prev) =>
-      prev && {
-        ...prev,
-        status: 'Outcome Recorded',
-        outcome: { result: outcomeResult, note: outcomeNote.trim(), recordedAt: 'Just now' },
-        timeline: [
-          ...prev.timeline.filter((t) => t.state !== 'Outcome Recorded'),
-          { state: 'Outcome Recorded', date: 'Today', note: `Outcome recorded as ${outcomeResult}.` },
-        ],
-      },
-    );
+    void recordOutcomeWrite(record!.id, { result: outcomeResult, note: outcomeNote.trim() });
     setOutcomeOpen(false);
   }
 
   function confirmMatch(decision: MatchDecision) {
-    setRecord((prev) =>
-      prev && {
-        ...prev,
-        status: 'Matched',
-        patron: decision.patron,
-        matchDecision: decision,
-        timeline: [
-          ...prev.timeline,
-          {
-            state: 'Matched',
-            date: 'Today',
-            note: `${decision.mode === 'ai-accepted' ? 'AI suggestion accepted' : 'Manual override'} · ${decision.patron.name} (${decision.score}%)`,
-          },
-        ],
-      },
-    );
+    void confirmMatchWrite(record!.id, decision);
   }
 
   function sendMessage() {
     const text = draft.trim();
     if (!text) return;
-    setRecord((prev) =>
-      prev && {
-        ...prev,
-        messages: [
-          ...prev.messages,
-          { id: `m${prev.messages.length + 1}`, side: 'patron', author: record!.patron?.name ?? 'Patron', text, time: 'Just now' },
-        ],
-      },
-    );
+    void sendMessageWrite(record!.id, { side: 'patron', author: record!.patron?.name ?? theme.user.name ?? 'Patron', text });
     setDraft('');
   }
 

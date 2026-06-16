@@ -11,6 +11,7 @@ import { TopBar } from './components/TopBar';
 import { Toaster } from './components/ui/sonner';
 import { FrameworkProvider } from './context/FrameworkContext';
 import { VerticalProvider } from './context/VerticalContext';
+import { CasesProvider } from './context/CasesContext';
 
 // Route-level code splitting: each page (and heavy deps like recharts) ships in
 // its own chunk and only loads when navigated to, shrinking the initial bundle.
@@ -79,6 +80,7 @@ export default function App() {
   return (
     <VerticalProvider>
     <FrameworkProvider>
+    <CasesProvider>
       {/* basename = Vite's BASE_URL: "/" in dev, "/RISE-WEB/" in the GitHub Pages
           production build, so routes resolve correctly under the subpath. */}
       <BrowserRouter basename={import.meta.env.BASE_URL}>
@@ -96,6 +98,7 @@ export default function App() {
         </div>
         <Toaster />
       </BrowserRouter>
+    </CasesProvider>
     </FrameworkProvider>
     </VerticalProvider>
   );

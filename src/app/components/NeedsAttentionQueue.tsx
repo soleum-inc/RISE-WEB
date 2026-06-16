@@ -1,6 +1,6 @@
 import { Link } from 'react-router';
 import { WarningCircle, CaretRight } from '@phosphor-icons/react';
-import { cases } from '../data/cases';
+import { useCases } from '../context/CasesContext';
 import { StatusBadge } from './ui/status-badge';
 import { cn } from './ui/utils';
 
@@ -11,6 +11,7 @@ const panel = 'rounded-2xl border border-white/40 bg-card shadow-sm backdrop-blu
  * pill. Lists open acute cases; the whole row opens the case for action.
  */
 export function NeedsAttentionQueue({ className }: { className?: string }) {
+  const { cases } = useCases();
   const acute = cases.filter((c) => c.urgency === 'acute' && c.status !== 'Outcome Recorded');
 
   return (

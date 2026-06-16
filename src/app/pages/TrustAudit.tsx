@@ -10,7 +10,8 @@ import {
   ChatCircleText,
   SealCheck,
 } from '@phosphor-icons/react';
-import { orgAuditLog, auditActionLabel, type AuditAction } from '../data/cases';
+import { auditActionLabel, type AuditAction } from '../data/cases';
+import { useCases } from '../context/CasesContext';
 import { useVertical } from '../context/VerticalContext';
 import { cn } from '../components/ui/utils';
 
@@ -40,9 +41,10 @@ const FILTERS: { key: AuditAction | 'all'; label: string }[] = [
 
 export default function TrustAudit() {
   const { theme } = useVertical();
+  const { auditLog } = useCases();
   const [filter, setFilter] = useState<AuditAction | 'all'>('all');
 
-  const entries = filter === 'all' ? orgAuditLog : orgAuditLog.filter((e) => e.action === filter);
+  const entries = filter === 'all' ? auditLog : auditLog.filter((e) => e.action === filter);
 
   return (
     <div className="p-8">

@@ -3,13 +3,14 @@ import { Link } from 'react-router';
 import { Printer, ArrowLeft, ShieldCheck } from '@phosphor-icons/react';
 import { useVertical } from '../context/VerticalContext';
 import { impactGoals, cohortMovement, bandTone } from '../data/impact';
-import { cases, orgAuditLog } from '../data/cases';
+import { useCases } from '../context/CasesContext';
 import { PRODUCT_NAME } from '../config/verticals';
 
 const REPORT_DATE = 'June 15, 2026';
 
 export default function FunderReport() {
   const { verticalId, theme } = useVertical();
+  const { cases, auditLog } = useCases();
   const goals = impactGoals[verticalId];
   const cohort = cohortMovement[verticalId];
 
@@ -125,7 +126,7 @@ export default function FunderReport() {
             <ShieldCheck className="mt-0.5 size-5 shrink-0 text-brand-700" weight="fill" />
             <p className="text-xs text-muted-foreground">
               <strong className="text-foreground">Audited record.</strong> Every figure above is backed by an immutable
-              provenance log of {orgAuditLog.length.toLocaleString()} timestamped events (matches, status changes,
+              provenance log of {auditLog.length.toLocaleString()} timestamped events (matches, status changes,
               consent updates, data-access). Full audit trail available in Trust &amp; Audit.
             </p>
           </div>
