@@ -12,7 +12,8 @@ import {
 } from '@phosphor-icons/react';
 import { useState } from 'react';
 import { useVertical } from '../context/VerticalContext';
-import { PRODUCT_NAME, PRODUCT_SUBTITLE } from '../config/verticals';
+import { PRODUCT_NAME } from '../config/verticals';
+import logoRiseDark from '../../assets/logo-rise-dark.png';
 
 const itemBase =
   'flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition-colors';
@@ -40,11 +41,12 @@ export function SideNav() {
 
   return (
     <aside className="flex w-64 flex-col border-r border-sidebar-border bg-sidebar backdrop-blur-xl">
-      <div className="px-6 py-6">
-        <h1 className="text-xl font-bold tracking-tight text-foreground">
-          {PRODUCT_NAME}
-        </h1>
-        <p className="mt-0.5 text-sm text-muted-foreground">{PRODUCT_SUBTITLE}</p>
+      <div className="px-4 pt-3 pb-6">
+        <img
+          src={logoRiseDark}
+          alt={PRODUCT_NAME}
+          className="h-44 w-auto"
+        />
       </div>
 
       <nav className="flex-1 overflow-y-auto px-3 pb-4">
